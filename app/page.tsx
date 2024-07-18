@@ -2,7 +2,7 @@ import { fetchItems } from '../lib/directus';
 
 interface DirectusItem {
   id: number;
-  name: string;
+  Age: string; // Age is a string and capitalized
 }
 
 const Home = async () => {
@@ -16,7 +16,7 @@ const Home = async () => {
       <ul>
         {items.length > 0 ? (
           items.map((item) => (
-            <li key={item.id}>{item.name}</li>
+            <li key={item.id}>ID: {item.id}, Age: {item.Age}</li>
           ))
         ) : (
           <li>No items found</li>
