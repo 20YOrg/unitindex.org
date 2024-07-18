@@ -6,7 +6,7 @@ interface DirectusItem {
 }
 
 const Home = async () => {
-  const items: DirectusItem[] = await fetchItems('global'); // Ensure 'items' matches the collection name in Directus
+  const items: DirectusItem[] = await fetchItems('global'); // Use 'global' collection name
 
   console.log('Fetched items:', items); // Log the fetched items
 
