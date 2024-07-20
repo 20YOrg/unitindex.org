@@ -5,7 +5,7 @@ async function getGlobals() {
   try {
     const response = await directus.request(readItems('global'));
     console.log('Directus response:', response);
-    return response.data ? response.data : response;
+    return response;
   } catch (error) {
     console.error('Error fetching data:', error);
     return [];
