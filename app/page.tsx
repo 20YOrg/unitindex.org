@@ -1,29 +1,34 @@
-import { fetchItems } from '../lib/directus';
+import directus from '@/lib/directus';
+import { readItems } from '@directus/sdk';
 
-interface DirectusItem {
-  id: number;
-  Age: string; // Age is a string and capitalized
+async function getGlobals() {
+  try {
+    const response = await directus.request(readItems('global'));
+    console.log('Directus response:', response);
+    return response.data ? response.data : response;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return [];
+  }
 }
 
-const Home = async () => {
-  const items: DirectusItem[] = await fetchItems('global'); // Use 'global' collection name
-
-  console.log('Fetched items:', items); // Log the fetched items
-
+export default async function HomePage() {
+  console.log('HomePage component loaded');
+  const globals = await getGlobals();
+  console.log('Globals:', globals);
+  if (globals.length === 0) {
+    return <div>No data found</div>;
+  }
   return (
     <div>
       <h1>Items</h1>
       <ul>
-        {items.length > 0 ? (
-          items.map((item) => (
-            <li key={item.id}>ID: {item.id}, Age: {item.Age}</li>
-          ))
-        ) : (
-          <li>No items found</li>
-        )}
+        {globals.map((item) => (
+          <li key={item.id}>
+            ID: {item.id}, Age: {item.Age}
+          </li>
+        ))}
       </ul>
     </div>
   );
-};
-
-export default Home;
+}
