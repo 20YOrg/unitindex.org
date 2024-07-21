@@ -1,21 +1,25 @@
-import directus from './directus';
-import { readItems } from '@directus/sdk';
+import directus from "./directus";
+import { readItems } from "@directus/sdk";
 
-export async function fetchBlogPosts() {
+type BlogPost = {
+  title: string;
+  description: string;
+  slug: string;
+};
+
+export async function fetchBlogPosts(): Promise<BlogPost[]> {
   try {
-    console.log('Fetching blog posts from Directus...');
-    const response = await directus.request(
-      readItems('Blog_Posts', {
-        fields: ['title', 'description', 'slug'],
-      })
-    );
+    const response: { data: BlogPost[] } = await directus.request(readItems<BlogPost>('Blog_Posts', {
+      fields: ['title', 'description', 'slug'],
+      sort: ['-publish_date'],
+    }));
     console.log('Fetched blog posts:', response);
     if (response && response.data) {
       return response.data;
     }
     return [];
   } catch (error) {
-    console.error('Error fetching blog posts:', JSON.stringify(error, null, 2));
+    console.error('Error fetching blog posts:', error);
     return [];
   }
 }
