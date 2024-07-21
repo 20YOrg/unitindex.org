@@ -1,34 +1,28 @@
 import directus from '@/lib/directus';
-import { readItems } from '@directus/sdk';
+import { readSingleton } from '@directus/sdk';
+import { notFound } from 'next/navigation';
 
-async function getGlobals() {
+async function getGlobalMetadata() {
   try {
-    const response = await directus.request(readItems('global'));
-    console.log('Directus response:', response);
-    return response;
+    const metadata = await directus.request(readSingleton('Global_Metadata'));
+    return metadata;
   } catch (error) {
-    console.error('Error fetching data:', error);
-    return [];
+    console.error('Error fetching global metadata:', error);
+    notFound();
   }
 }
 
 export default async function HomePage() {
-  console.log('HomePage component loaded');
-  const globals = await getGlobals();
-  console.log('Globals:', globals);
-  if (globals.length === 0) {
+  const globalMetadata = await getGlobalMetadata();
+
+  if (!globalMetadata) {
     return <div>No data found</div>;
   }
+
   return (
     <div>
-      <h1>Items</h1>
-      <ul>
-        {globals.map((item) => (
-          <li key={item.id}>
-            ID: {item.id}, Age: {item.Age}
-          </li>
-        ))}
-      </ul>
+      <h1 className="text-2xl font-bold">{globalMetadata.title}</h1>
+      <p className="mt-4">{globalMetadata.description}</p>
     </div>
   );
 }
