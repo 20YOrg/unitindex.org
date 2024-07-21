@@ -7,9 +7,13 @@ type BlogPost = {
   slug: string;
 };
 
+type DirectusResponse<T> = {
+  data: T;
+};
+
 export async function fetchBlogPosts(): Promise<BlogPost[]> {
   try {
-    const response: { data: BlogPost[] } = await directus.request(readItems<BlogPost>('Blog_Posts', {
+    const response: DirectusResponse<BlogPost[]> = await directus.request(readItems<BlogPost>('Blog_Posts', {
       fields: ['title', 'description', 'slug'],
       sort: ['-publish_date'],
     }));
