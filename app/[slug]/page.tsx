@@ -4,7 +4,7 @@ import { readItem } from "@directus/sdk";
 
 import { notFound } from "next/navigation";
 
-async function getPage(slug) {
+async function getPage(slug: string) {
     try {
         const page = await directus.request(readItem('Pages', slug));
         return page;
@@ -13,7 +13,7 @@ async function getPage(slug) {
     }
 }
 
-export default async function DynamicPage({ params }){
+export default async function DynamicPage({ params }: { params: { slug: string } }){
     const page = await getPage(params.slug);
     return (
         <div>
