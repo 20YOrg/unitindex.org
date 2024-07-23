@@ -22,6 +22,7 @@ export default function RootLayout({
           <Link href="/" className="text-white mr-4 no-underline">Home</Link>
           <Link href="/about" className="text-white mr-4 no-underline">About</Link>
           <Link href="/devs" className="text-white no-underline">Devs</Link>
+          <Link href="/unit_dao" className="text-white no-underline">UNIT DAO</Link>
           <Link href="/blog" className="text-white mr-4 no-underline">Blog</Link>
         </nav>
         <main className="p-4">{children}</main>
