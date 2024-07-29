@@ -1,27 +1,37 @@
-import directus from './directus';
-import { readItem } from '@directus/sdk';
+import directus from '@/lib/directus';
+import { readItems } from '@directus/sdk';
 
-export async function fetchBlogPost(slug: string) {
+interface BlogPost {
+  title: string;
+  content: string;
+  slug: string;
+  date_published: string;
+  author: string;
+}
+
+export default async function getBlogPost(slug: string): Promise<BlogPost | null> {
   try {
-    console.log('Fetching blog post from Directus with slug:', slug);
     const response = await directus.request(
-      readItem('Blog_Posts', slug, {
-        fields: ['title', 'description', 'slug'],
+      readItems('posts', {
+        fields: ['title', 'content', 'slug', 'date_published', 'author'],
+        filter: {
+          slug: {
+            _eq: slug,
+          },
+        },
       })
     );
-    console.log('Directus API response:', response);
 
-    // Ensure the response is structured as expected
-    if (response) {
-      const post = response; // Directly assigning response as it already has the post data
-      console.log('Post found:', post);
-      return post;
-    } else {
-      console.log('No post found in response:', response);
+    console.log('API Response:', JSON.stringify(response, null, 2));
+
+    if (!response || !response.length) {
+      console.log('No blog post data found');
       return null;
     }
+
+    return response[0] as BlogPost;
   } catch (error) {
-    console.error('Error fetching blog post:', JSON.stringify(error, null, 2));
+    console.error('Error fetching blog post:', error);
     return null;
   }
 }
