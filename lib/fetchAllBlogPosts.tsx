@@ -1,4 +1,3 @@
-// lib/fetchAllBlogPosts.tsx
 import directus from './directus';
 import { readItems } from '@directus/sdk';
 

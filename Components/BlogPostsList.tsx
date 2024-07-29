@@ -1,8 +1,6 @@
-// components/BlogPostsList.tsx
-'use client';
-
-import styles from '@/styles/blog.module.css';
+import React from 'react';
 import Link from 'next/link';
+import styles from '../styles/BlogPostsList.module.css';
 
 interface BlogPost {
   id: string;
@@ -18,25 +16,32 @@ interface BlogPostsListProps {
   posts: BlogPost[];
 }
 
-const BlogPostsList = ({ posts }: BlogPostsListProps) => {
-  if (!posts || posts.length === 0) {
-    return <div>No blog posts found.</div>;
-  }
+const BlogPostsList: React.FC<BlogPostsListProps> = ({ posts }) => {
+  const directusUrl = process.env.NEXT_PUBLIC_DIRECTUS_API_URL;
 
   return (
     <div>
       <h1>All Blogs</h1>
       <div className={styles.blogsGrid}>
-        {posts.map((post) => (
-          <div key={post.id} className={styles.blogCard}>
-            <img src={`http://directus-ucc0sco.77.37.54.98.sslip.io/assets/${post.image}`} alt={post.title} className={styles.blogImage} />
-            <h2>{post.title}</h2>
-            <p>{post.summary}</p>
-            <p>Published on: {new Date(post.date_published).toLocaleDateString()}</p>
-            <p>Author: {post.author}</p>
-            <Link href={`/blog/${post.slug}`}>Read more</Link>
-          </div>
-        ))}
+        {posts.map((post) => {
+          const imageUrl = `${directusUrl}/assets/${post.image}?width=600`;
+
+          console.log(`Image URL for post "${post.title}":`, imageUrl);
+
+          return (
+            <div key={post.id} className={styles.blogCard}>
+              <Link href={`/blog/${post.slug}`} legacyBehavior>
+                <a>
+                  <img src={imageUrl} alt={post.title} className={styles.blogImage} />
+                  <h2 className={styles.blogTitle}>{post.title}</h2>
+                  <p className={styles.blogSummary}>{post.summary}</p>
+                  <p>Published on: {new Date(post.date_published).toLocaleDateString()}</p>
+                  <p>Author: {post.author}</p>
+                </a>
+              </Link>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
