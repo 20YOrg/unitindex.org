@@ -1,0 +1,18 @@
+/* styles/blog.module.css */
+.blogsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  
+  .blogCard {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .blogImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
