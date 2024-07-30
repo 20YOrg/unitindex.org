@@ -23,9 +23,6 @@ export default async function BlogLandingPage() {
           <button>Edu Articles</button>
           <button>Stories</button>
         </div>
-        <div className={styles.search}>
-          <input type="text" placeholder="Search" />
-        </div>
       </header>
       <BlogPostsList posts={posts} />
     </div>

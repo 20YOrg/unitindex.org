@@ -1,3 +1,4 @@
+// lib/fetchAllBlogPosts.tsx
 import directus from './directus';
 import { readItems } from '@directus/sdk';
 
@@ -5,6 +6,7 @@ interface BlogPost {
   id: string;
   title: string;
   summary: string;
+  content: string;  // Add this line
   image: string;
   date_published: string;
   author: string;
@@ -15,7 +17,7 @@ export default async function getAllBlogPosts(): Promise<BlogPost[]> {
   try {
     const response = await directus.request(
       readItems('posts', {
-        fields: ['id', 'title', 'summary', 'image', 'date_published', 'author', 'slug'],
+        fields: ['id', 'title', 'summary', 'content', 'image', 'date_published', 'author', 'slug'],
       })
     );
 

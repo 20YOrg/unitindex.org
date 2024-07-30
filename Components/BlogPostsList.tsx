@@ -1,5 +1,6 @@
-// components/BlogPostsList.tsx
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from '../styles/BlogPostCard.module.css';
 
@@ -7,6 +8,7 @@ interface BlogPost {
   id: string;
   title: string;
   summary: string;
+  content: string;
   image: string;
   date_published: string;
   author: string;
@@ -18,29 +20,59 @@ interface BlogPostsListProps {
 }
 
 const BlogPostsList: React.FC<BlogPostsListProps> = ({ posts }) => {
+  const [searchInput, setSearchInput] = useState('');
+  const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>([]);
+
+  useEffect(() => {
+    // Sort posts by date_published in descending order
+    const sortedPosts = [...posts].sort((a, b) => new Date(b.date_published).getTime() - new Date(a.date_published).getTime());
+    
+    const filtered = sortedPosts.filter((post) =>
+      post.title.toLowerCase().includes(searchInput.toLowerCase()) ||
+      post.summary.toLowerCase().includes(searchInput.toLowerCase()) ||
+      post.content.toLowerCase().includes(searchInput.toLowerCase())
+    );
+    setFilteredPosts(filtered);
+  }, [searchInput, posts]);
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(e.target.value);
+  };
+
   return (
-    <div className={styles.blogsGrid}>
-      {posts.map((post) => {
-        const imageUrl = `${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${post.image}?width=600`;
+    <div>
+      <input
+        type="text"
+        placeholder="Search"
+        value={searchInput}
+        onChange={handleSearchChange}
+        className={styles.searchBar}
+      />
+      <div className={styles.blogsGrid}>
+        {filteredPosts.map((post) => {
+          const imageUrl = `${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${post.image}?width=600`;
 
-        console.log(`Image URL for post "${post.title}":`, imageUrl);
+          console.log(`Image URL for post "${post.title}":`, imageUrl);
 
-        return (
-          <div key={post.id} className={styles.card}>
-            <Link href={`/blog/${post.slug}`} legacyBehavior>
-              <a>
-                <img src={imageUrl} alt={post.title} className={styles.image} />
-                <div className={styles.content}>
-                  <p>{new Date(post.date_published).toLocaleDateString()}</p>
-                  <h2>{post.title}</h2>
-                  <p>{post.summary}</p>
-                  <p>Read Full Article →</p>
-                </div>
-              </a>
-            </Link>
-          </div>
-        );
-      })}
+          return (
+            <div key={post.id} className={styles.card}>
+              <Link href={`/blog/${post.slug}`} legacyBehavior>
+                <a className={styles.cardLink}>
+                  <img src={imageUrl} alt={post.title} className={styles.image} />
+                  <div className={styles.content}>
+                    <p className={styles.date}>
+                      {new Date(post.date_published).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}
+                    </p>
+                    <h2 className={styles.cardTitle}>{post.title}</h2>
+                    <p className={styles.summary}>{post.summary}</p>
+                    <p className={styles.readMore}>Read Full Article →</p>
+                  </div>
+                </a>
+              </Link>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

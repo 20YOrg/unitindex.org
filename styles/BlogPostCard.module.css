@@ -1,49 +1,64 @@
 /* styles/BlogPostCard.module.css */
-
 .blogsGrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
+    gap: 1rem;
   }
   
   .card {
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
+    padding: 1rem;
     border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   
   .image {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: 200px; /* Set the desired height */
+    object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio */
+    border-radius: 8px;
   }
   
   .content {
-    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   
   .content p {
     margin: 0.5rem 0;
-    color: #666;
   }
   
-  .content h2 {
-    margin: 0.5rem 0;
-    font-size: 1.5rem;
-    color: #333;
-  }
-  
-  .content a {
-    display: block;
+  .cardLink {
+    color: inherit;
     text-decoration: none;
+  }
+  
+  .cardTitle {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
+  
+  .date {
+    color: #555;
+  }
+  
+  .summary {
+    flex-grow: 1;
+  }
+  
+  .readMore {
     color: #0070f3;
-    font-weight: bold;
     margin-top: 1rem;
+    align-self: flex-start;
+  }
+  
+  .searchBar {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
   }

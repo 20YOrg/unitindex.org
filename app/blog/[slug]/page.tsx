@@ -1,4 +1,7 @@
 import getBlogPost from '@/lib/fetchBlogPost';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import styles from '@/styles/BlogPostPage.module.css';
 
 interface BlogPostPageProps {
   params: { slug: string };
@@ -9,16 +12,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post = await getBlogPost(slug);
 
   if (!post) {
-    console.log('Blog post not found for slug:', slug);
-    return <div>Blog post not found</div>;
+    notFound();
   }
 
   return (
-    <div>
-      <h1>{post.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
-      <p>Published on: {new Date(post.date_published).toLocaleDateString()}</p>
-      <p>Author: {post.author}</p>
+    <div className={styles.container}>
+      <Link href="/blog" className={styles.backLink}>
+        ← Back
+      </Link>
+      <h1 className={styles.title}>{post.title}</h1>
+      <p className={styles.date}>
+        {new Date(post.date_published).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}
+      </p>
+      <div className={styles.content} dangerouslySetInnerHTML={{ __html: post.content }} />
+      <p className={styles.author}>Written by {post.author}</p>
     </div>
   );
 }
