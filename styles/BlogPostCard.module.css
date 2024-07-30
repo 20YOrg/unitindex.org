@@ -1,0 +1,49 @@
+/* styles/BlogPostCard.module.css */
+
+.blogsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .content {
+    padding: 1rem;
+  }
+  
+  .content p {
+    margin: 0.5rem 0;
+    color: #666;
+  }
+  
+  .content h2 {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .content a {
+    display: block;
+    text-decoration: none;
+    color: #0070f3;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
