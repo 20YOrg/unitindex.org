@@ -1,21 +1,25 @@
 /* styles/BlogPostPage.module.css */
+
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
+  font-family: 'Charter-Roman', sans-serif;
 }
 
 .backLink {
   display: block;
   margin-bottom: 1rem;
-  color: #0070f3;
+  color: #5f7179;
   text-decoration: none;
+  font-family: 'Charter-Roman', sans-serif;
 }
 
 .title {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 42px;
+  font-weight: normal;
   margin-bottom: 1rem;
+  font-family: 'Charter-Roman', sans-serif;
 }
 
 .meta {
@@ -23,25 +27,61 @@
   flex-direction: column;
   align-items: flex-end;
   margin-bottom: 2rem;
+  font-family: 'Charter-Roman', sans-serif;
 }
 
 .icons {
   display: flex;
-  justify-content: flex-end;
+  gap: 1rem;
   margin-bottom: 0.5rem;
 }
 
 .iconLink {
-  margin-left: 0.5rem;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  position: relative;
 }
 
-.icon {
-  width: 24px;
-  height: 24px;
+.iconLink img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.iconLink img.hover,
+.iconLink img.active {
+  opacity: 0;
+}
+
+.iconLink:hover img.normal {
+  opacity: 0;
+}
+
+.iconLink:hover img.hover {
+  opacity: 1;
+}
+
+.iconLink:active img.hover {
+  opacity: 0;
+}
+
+.iconLink:active img.active {
+  opacity: 1;
 }
 
 .date {
   color: #555;
+  font-size: 16px;
+  font-family: 'Charter-Roman', sans-serif;
+}
+
+.content {
+  font-size: 20px;
+  font-family: 'Charter-Roman', sans-serif;
 }
 
 .content img {
@@ -53,11 +93,13 @@
 .content p {
   margin-bottom: 1.5rem;
   line-height: 1.6;
+  font-family: 'Charter-Roman', sans-serif;
 }
 
 .content h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  font-family: 'Charter-Roman', sans-serif;
 }
 
 .author {
@@ -65,43 +107,5 @@
   color: #555;
   margin-top: 2rem;
   text-align: right;
-}
-
-/* Blog Share Icon */
-.icon.normal-Blog-Share {
-  content: url(http://directus-ucc0sco.77.37.54.98.sslip.io/assets/fda6b644-3468-4072-b40b-c47f4bac2bc3) no-repeat;
-}
-
-.icon.normal-Blog-Share:hover {
-  content: url(http://directus-ucc0sco.77.37.54.98.sslip.io/assets/e1113238-d7b8-407f-8299-97451fbb1777) no-repeat;
-}
-
-.icon.normal-Blog-Share:active {
-  content: url(http://directus-ucc0sco.77.37.54.98.sslip.io/assets/890a2185-f7f3-4d67-9f19-703056aa8386) no-repeat;
-}
-
-/* Blog X Community Icon */
-.icon.normal-Blog-X-Community {
-  content: url(http://directus-ucc0sco.77.37.54.98.sslip.io/assets/ef1d70ff-fcf7-4ab1-9464-939b207d84a4) no-repeat;
-}
-
-.icon.normal-Blog-X-Community:hover {
-  content: url(http://directus-ucc0sco.77.37.54.98.sslip.io/assets/70ccec17-3b44-4c34-807d-5ac9eb27433c) no-repeat;
-}
-
-.icon.normal-Blog-X-Community:active {
-  content: url(http://directus-ucc0sco.77.37.54.98.sslip.io/assets/d1e4b9a4-2983-4d13-bd2b-46a50824ba31) no-repeat;
-}
-
-/* Blog X Icon */
-.icon.normal-Blog-X {
-  content: url(http://directus-ucc0sco.77.37.54.98.sslip.io/assets/f63431b2-cf24-4d1e-a943-573c3872e58f) no-repeat;
-}
-
-.icon.normal-Blog-X:hover {
-  content: url(http://directus-ucc0sco.77.37.54.98.sslip.io/assets/7f9e44c1-7af2-45fb-ae97-4490e60f24d4) no-repeat;
-}
-
-.icon.normal-Blog-X:active {
-  content: url(http://directus-ucc0sco.77.37.54.98.sslip.io/assets/cc996ef6-cc0f-4f28-b010-2c9aefcbd6cb) no-repeat;
+  font-family: 'Charter-Roman', sans-serif;
 }
