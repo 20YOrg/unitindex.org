@@ -12,8 +12,12 @@ interface BlogPostPageProps {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = params;
+  console.log('Fetching blog post for slug:', slug);
   const post = await getBlogPost(slug);
   const icons = await getIcons();
+
+  console.log('Fetched Post:', post);
+  console.log('Fetched Icons:', icons);
 
   if (!post) {
     notFound();
@@ -42,7 +46,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <img
                 src={`${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${icon.icon}`}
                 alt={icon.name}
-                className={`${styles.icon} ${styles[icon.effect]}`}
+                className={`${styles.icon} ${styles['normal-' + icon.name.replace(' ', '-')]}-${filteredIcons.indexOf(icon)}`}
               />
             </a>
           ))}
