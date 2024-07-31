@@ -8,6 +8,7 @@ export interface Icon {
   name: string;
   effect: string;
   linkURL: string | null;
+  description?: string;
   hoverIcon?: string;
   activeIcon?: string;
 }
@@ -17,7 +18,7 @@ export default async function getIcons(): Promise<Icon[]> {
     console.log('Fetching icons...');
     const response = await directus.request(
       readItems('icons', {
-        fields: ['id', 'icon', 'name', 'effect', 'linkURL'],
+        fields: ['id', 'icon', 'name', 'effect', 'linkURL', 'description'],
       })
     );
 

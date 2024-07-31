@@ -35,6 +35,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const baseUrl = process.env.NEXT_PUBLIC_DIRECTUS_API_URL;
 
+  // Generate the URL for sharing the post on X (Twitter)
+  const shareUrl = `https://x.com/compose/post?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`${baseUrl}/blog/${post.slug}`)}`;
+
   return (
     <>
       <div
@@ -53,10 +56,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {filteredIcons.map((icon, index) => (
               <a
                 key={icon.id}
-                href={icon.linkURL || '#'}
+                href={icon.name === 'Blog Share' ? shareUrl : icon.linkURL || '#'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${styles.iconLink} ${styles[iconClasses[icon.name]]}`}
+                title={icon.description || ''} // Using native tooltip
               >
                 <img
                   src={`${baseUrl}/assets/${icon.icon}`}
@@ -90,7 +94,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               className={styles.authorImage}
             />
           )}
-          <p className={styles.author}>Written by {author?.name}</p>
+          <p className={styles.author}>{blogPage.written_by} {author?.name}</p>
         </div>
       </div>
     </>
