@@ -27,3 +27,15 @@
     border: 1px solid #ddd;
     border-radius: 4px;
   }
+  .icon {
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .icon-hover {
+    transform: scale(1.1);
+  }
+  
+  .icon-onclick {
+    transform: scale(0.9);
+  }

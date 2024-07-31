@@ -1,46 +1,68 @@
+/* styles/BlogPostPage.module.css */
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-  
-  .backLink {
-    display: block;
-    margin-bottom: 1rem;
-    color: #0070f3;
-    text-decoration: none;
-  }
-  
-  .title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-  
-  .date {
-    color: #555;
-    margin-bottom: 2rem;
-  }
-  
-  .content img {
-    width: 100%;
-    border-radius: 8px;
-    margin: 1.5rem 0;
-  }
-  
-  .content p {
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-  }
-  
-  .content h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .author {
-    font-style: italic;
-    color: #555;
-    margin-top: 2rem;
-    text-align: right;
-  }
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.backLink {
+  display: block;
+  margin-bottom: 1rem;
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.date {
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.iconLink {
+  display: inline-block;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.content img {
+  width: 100%;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.author {
+  font-style: italic;
+  color: #555;
+  margin-top: 2rem;
+  text-align: right;
+}
