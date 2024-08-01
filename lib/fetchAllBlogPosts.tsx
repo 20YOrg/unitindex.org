@@ -6,18 +6,29 @@ interface BlogPost {
   id: string;
   title: string;
   summary: string;
-  content: string;  // Add this line
+  content: string;
   image: string;
   date_published: string;
   author: string;
   slug: string;
+  category: string; // Keeping the category ID for reference
 }
 
 export default async function getAllBlogPosts(): Promise<BlogPost[]> {
   try {
     const response = await directus.request(
       readItems('posts', {
-        fields: ['id', 'title', 'summary', 'content', 'image', 'date_published', 'author', 'slug'],
+        fields: [
+          'id',
+          'title',
+          'summary',
+          'content',
+          'image',
+          'date_published',
+          'author',
+          'slug',
+          'category', // Fetch the category ID
+        ],
       })
     );
 
