@@ -1,19 +1,19 @@
-// lib/fetchBlogPage.ts
+// lib/fetchPostPage.ts
 import directus from './directus';
 import { readItems } from '@directus/sdk';
 
 export interface BlogPage {
-  title: string;
-  headline: string;
   background: string;
+  back: string;
+  written_by: string;
 }
 
-export default async function getBlogPage(): Promise<BlogPage | null> {
+export default async function getBlogPage(): Promise<BlogPage> {
   try {
     console.log('Fetching blog page data...');
     const response = await directus.request(
-      readItems('pages_blog', {
-        fields: ['title', 'headline', 'background'],
+      readItems('blog_page', {
+        fields: ['background', 'back', 'written_by'],
         limit: 1, // assuming there's only one item in the collection
       })
     );
@@ -22,12 +22,12 @@ export default async function getBlogPage(): Promise<BlogPage | null> {
 
     if (!response || !response.length) {
       console.log('No blog page data found');
-      return null;
+      return { background: '', back: 'Back', written_by: 'Written by' };
     }
 
     return response[0] as BlogPage;
   } catch (error) {
     console.error('Error fetching blog page data:', error);
-    return null;
+    return { background: '', back: 'Back', written_by: 'Written by' };
   }
 }

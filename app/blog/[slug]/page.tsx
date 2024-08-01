@@ -2,7 +2,7 @@
 import getBlogPost from '@/lib/fetchBlogPost';
 import getIcons, { Icon as IconType } from '@/lib/fetchIcons';
 import getTeamMember from '@/lib/fetchTeam';
-import getBlogPage from '@/lib/fetchBlogPage';
+import getBlogPage from '@/lib/fetchPostPage';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import styles from '@/styles/BlogPostPage.module.css';
