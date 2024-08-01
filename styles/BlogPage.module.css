@@ -2,113 +2,76 @@
 
 /* General Styles */
 .fullscreenBackground {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1; /* Ensure the background is behind other content */
+    @apply fixed top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat z-[-1];
   }
   
   .pageContainer {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 2rem;
-    font-family: 'Charter-Roman', sans-serif;
-    position: relative; /* Ensure it is above the background */
+    @apply max-w-4xl mx-auto p-8 relative font-apercu;
   }
   
   .header {
-    text-align: center;
-    margin-bottom: 2rem;
+    @apply text-center mb-8 font-armata;
   }
   
   .filters {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    @apply flex justify-center gap-4 mb-8 font-apercu;
   }
   
   .search {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 2rem;
+    @apply flex justify-end mb-8;
   }
   
   .search input {
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    @apply p-2 border border-gray-300 rounded;
   }
   
   /* Blog Posts List */
   .blogsGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
   }
   
   /* Blog Post Card */
   .card {
-    border: 1px solid #ccc;
-    padding: 1rem;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    @apply border border-gray-300 p-4 rounded-lg flex flex-col justify-between;
   }
   
   .cardLink {
-    color: inherit;
-    text-decoration: none;
+    @apply text-inherit no-underline;
   }
   
   .image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
+    @apply w-full h-52 object-cover rounded-lg;
   }
   
   .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    @apply flex flex-col justify-between;
   }
   
   .cardTitle {
-    font-size: 1.5rem;
-    margin: 0.5rem 0;
+    @apply text-xl my-2;
   }
   
   .date {
-    color: #555;
+    @apply text-gray-500;
   }
   
   .summary {
-    flex-grow: 1;
+    @apply flex-grow;
   }
   
   .readMore {
-    color: #0070f3;
-    margin-top: 1rem;
-    align-self: flex-start;
+    @apply text-blue-500 mt-4 self-start;
   }
   
   /* Icons */
   .icon {
-    cursor: pointer;
-    transition: transform 0.3s;
+    @apply cursor-pointer transition-transform;
   }
   
   .icon-hover {
-    transform: scale(1.1);
+    @apply scale-110;
   }
   
   .icon-onclick {
-    transform: scale(0.9);
+    @apply scale-90;
   }

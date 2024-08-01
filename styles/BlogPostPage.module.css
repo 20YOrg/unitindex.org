@@ -1,144 +1,90 @@
 /* styles/BlogPostPage.module.css */
 
 .fullscreenBackground {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -1; /* Ensure the background is behind other content */
+  @apply fixed top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat z-[-1];
 }
 
 .container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-family: 'Charter-Roman', sans-serif;
-  position: relative; /* Ensure it is above the background */
+  @apply max-w-4xl mx-auto p-8 relative font-apercu;
 }
 
 .backLink {
-  display: block;
-  margin-bottom: 1rem;
-  color: #5f7179;
-  text-decoration: none;
-  font-family: 'Charter-Roman', sans-serif;
+  @apply block mb-4 text-[#5f7179] no-underline font-apercu;
 }
 
 .title {
-  font-size: 42px;
-  font-weight: normal;
-  margin-bottom: 1rem;
-  font-family: 'Charter-Roman', sans-serif;
+  @apply text-[42px] font-normal mb-4 font-apercu;
 }
 
 .meta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin-bottom: 2rem;
-  font-family: 'Charter-Roman', sans-serif;
+  @apply flex flex-col items-end mb-8 font-apercu;
 }
 
 .icons {
-  display: flex;
-  margin-bottom: 0.5rem;
+  @apply flex mb-2;
 }
 
 .iconLink {
-  display: inline-block;
-  width: 36px;
-  height: 36px;
-  position: relative;
+  @apply inline-block w-9 h-9 relative;
 }
 
 .iconLink img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  @apply absolute top-0 left-0 w-full h-full transition-opacity transition-transform duration-300 ease-in-out;
 }
 
 .iconLink img.hover,
 .iconLink img.active {
-  opacity: 0;
+  @apply opacity-0;
 }
 
 .iconLink:hover img.normal {
-  opacity: 0;
+  @apply opacity-0;
 }
 
 .iconLink:hover img.hover {
-  opacity: 1;
+  @apply opacity-100;
 }
 
 .iconLink:active img.hover {
-  opacity: 0;
+  @apply opacity-0;
 }
 
 .iconLink:active img.active {
-  opacity: 1;
+  @apply opacity-100;
 }
 
 .date {
-  color: #555;
-  font-size: 16px;
-  font-family: 'Charter-Roman', sans-serif;
-  margin-bottom: 1rem; /* Add margin-bottom to provide space for the separator */
+  @apply text-[#555] text-[16px] mb-4 font-apercu;
 }
 
 .separator {
-  width: 100%;
-  height: 1px;
-  background-color: #6b6767;
-  margin-bottom: 2rem; /* Add space between the separator and the content */
+  @apply w-full h-px bg-[#6b6767] mb-8;
 }
 
 .content {
-  font-size: 20px;
-  font-family: 'Charter-Roman', sans-serif;
-  text-align: justify;
+  @apply text-[20px] font-apercu text-justify;
 }
 
 .content img {
-  width: 100%;
-  border-radius: 8px;
-  margin: 1.5rem 0;
+  @apply w-full rounded-lg my-6;
 }
 
 .content p {
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-  font-family: 'Charter-Roman', sans-serif;
+  @apply mb-6 leading-relaxed font-apercu;
 }
 
 .content h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  font-family: 'Charter-Roman', sans-serif;
+  @apply text-[1.5rem] mb-4 font-apercu;
 }
 
 .authorContainer {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; /* Align items to the right */
-  margin-top: 2rem;
+  @apply flex items-center justify-end mt-8;
 }
 
 .authorImage {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 1rem; /* Add space between the name and image */
+  @apply w-12 h-12 rounded-full mr-4;
 }
 
 .author {
-  font-style: italic;
-  color: #555;
-  font-family: 'Charter-Roman', sans-serif;
+  @apply italic text-[#555] font-apercu;
 }

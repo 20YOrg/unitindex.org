@@ -1,4 +1,5 @@
 /* styles/Icon.module.css */
+
 .effectClassName { /* Replace with actual effect class names if any */
-    /* Add your effect styles here */
+    @apply /* Add Tailwind CSS classes for effects here */;
   }
