@@ -1,7 +1,7 @@
 // app/blog/page.tsx
 import getAllBlogPosts from '@/lib/fetchAllBlogPosts';
 import BlogPostsList from '@/components/BlogPostsList';
-import styles from '../../styles/BlogPage.module.css'; // Corrected path
+import styles from '../../styles/BlogPage.module.css';
 
 export default async function BlogLandingPage() {
   const posts = await getAllBlogPosts();

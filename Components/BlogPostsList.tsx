@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import styles from '../styles/BlogPostCard.module.css';
+import styles from '../styles/BlogPage.module.css';
 
 interface BlogPost {
   id: string;
@@ -24,9 +24,8 @@ const BlogPostsList: React.FC<BlogPostsListProps> = ({ posts }) => {
   const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
-    // Sort posts by date_published in descending order
     const sortedPosts = [...posts].sort((a, b) => new Date(b.date_published).getTime() - new Date(a.date_published).getTime());
-    
+
     const filtered = sortedPosts.filter((post) =>
       post.title.toLowerCase().includes(searchInput.toLowerCase()) ||
       post.summary.toLowerCase().includes(searchInput.toLowerCase()) ||
@@ -46,13 +45,11 @@ const BlogPostsList: React.FC<BlogPostsListProps> = ({ posts }) => {
         placeholder="Search"
         value={searchInput}
         onChange={handleSearchChange}
-        className={styles.searchBar}
+        className={styles.search}
       />
       <div className={styles.blogsGrid}>
         {filteredPosts.map((post) => {
           const imageUrl = `${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${post.image}?width=600`;
-
-          console.log(`Image URL for post "${post.title}":`, imageUrl);
 
           return (
             <div key={post.id} className={styles.card}>
