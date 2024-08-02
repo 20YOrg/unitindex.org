@@ -21,7 +21,7 @@ export default async function getTeamMember(id: string): Promise<TeamMember | nu
       })
     );
 
-    console.log('Team API Response:', JSON.stringify(response, null, 2));
+    // console.log('Team API Response:', JSON.stringify(response, null, 2));
 
     if (!response || !response.length) {
       console.log('No team member data found');

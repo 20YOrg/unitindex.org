@@ -1,0 +1,57 @@
+/* styles/Footer.module.css */
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur effect */
+    width: 100%;
+    font-family: 'Apercu', sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
+  }
+  
+  .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  .footerLinks {
+    display: flex;
+    gap: 1rem; /* Add more spacing between the links */
+    margin: 1rem 0; /* Add margin to create space between the links and the copyright */
+  }
+  
+  .footerLinks a {
+    font-size: 1rem;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footerLinks a:hover {
+    color: #000;
+  }
+  
+  .launchApp a {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    color: #000;
+    background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
+    border-radius: 35px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .launchApp a:hover {
+    background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
+  }
+  
+  .copyright {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 1rem;
+  }

@@ -32,7 +32,8 @@ export default async function getAllBlogPosts(): Promise<BlogPost[]> {
       })
     );
 
-    console.log('API Response:', JSON.stringify(response, null, 2));
+    // Remove or comment out this detailed logging
+    // console.log('API Response:', JSON.stringify(response, null, 2));
 
     if (!response || !response.length) {
       console.log('No blog post data found');

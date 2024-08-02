@@ -3,7 +3,7 @@ import getAllBlogPosts from '@/lib/fetchAllBlogPosts';
 import getCategories from '@/lib/fetchCategories';
 import BlogPageClient from '@/components/BlogPageClient';
 import getBlogPage from '@/lib/fetchBlogPage';
-import styles from '@/styles/BlogPage.module.css';
+import PageWrapper from '@/components/PageWrapper'; // Import PageWrapper
 
 export default async function BlogLandingPage() {
   const posts = await getAllBlogPosts();
@@ -37,14 +37,15 @@ export default async function BlogLandingPage() {
   const uniqueCategories = Array.from(new Set(categories.map(cat => cat.title)));
 
   return (
-    <BlogPageClient
-      posts={postsWithCategoryTitles}
-      categories={uniqueCategories}
-      readFullArticleText={blogPage?.read_full_article || 'Read Full Article'}
-      baseUrl={baseUrl}
-      background={blogPage?.background || ''}
-      title={blogPage?.title || 'Blog'}
-      headline={blogPage?.headline || 'Latest updates, educational articles, and stories made for UNIT enthusiasts.'}
-    />
+    <PageWrapper backgroundImage={`${baseUrl}/assets/${blogPage?.background}`}>
+      <BlogPageClient
+        posts={postsWithCategoryTitles}
+        categories={uniqueCategories}
+        readFullArticleText={blogPage?.read_full_article}
+        baseUrl={baseUrl}
+        title={blogPage?.title || 'Blog'}
+        headline={blogPage?.headline || 'Latest updates, educational articles, and stories made for UNIT enthusiasts.'}
+      />
+    </PageWrapper>
   );
 }

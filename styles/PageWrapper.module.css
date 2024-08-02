@@ -1,0 +1,5 @@
+.pageWrapper {
+    @apply w-full min-h-screen bg-cover bg-center bg-no-repeat;
+    display: flex;
+    flex-direction: column;
+  }

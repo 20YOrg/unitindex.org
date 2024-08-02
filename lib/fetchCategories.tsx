@@ -15,7 +15,7 @@ export default async function getCategories(): Promise<Category[]> {
       })
     );
 
-    console.log('API Response for categories:', JSON.stringify(response, null, 2));
+    // console.log('API Response for categories:', JSON.stringify(response, null, 2));
 
     if (!response || !response.length) {
       console.log('No category data found');

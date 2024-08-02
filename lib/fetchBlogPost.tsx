@@ -13,7 +13,7 @@ export default async function getBlogPost(slug: string): Promise<BlogPost | null
   try {
     const response = await directus.request(
       readItems('posts', {
-        fields: ['title', 'content', 'slug', 'date_published', 'author'],
+        fields: ['title', 'content', 'slug', 'date_published', 'author','category'],
         filter: {
           slug: {
             _eq: slug,
@@ -22,7 +22,8 @@ export default async function getBlogPost(slug: string): Promise<BlogPost | null
       })
     );
 
-    console.log('API Response:', JSON.stringify(response, null, 2));
+    // Remove or comment out this detailed logging
+    // console.log('API Response:', JSON.stringify(response, null, 2));
 
     if (!response || !response.length) {
       console.log('No blog post data found');

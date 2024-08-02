@@ -46,7 +46,7 @@ export default async function getIcons(): Promise<Icon[]> {
       icon.activeIcon = iconMap[icon.name].active;
     });
 
-    console.log('API Response:', JSON.stringify(response, null, 2));
+    // console.log('API Response:', JSON.stringify(response, null, 2));
 
     if (!response || !response.length) {
       console.log('No icon data found');
