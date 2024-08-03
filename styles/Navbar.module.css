@@ -1,9 +1,10 @@
+/* styles/Navbar.module.css */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+    background-color: rgba(255, 255, 255, 0.1); /* More transparent background */
     backdrop-filter: blur(10px); /* Blur effect */
     width: 100%;
     position: fixed; /* Fix it at the top */
@@ -16,7 +17,7 @@
   }
   
   .scrolled {
-    background-color: rgba(255, 255, 255, 0.8); /* More opaque background when scrolled */
+    background-color: rgba(255, 255, 255, 0.6); /* More opaque background when scrolled */
     backdrop-filter: blur(20px); /* More blur when scrolled */
   }
   

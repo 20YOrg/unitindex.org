@@ -3,7 +3,7 @@ import getAllBlogPosts from '@/lib/fetchAllBlogPosts';
 import getCategories from '@/lib/fetchCategories';
 import BlogPageClient from '@/components/BlogPageClient';
 import getBlogPage from '@/lib/fetchBlogPage';
-import PageWrapper from '@/components/PageWrapper'; // Import PageWrapper
+import styles from '@/styles/BlogLandingPage.module.css'; // Import styles
 
 export default async function BlogLandingPage() {
   const posts = await getAllBlogPosts();
@@ -37,15 +37,23 @@ export default async function BlogLandingPage() {
   const uniqueCategories = Array.from(new Set(categories.map(cat => cat.title)));
 
   return (
-    <PageWrapper backgroundImage={`${baseUrl}/assets/${blogPage?.background}`}>
-      <BlogPageClient
-        posts={postsWithCategoryTitles}
-        categories={uniqueCategories}
-        readFullArticleText={blogPage?.read_full_article}
-        baseUrl={baseUrl}
-        title={blogPage?.title || 'Blog'}
-        headline={blogPage?.headline || 'Latest updates, educational articles, and stories made for UNIT enthusiasts.'}
-      />
-    </PageWrapper>
+    <>
+      <div
+        className={styles.fullscreenBackground}
+        style={{
+          backgroundImage: `url(${baseUrl}/assets/${blogPage?.background})`,
+        }}
+      ></div>
+      <div className={styles.pageContainer}>
+        <BlogPageClient
+          posts={postsWithCategoryTitles}
+          categories={uniqueCategories}
+          readFullArticleText={blogPage?.read_full_article}
+          baseUrl={baseUrl}
+          title={blogPage?.title || 'Blog'}
+          headline={blogPage?.headline || 'Latest updates, educational articles, and stories made for UNIT enthusiasts.'}
+        />
+      </div>
+    </>
   );
 }

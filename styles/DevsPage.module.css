@@ -1,0 +1,53 @@
+/* styles/DevsPage.module.css */
+
+.fullscreenBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure it is behind all content */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  .pageContainer {
+    max-width: 1200px;
+    margin: 0 auto; /* Center the container */
+    padding: 16px; /* Add consistent padding */
+    background-color: transparent; /* Make the inner layer background transparent */
+    border-radius: 8px; /* Add some rounding to make it look better */
+  }
+  
+  .title {
+    color: #5F7179;
+    font-family: 'Armata', sans-serif;
+    font-size: 24px; /* Increased font size for better visibility */
+    font-weight: 400;
+    line-height: normal;
+    margin: 16px 0; /* Consistent vertical margin */
+  }
+  
+  .description {
+    font-family: 'Apercu', sans-serif;
+    font-size: 20px; /* Updated font size */
+    font-weight: 400;
+    line-height: normal;
+    color: #000;
+    margin-bottom: 40px; /* Increased bottom margin for more space */
+  }
+  
+  .description strong {
+    background: linear-gradient(90deg, #4679E2 0%, #F08852 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .separatorLine {
+    height: 1px;
+    background-color: #6B6767;
+    margin: 40px 0; /* Add vertical margin for spacing */
+  }

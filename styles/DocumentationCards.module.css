@@ -1,34 +1,107 @@
+/* styles/DocumentationCards.module.css */
 .cardsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 24px; /* Increased gap for better spacing */
+    padding: 0; /* No additional padding */
+    max-width: 1200px; /* Constrain the width of the container */
+    margin: 0 auto; /* Center the container */
   }
   
   .card {
-    background: white;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    background: rgba(255, 255, 255, 0.6); /* Make the card background semi-transparent */
+    border-radius: 16px;
+    padding: 24px; /* Increased padding for better spacing */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative; /* To position the icon */
   }
   
-  .cardIcon img {
-    width: 48px;
-    height: 48px;
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cardLinkWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
   }
   
   .cardTitle {
-    font-size: 1.25rem;
-    margin: 0.5rem 0;
+    font-family: 'Armata', sans-serif;
+    font-size: 24px;
+    color: #5F7179;
+    margin-bottom: 8px; /* Consistent bottom margin */
+    background: linear-gradient(90deg, #4679E2 0%, #F08852 50%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
   .cardDescription {
-    font-size: 1rem;
-    color: #666;
+    font-family: 'Apercu', sans-serif;
+    font-size: 16px; /* Updated font size */
+    color: #5F7179; /* Updated color */
+    margin-top: 0; /* Ensure no top margin */
+    margin-bottom: 16px; /* Consistent bottom margin */
+    flex-grow: 1; /* Ensure it takes up available space */
   }
   
-  .cardLink {
-    color: #0070f3;
+  .cardButtonContainer {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .cardButton {
+    display: inline-block;
+    font-family: 'Apercu', sans-serif;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 35px;
+    background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
+    color: #000; /* Default white text */
     text-decoration: none;
-    font-weight: bold;
+    text-align: center;
+    transition: opacity 0.2s ease;
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+  }
+  
+  .cardButton:hover {
+    opacity: 0.9;
+  }
+  
+  .cardIcon {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+  
+  /* Specific styling for the first card to span two rows */
+  .card:first-child {
+    grid-row: span 2; /* Span two rows */
+  }
+  
+  .card:first-child .cardDescription {
+    flex-grow: 1; /* Ensure it takes up available space */
+  }
+  
+  @media (max-width: 768px) { /* Adjust the media query breakpoint as needed */
+    .cardsContainer {
+      grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+  
+    .card:first-child {
+      grid-row: span 1; /* Span only one row on smaller screens */
+    }
   }

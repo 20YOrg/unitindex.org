@@ -13,7 +13,7 @@ export async function fetchPageByPermalink(permalink: string): Promise<Page | nu
   try {
     const response = await directus.request(
       readItems('pages', {
-        fields: ['title', 'permalink', 'description'],
+        fields: ['title', 'permalink', 'description', 'background'],
         filter: {
           permalink: {
             _eq: permalink,

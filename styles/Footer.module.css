@@ -5,12 +5,11 @@
     justify-content: center;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
-    backdrop-filter: blur(10px); /* Blur effect */
+    background-color: transparent; /* Fully transparent background */
     width: 100%;
     font-family: 'Apercu', sans-serif;
     font-size: 16px;
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
+    transition: background-color 0.3s ease; /* Smooth transition */
   }
   
   .logo a {

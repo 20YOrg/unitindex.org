@@ -3,9 +3,8 @@ import React from 'react';
 import styles from '@/styles/MilestoneTimeline.module.css';
 
 interface Milestone {
-  id: string;
-  title: string;
   quarter: string;
+  titles: string[];
 }
 
 interface MilestoneTimelineProps {
@@ -15,12 +14,20 @@ interface MilestoneTimelineProps {
 const MilestoneTimeline: React.FC<MilestoneTimelineProps> = ({ milestones }) => {
   return (
     <div className={styles.timelineContainer}>
-      {milestones.map((milestone) => (
-        <div key={milestone.id} className={styles.milestone}>
-          <div className={styles.milestoneQuarter}>{milestone.quarter}</div>
-          <div className={styles.milestoneTitle}>{milestone.title}</div>
-        </div>
-      ))}
+      <div className={styles.timeline}>
+        {milestones.map((milestone, index) => (
+          <div key={index} className={styles.milestone}>
+            <div className={styles.milestoneDot}></div>
+            <div className={styles.milestoneQuarter}>{milestone.quarter}</div>
+            <ul className={styles.milestoneList}>
+              {milestone.titles.map((title, i) => (
+                <li key={i} className={styles.milestoneTitle}>{title}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+        <div className={styles.milestoneLine}></div>
+      </div>
     </div>
   );
 };
