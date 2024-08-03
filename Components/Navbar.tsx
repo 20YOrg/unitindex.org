@@ -1,14 +1,17 @@
-'use client'; // Ensure this component is a client component
+// components/Navbar.tsx
+'use client';
 
 import Link from 'next/link';
 import { useEffect, useState, useRef } from 'react';
 import { usePathname } from 'next/navigation'; // Import usePathname
+import { fetchNavigation } from '@/lib/fetchNavigation'; // Import fetchNavigation
 import styles from '@/styles/Navbar.module.css';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [underlineStyle, setUnderlineStyle] = useState({});
+  const [logoUrl, setLogoUrl] = useState(''); // State to store logo URL
   const navLinksRef = useRef(null);
   const pathname = usePathname(); // Initialize the router
 
@@ -26,6 +29,15 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    // Fetch navigation data
+    const fetchNavData = async () => {
+      const navData = await fetchNavigation();
+      if (navData.length > 0) {
+        setLogoUrl(navData[0].logo);
+      }
+    };
+    fetchNavData();
+
     if (pathname === '/') {
       setUnderlineStyle({ width: 0, left: 0 });
       return;
@@ -49,6 +61,7 @@ export default function Navbar() {
   return (
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.logo}>
+        {logoUrl && <img src={logoUrl} alt="UNIT Logo" className={styles.logoImage} />}
         <Link href="/">UNIT</Link>
       </div>
       <div ref={navLinksRef} className={`${styles.navLinks} ${isMenuOpen ? styles.open : ''}`}>

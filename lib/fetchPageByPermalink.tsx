@@ -1,3 +1,4 @@
+// lib/fetchPageByPermalink.tsx
 import directus from '@/lib/directus';
 import { readItems } from '@directus/sdk';
 
@@ -5,13 +6,14 @@ interface Page {
   id: string;
   title: string;
   permalink: string;
+  description: string; // Ensure description is included
 }
 
 export async function fetchPageByPermalink(permalink: string): Promise<Page | null> {
   try {
     const response = await directus.request(
       readItems('pages', {
-        fields: ['title', 'permalink'],
+        fields: ['title', 'permalink', 'description'],
         filter: {
           permalink: {
             _eq: permalink,
