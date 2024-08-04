@@ -1,26 +1,37 @@
 /* styles/MilestoneTimeline.module.css */
-.timelineContainer {
+.timelineWrapper {
+    position: relative;
+  }
+  
+  .timelineContainer {
     display: flex;
     overflow-x: auto;
     padding: 2rem 0;
     gap: 2rem;
-    scroll-snap-type: x mandatory; /* Ensure smooth scrolling */
-    padding-left: 2rem; /* Add padding to the left */
-    padding-right: 2rem; /* Add padding to the right */
-}
+    scroll-snap-type: x mandatory;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    position: relative; /* Add relative positioning */
+  }
   
-.card {
+  .card {
     flex: 0 0 auto;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
     padding: 1rem;
     min-width: 250px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    scroll-snap-align: center; /* Ensure cards snap to the center */
-}
+    scroll-snap-align: center;
+    position: relative; /* Add relative positioning */
+  }
   
-.cardQuarter {
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cardQuarter {
     font-size: 1.1rem;
     font-weight: bold;
     margin-bottom: 1rem;
@@ -28,27 +39,31 @@
     -webkit-background-clip: text;
     color: transparent;
     text-align: center;
-}
+  }
   
-.cardList {
-    list-style: none;
-    padding: 0;
+  .cardList {
+    list-style-type: disc; /* Add bullet points */
+    padding-left: 20px; /* Add some padding to the left */
     margin: 0;
-}
+  }
   
-.cardTitle {
+  .cardTitle {
     font-size: 1rem;
     color: #5F7179;
     margin-bottom: 0.5rem;
     text-align: left;
-}
+  }
   
-/* Add styles for the spacers */
-.spacer {
+  .spacer {
     flex: 0 0 auto;
     width: 2rem; /* Width of the spacer */
-}
-
-.timelineWrapper {
-    position: relative;
-}
+  }
+  
+  .line {
+    position: absolute;
+    top: 50%; /* Vertically center the line */
+    left: 100%; /* Position the line at the right edge of the card */
+    width: 2rem; /* Length of the connecting line */
+    height: 1px; /* Thickness of the line */
+    background-color: #6B6767; /* Color of the line */
+  }

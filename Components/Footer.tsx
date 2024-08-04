@@ -1,6 +1,4 @@
 // components/Footer.tsx
-'use client';
-
 import Link from 'next/link';
 import styles from '@/styles/Footer.module.css';
 
@@ -16,9 +14,10 @@ export default function Footer() {
         <Link href="/unit_dao">DAO</Link>
         <Link href="/blog">Blog</Link>
         <div className={styles.launchApp}>
-          <Link href="https://app.unitindex.org">Launch App</Link>
+          <Link href="https://app.unitindex.org" target="_blank" rel="noopener noreferrer">Launch App</Link>
         </div>
       </div>
+      <div className={styles.separatorLine}></div> {/* Separator line in footer */}
       <div className={styles.copyright}>
         &copy; 2024 UNIT.
       </div>

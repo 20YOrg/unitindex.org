@@ -38,6 +38,7 @@ const MilestoneTimeline: React.FC<MilestoneTimelineProps> = ({ milestones }) => 
                 <li key={i} className={styles.cardTitle}>{title}</li>
               ))}
             </ul>
+            {index < milestones.length - 1 && <div className={styles.line}></div>} {/* Add line except for the last card */}
           </div>
         ))}
         <div className={styles.spacer}></div> {/* Add spacer at the end */}

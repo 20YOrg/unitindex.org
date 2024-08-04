@@ -1,3 +1,4 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from '@/components/Navbar'; // Import Navbar
@@ -29,6 +30,7 @@ export default function RootLayout({
         ></div>
         <Navbar /> {/* Add Navbar */}
         <main className="relative z-10 pt-[80px] p-4 bg-transparent">{children}</main>
+        <div className="separatorLine"></div> {/* Add the separator line */}
         <Footer /> {/* Add Footer */}
       </body>
     </html>
