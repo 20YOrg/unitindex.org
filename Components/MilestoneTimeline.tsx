@@ -21,7 +21,7 @@ const MilestoneTimeline: React.FC<MilestoneTimelineProps> = ({ milestones }) => 
       const currentQuarterIndex = milestones.findIndex(milestone => milestone.quarter === currentQuarter);
       if (currentQuarterIndex !== -1) {
         const focusElement = timelineRef.current.children[currentQuarterIndex + 1] as HTMLDivElement; // +1 to account for the spacer
-        focusElement.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+        focusElement.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       }
     }
   }, [milestones, currentQuarter]);
