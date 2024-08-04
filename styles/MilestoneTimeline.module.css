@@ -1,93 +1,54 @@
 /* styles/MilestoneTimeline.module.css */
 .timelineContainer {
     display: flex;
-    justify-content: center;
-    overflow-x: auto; /* Horizontal scrolling */
-    padding: 3rem 2rem; /* Increased padding for the container */
-    position: relative;
-    background: #f7f9fc; /* Light background color for better contrast */
-    border-radius: 8px; /* Rounded corners for the container */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow-x: auto;
+    padding: 2rem 0;
+    gap: 2rem;
+    scroll-snap-type: x mandatory; /* Ensure smooth scrolling */
+    padding-left: 2rem; /* Add padding to the left */
+    padding-right: 2rem; /* Add padding to the right */
   }
   
-  .timeline {
-    display: flex;
-    align-items: flex-start;
-    position: relative;
-    padding-bottom: 4rem; /* Extra space at the bottom for better visibility */
-  }
-  
-  .milestone {
+  .card {
     flex: 0 0 auto;
-    margin-right: 4rem;
-    text-align: center;
-    position: relative;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 1rem;
+    min-width: 250px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    scroll-snap-align: center; /* Ensure cards snap to the center */
   }
   
-  .milestoneQuarter {
+  .cardQuarter {
     font-size: 1.1rem;
     font-weight: bold;
-    margin-bottom: 1rem; /* More space below the quarter */
-    position: absolute;
-    top: -2.5rem; /* Adjust top position for better visibility */
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(90deg, #4679e2, #f08852);
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #4679E2, #F08852);
     -webkit-background-clip: text;
-    color: transparent; /* Gradient text color */
+    color: transparent;
+    text-align: center;
   }
   
-  .milestoneTitle {
-    font-size: 1rem;
-    color: #5f7179;
-    text-align: left;
-    margin-bottom: 0.5rem;
-  }
-  
-  .milestoneLine {
-    position: absolute;
-    top: 50%; /* Align the line vertically to the center */
-    left: 0;
-    height: 4px; /* Thicker line */
-    width: 100%;
-    background-color: #4679e2; /* Darker color for better visibility */
-    z-index: -1;
-  }
-  
-  .milestoneDot {
-    width: 16px; /* Larger dot */
-    height: 16px; /* Larger dot */
-    background-color: #4679e2;
-    border: 4px solid #fff; /* Thicker border */
-    border-radius: 50%;
-    position: absolute;
-    top: 50%; /* Align the dot vertically to the center */
-    transform: translate(-50%, -50%); /* Center the dot */
-    left: 50%;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
-  }
-  
-  .milestoneDot:hover {
-    background-color: #f08852; /* Change color on hover */
-  }
-  
-  .milestoneList {
-    margin-top: 2rem;
+  .cardList {
     list-style: none;
     padding: 0;
+    margin: 0;
+  }
+  
+  .cardTitle {
+    font-size: 1rem;
+    color: #5F7179;
+    margin-bottom: 0.5rem;
     text-align: left;
   }
   
-  .milestoneList li {
-    padding-left: 1.2rem; /* Indentation for list items */
-    position: relative;
+  /* Add styles for the spacers */
+  .spacer {
+    flex: 0 0 auto;
+    width: 2rem; /* Width of the spacer */
   }
-  
-  .milestoneList li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: #4679e2; /* Bullet color */
-    font-size: 1.2rem;
+
+  .timelineWrapper {
+    position: relative;
   }

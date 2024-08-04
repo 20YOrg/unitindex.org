@@ -81,6 +81,8 @@ body {
 .footer {
   @apply text-white p-4;
   background: transparent;
+  z-index: 1;
+  position: relative;
 }
 
 /* Define the gradient color variable */

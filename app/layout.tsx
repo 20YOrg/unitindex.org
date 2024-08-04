@@ -1,4 +1,3 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from '@/components/Navbar'; // Import Navbar
@@ -17,11 +16,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const backgroundUrl = process.env.NEXT_PUBLIC_BACKGROUND_URL;
+
   return (
     <html lang="en">
       <body className={inter.className}>
+        <div
+          className="fullscreenBackground"
+          style={{
+            backgroundImage: `url(${backgroundUrl})`,
+          }}
+        ></div>
         <Navbar /> {/* Add Navbar */}
-        <main className="relative z-10 pt-[80px] p-4 bg-white bg-opacity-80 backdrop-blur">{children}</main>
+        <main className="relative z-10 pt-[80px] p-4 bg-transparent">{children}</main>
         <Footer /> {/* Add Footer */}
       </body>
     </html>
