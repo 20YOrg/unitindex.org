@@ -12,12 +12,11 @@
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-  }
+}
   
-  .pageContainer {
+.pageContainer {
     max-width: 1200px;
     margin: 0 auto;
     padding: 16px;
     background-color: transparent; /* Make the inner layer background transparent */
-    font-family: 'Apercu', sans-serif;
-  }
+}

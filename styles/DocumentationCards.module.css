@@ -8,7 +8,7 @@
     margin: 0 auto; /* Center the container */
   }
   
-  .card {
+.card {
     background: rgba(255, 255, 255, 0.6); /* Make the card background semi-transparent */
     border-radius: 16px;
     padding: 24px; /* Increased padding for better spacing */
@@ -20,12 +20,12 @@
     position: relative; /* To position the icon */
   }
   
-  .card:hover {
+.card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   }
   
-  .cardLinkWrapper {
+.cardLinkWrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -34,8 +34,7 @@
     height: 100%;
   }
   
-  .cardTitle {
-    font-family: 'Armata', sans-serif;
+.cardTitle {
     font-size: 24px;
     color: #5F7179;
     margin-bottom: 8px; /* Consistent bottom margin */
@@ -45,8 +44,7 @@
     -webkit-text-fill-color: transparent;
   }
   
-  .cardDescription {
-    font-family: 'Apercu', sans-serif;
+.cardDescription {
     font-size: 16px; /* Updated font size */
     color: #5F7179; /* Updated color */
     margin-top: 0; /* Ensure no top margin */
@@ -54,14 +52,13 @@
     flex-grow: 1; /* Ensure it takes up available space */
   }
   
-  .cardButtonContainer {
+.cardButtonContainer {
     display: flex;
     justify-content: center;
   }
   
-  .cardButton {
+.cardButton {
     display: inline-block;
-    font-family: 'Apercu', sans-serif;
     font-size: 14px;
     padding: 8px 16px;
     border-radius: 35px;
@@ -75,11 +72,11 @@
     right: 16px;
   }
   
-  .cardButton:hover {
+.cardButton:hover {
     opacity: 0.9;
   }
   
-  .cardIcon {
+.cardIcon {
     width: 48px;
     height: 48px;
     position: absolute;
@@ -87,21 +84,21 @@
     right: 16px;
   }
   
-  /* Specific styling for the first card to span two rows */
-  .card:first-child {
+/* Specific styling for the first card to span two rows */
+.card:first-child {
     grid-row: span 2; /* Span two rows */
   }
   
-  .card:first-child .cardDescription {
+.card:first-child .cardDescription {
     flex-grow: 1; /* Ensure it takes up available space */
   }
   
-  @media (max-width: 768px) { /* Adjust the media query breakpoint as needed */
+@media (max-width: 768px) { /* Adjust the media query breakpoint as needed */
     .cardsContainer {
       grid-template-columns: 1fr; /* Single column on smaller screens */
     }
   
-    .card:first-child {
+.card:first-child {
       grid-row: span 1; /* Span only one row on smaller screens */
     }
   }

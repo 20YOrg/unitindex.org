@@ -2,22 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Apercu';
-  src: url('/fonts/Apercu-Regular.woff2') format('woff2'),
-       url('/fonts/Apercu-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Armata';
-  src: url('/fonts/Armata-Regular.woff2') format('woff2'),
-       url('/fonts/Armata-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* General Styles */
 html, body {
   height: 100%;
@@ -28,6 +12,7 @@ html, body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-color: transparent;
+  font-family: 'Inter', sans-serif; /* Apply Inter font globally */
 }
 
 .fullscreenBackground {
@@ -46,7 +31,7 @@ html, body {
   margin: 0 auto;
   padding: 8px;
   position: relative;
-  font-family: 'Apercu', sans-serif;
+  font-family: 'Inter', sans-serif; /* Apply Inter font to page container */
   min-height: 100vh; /* Ensure it covers the full viewport height */
   display: flex;
   flex-direction: column;
@@ -66,16 +51,19 @@ html, body {
 body {
   @apply font-sans;
   min-height: 100vh;
+  font-family: 'Inter', sans-serif; /* Ensure Inter font is applied */
 }
 
 .navbar {
   background: transparent;
   border-bottom: 0;
   box-shadow: none;
+  font-family: 'Inter', sans-serif; /* Apply Inter font to navbar */
 }
 
 .nav-link {
   @apply text-white mr-4 no-underline;
+  font-family: 'Inter', sans-serif; /* Apply Inter font to nav links */
 }
 
 .footer {
@@ -83,6 +71,7 @@ body {
   background: transparent;
   z-index: 1;
   position: relative;
+  font-family: 'Inter', sans-serif; /* Apply Inter font to footer */
 }
 
 /* Define the gradient color variable */

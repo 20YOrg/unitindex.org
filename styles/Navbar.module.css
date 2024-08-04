@@ -11,29 +11,28 @@
     top: 0;
     left: 0;
     z-index: 1000; /* Ensure it stays above other content */
-    font-family: 'Apercu', sans-serif;
     font-size: 16px;
     transition: background-color 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
-  }
+}
   
-  .scrolled {
+.scrolled {
     background-color: rgba(255, 255, 255, 0.6); /* More opaque background when scrolled */
     backdrop-filter: blur(20px); /* More blur when scrolled */
-  }
+}
   
-  .logo a {
+.logo a {
     font-size: 1.5rem;
     font-weight: bold;
     color: #000;
-  }
+}
   
-  .navLinks {
+.navLinks {
     display: flex;
     gap: 77px;
     position: relative; /* To position the underline */
-  }
+}
   
-  .navLink {
+.navLink {
     font-size: 1rem;
     color: #101729;
     text-decoration: none;
@@ -42,41 +41,41 @@
     background: linear-gradient(90deg, #101729, #101729); /* Default color for text */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
+}
   
-  .navLink:hover {
+.navLink:hover {
     background: var(--Chart-color, linear-gradient(90deg, #4679E2 0%, #F08852 100%));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
+}
   
-  .active {
+.active {
     background: var(--Chart-color, linear-gradient(90deg, #4679E2 0%, #F08852 100%));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
+}
   
-  .underline {
+.underline {
     position: absolute;
     bottom: 0;
     left: 0;
     height: 2px;
     background: var(--Chart-color, linear-gradient(90deg, #4679E2 0%, #F08852 100%));
     transition: all 0.3s ease;
-  }
+}
   
-  .launchAppDesktop {
+.launchAppDesktop {
     display: block;
-  }
+}
   
-  .launchAppMobile {
+.launchAppMobile {
     display: none;
-  }
+}
   
-  .launchAppDesktop a,
-  .launchAppMobile a {
+.launchAppDesktop a,
+.launchAppMobile a {
     font-size: 1rem;
     padding: 0.5rem 1rem;
     color: #000;
@@ -84,15 +83,15 @@
     transition: background-color 0.3s ease;
     border-radius: 35px;
     background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
-  }
+}
   
-  .launchAppDesktop a:hover,
-  .launchAppMobile a:hover {
+.launchAppDesktop a:hover,
+.launchAppMobile a:hover {
     background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
     opacity: 0.9;
-  }
+}
   
-  .hamburger {
+.hamburger {
     display: none; /* Hide hamburger menu on larger screens */
     background: none;
     border: none;
@@ -102,51 +101,51 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-  }
+}
   
-  .hamburgerIcon {
+.hamburgerIcon {
     width: 25px;
     height: 3px;
     background-color: #333;
     display: block;
     margin: 5px 0;
     transition: all 0.3s ease;
-  }
+}
   
-  /* Responsive Styles */
-  @media (max-width: 768px) {
+/* Responsive Styles */
+@media (max-width: 768px) {
     .navLinks {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      background-color: rgba(255, 255, 255, 0.9); /* Background for mobile menu */
-      position: absolute;
-      top: 60px; /* Position below the navbar */
-      left: 0;
-      width: 100%;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 1rem 0;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.9); /* Background for mobile menu */
+        position: absolute;
+        top: 60px; /* Position below the navbar */
+        left: 0;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
     }
   
     .navLinks.open {
-      display: flex;
+        display: flex;
     }
   
     .navbar {
-      flex-direction: column;
-      align-items: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
     }
   
     .hamburger {
-      display: block;
+        display: block;
     }
   
     .launchAppDesktop {
-      display: none;
+        display: none;
     }
   
     .launchAppMobile {
-      display: block;
-      margin-top: 1rem;
+        display: block;
+        margin-top: 1rem;
     }
-  }
+}

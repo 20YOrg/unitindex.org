@@ -14,12 +14,11 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        sans: ['Apercu', 'sans-serif'], // Default font family
-        apercu: ['Apercu', 'sans-serif'], // Custom class for Apercu
-        armata: ['Armata', 'sans-serif'], // Custom class for Armata
+        sans: ['Inter', 'sans-serif'], // Default font family set to Inter
       },
     },
   },
   plugins: [],
 };
+
 export default config;
