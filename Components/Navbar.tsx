@@ -67,7 +67,7 @@ export default function Navbar() {
       <div ref={navLinksRef} className={`${styles.navLinks} ${isMenuOpen ? styles.open : ''}`}>
         <Link href="/about" className={`${styles.navLink} ${pathname === '/about' ? styles.active : ''}`}>About</Link>
         <Link href="/devs" className={`${styles.navLink} ${pathname === '/devs' ? styles.active : ''}`}>Devs</Link>
-        <Link href="/unit_dao" className={`${styles.navLink} ${pathname === '/unit_dao' ? styles.active : ''}`}>DAO</Link>
+        <Link href="/dao" className={`${styles.navLink} ${pathname === '/dao' ? styles.active : ''}`}>DAO</Link>
         <Link href="/blog" className={`${styles.navLink} ${pathname === '/blog' ? styles.active : ''}`}>Blog</Link>
         <div className={styles.launchAppMobile}>
           <Link href="https://app.unitindex.org">Launch App</Link>

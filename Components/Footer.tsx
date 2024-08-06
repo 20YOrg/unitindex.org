@@ -11,7 +11,7 @@ export default function Footer() {
       <div className={styles.footerLinks}>
         <Link href="/about">About</Link>
         <Link href="/devs">Devs</Link>
-        <Link href="/unit_dao">DAO</Link>
+        <Link href="/dao">DAO</Link>
         <Link href="/blog">Blog</Link>
         <div className={styles.launchApp}>
           <Link href="https://app.unitindex.org" target="_blank" rel="noopener noreferrer">Launch App</Link>
