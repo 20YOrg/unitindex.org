@@ -75,7 +75,7 @@
     bottom: 16px;
     right: 16px;
     margin: auto;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .cardButton:hover {
@@ -113,6 +113,7 @@
 /* Specific styling for the first card to span two rows */
 .card:first-child {
     grid-row: span 2; /* Span two rows */
+    min-height: 200px; /* Increase the minimum height */
 }
 
 .card:first-child .cardDescription {
@@ -126,5 +127,6 @@
 
     .card:first-child {
         grid-row: span 1; /* Span only one row on smaller screens */
+        min-height: 200px; /* Adjust the minimum height for smaller screens */
     }
 }
