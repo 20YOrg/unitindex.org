@@ -12,6 +12,11 @@
     position: relative;
     z-index: 10; /* Ensure it stays above other elements */
 }
+
+.logoImage {
+    height: 40px; /* Adjust the height as needed */
+    width: auto; /* Maintain aspect ratio */
+  }
   
 .logo a {
     font-size: 1.5rem;
@@ -34,21 +39,6 @@
   
 .footerLinks a:hover {
     color: #000;
-}
-  
-.launchApp a {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    font-weight: 600;
-    color: #000;
-    background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
-    border-radius: 35px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-  
-.launchApp a:hover {
-    background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
 }
   
 .copyright {

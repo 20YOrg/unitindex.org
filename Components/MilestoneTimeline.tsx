@@ -21,7 +21,12 @@ const MilestoneTimeline: React.FC<MilestoneTimelineProps> = ({ milestones }) => 
       const currentQuarterIndex = milestones.findIndex(milestone => milestone.quarter === currentQuarter);
       if (currentQuarterIndex !== -1) {
         const focusElement = timelineRef.current.children[currentQuarterIndex + 1] as HTMLDivElement; // +1 to account for the spacer
-        focusElement.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        focusElement.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+
+        // Additional check to avoid vertical scrolling
+        const scrollContainer = timelineRef.current;
+        const scrollLeft = focusElement.offsetLeft - scrollContainer.clientWidth / 2 + focusElement.clientWidth / 2;
+        scrollContainer.scrollTo({ left: scrollLeft, behavior: 'smooth' });
       }
     }
   }, [milestones, currentQuarter]);
@@ -30,15 +35,14 @@ const MilestoneTimeline: React.FC<MilestoneTimelineProps> = ({ milestones }) => 
     <div className={styles.timelineWrapper}>
       <div className={styles.timelineContainer} ref={timelineRef}>
         <div className={styles.spacer}></div> {/* Add spacer at the start */}
-        {milestones.map((milestone, index) => (
-          <div key={index} className={styles.card}>
+        {milestones.map((milestone) => (
+          <div key={milestone.quarter} className={styles.card}>
             <div className={styles.cardQuarter}>{milestone.quarter}</div>
             <ul className={styles.cardList}>
               {milestone.titles.map((title, i) => (
                 <li key={i} className={styles.cardTitle}>{title}</li>
               ))}
             </ul>
-            {index < milestones.length - 1 && <div className={styles.line}></div>} {/* Add line except for the last card */}
           </div>
         ))}
         <div className={styles.spacer}></div> {/* Add spacer at the end */}

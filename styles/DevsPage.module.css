@@ -21,7 +21,7 @@
     font-family: 'Inter', sans-serif;
     font-size: 20px; /* Updated font size */
     font-weight: 400; /* Ensure it is not bold */
-    line-height: normal;
+    line-height: 30px; /* Updated line height */
     color: #4A5567;
     margin-bottom: 40px; /* Increased bottom margin for more space */
 }

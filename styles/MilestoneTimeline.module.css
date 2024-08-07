@@ -19,8 +19,9 @@
     background: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
     padding: 1rem;
-    min-width: 250px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    width: 250px; /* Set a fixed width for all cards */
+    height: 350px; /* Set a fixed height for all cards */
+    transition: transform 0.3s ease, opacity 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     scroll-snap-align: center;
     position: relative; /* Add relative positioning */
@@ -54,6 +55,7 @@
     text-align: left;
   }
   
+  /* Add styles for the spacers */
   .spacer {
     flex: 0 0 auto;
     width: 2rem; /* Width of the spacer */

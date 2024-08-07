@@ -13,12 +13,3 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-  
-.pageContainer {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 16px;
-    background-color: transparent; /* Make the inner layer background transparent */
-    position: relative;
-    z-index: 1; /* Ensure it stays above other elements */
-}

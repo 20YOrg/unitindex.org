@@ -3,8 +3,10 @@
     @apply fixed top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat z-[-1];
 }
 
+
 .pageContainer {
     @apply max-w-[1200px] mx-auto p-8 relative;
+    z-index: 1; /* Ensure it stays above other elements */
 }
 
 .header {
@@ -13,15 +15,20 @@
 }
 
 .title {
-    font-size: 24px;
     color: #5F7179;
+    font-size: 18px; /* Increased font size for better visibility */
+    font-weight: 400;
+    line-height: normal;
+    margin: 16px 0; /* Consistent vertical margin */
 }
 
 .subtitle {
-    font-size: 28px;
-    color: #1E344D;
-    margin-top: 1rem; /* Add space between the title and the subtitle */
-    margin-bottom: 0.5rem; /* Reduce space between the subtitle and the line */
+    font-family: 'Inter', sans-serif;
+    font-size: 20px; /* Updated font size */
+    font-weight: 400; /* Ensure it is not bold */
+    line-height: 30px; /* Updated line height */
+    color: #4A5567;
+    margin-bottom: 40px; /* Increased bottom margin for more space */
 }
 
 .separator {
