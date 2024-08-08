@@ -37,7 +37,7 @@ const DaoPage = async () => {
               <img src={`${baseUrl}/assets/${daoPageData.ticker}`} alt="Ticker" className={styles.ticker} />
             </div>
             <div className={styles.description} dangerouslySetInnerHTML={{ __html: daoPageData.description1 }}></div>
-            <a href="#" className={styles.button1}>{daoPageData.button1}</a>
+            <a href="#" className={styles.button1} target="_blank" rel="noopener noreferrer">{daoPageData.button1}</a>
           </div>
         </div>
 
@@ -48,7 +48,7 @@ const DaoPage = async () => {
           <div className={styles.textSection}>
             <h2 className={styles.sectionTitle}>{daoPageData.title2}</h2>
             <div className={styles.description} dangerouslySetInnerHTML={{ __html: daoPageData.description2 }}></div>
-            <a href="#" className={styles.button1}>{daoPageData.button2}</a>
+            <a href="#" className={styles.button1} target="_blank" rel="noopener noreferrer">{daoPageData.button2}</a>
           </div>
           <img src={`${baseUrl}/assets/${daoPageData.image1}`} alt="Image 1" className={styles.image1} />
         </div>
@@ -57,15 +57,36 @@ const DaoPage = async () => {
 
         {/* Third Section: Social Media Cards */}
         <div className={styles.socialMediaSection}>
-          <h2 className={styles.title}>{daoPageData.title3}</h2>
+          <h2 className={styles.sectionTitle}>{daoPageData.title3}</h2>
           <div className={styles.description} dangerouslySetInnerHTML={{ __html: daoPageData.description3 }}></div>
           <div className={styles.cardsContainer}>
             {socialMediaCards.length > 0 ? (
               socialMediaCards.map((card) => (
-                <a href={card.link} key={card.id} className={styles.card} style={{ backgroundImage: `url(${baseUrl}/assets/${card.background})` }}>
-                  <p className={styles.cardDescription}>{card.description}</p>
-                  <a href={card.link} className={styles.cardButton}>{card.button}</a>
-                </a>
+                <div
+                  key={card.id}
+                  className={styles.card}
+                  style={{ backgroundImage: `url(${baseUrl}/assets/${card.background})` }}
+                >
+                  <div className={styles.cardContent}>
+                  <div className={styles.cardDescription} dangerouslySetInnerHTML={{ __html: card.description }}></div>
+                  <a href={card.link} className={styles.cardButton} target="_blank" rel="noopener noreferrer">
+                    {card.button}
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        style={{ width: '16px', height: '16px' }} // Adjust size as needed
+                    >
+                        <line x1="7" y1="17" x2="17" y2="7" />
+                        <polyline points="7 7 17 7 17 17" />
+                    </svg>
+                  </a>
+                  </div>
+                </div>
               ))
             ) : (
               <p>No social media cards found.</p>
