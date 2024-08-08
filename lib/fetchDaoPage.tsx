@@ -11,6 +11,11 @@ async function getDaoPage() {
         'title1',
         'ticker',
         'description1',
+        'button1',
+        'title2',
+        'image1',
+        'description2',
+        'button2',
         // Add other fields as needed
       ],
     }));

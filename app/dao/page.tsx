@@ -27,13 +27,34 @@ const DaoPage = async () => {
         <h1 className={styles.title}>{pageData.title}</h1>
         <div className={styles.description} dangerouslySetInnerHTML={descriptionHTML}></div>
 
-        {/* New section for logo, title1, ticker, and description1 */}
+        {/* First section */}
         <div className={styles.additionalSection}>
           <img src={`${baseUrl}/assets/${daoPageData.logo}`} alt="DAO Logo" className={styles.logo} />
-          <h2 className={styles.sectionTitle}>{daoPageData.title1}</h2>
-          <div className={styles.ticker}>{daoPageData.ticker}</div>
-          <div className={styles.description} dangerouslySetInnerHTML={{ __html: daoPageData.description1 }}></div>
+          <div className={styles.textSection}>
+            <div className={styles.titleTicker}>
+              <h2 className={styles.sectionTitle}>{daoPageData.title1}</h2>
+              <img src={`${baseUrl}/assets/${daoPageData.ticker}`} alt="Ticker" className={styles.ticker} />
+            </div>
+            <div className={styles.description} dangerouslySetInnerHTML={{ __html: daoPageData.description1 }}></div>
+            <a href="#" className={styles.button1}>{daoPageData.button1}</a>
+          </div>
         </div>
+
+        {/* Separator line */}
+        <div className={styles.separatorLine}></div>
+
+        {/* Second section */}
+        <div className={styles.additionalSection}>
+          <div className={styles.textSection}>
+            <h2 className={styles.sectionTitle}>{daoPageData.title2}</h2>
+            <div className={styles.description} dangerouslySetInnerHTML={{ __html: daoPageData.description2 }}></div>
+            <a href="#" className={styles.button1}>{daoPageData.button2}</a>
+          </div>
+          <img src={`${baseUrl}/assets/${daoPageData.image1}`} alt="Governance Image" className={styles.image1} />
+        </div>
+
+        {/* Separator line */}
+        <div className={styles.separatorLine}></div>
       </div>
     </>
   );

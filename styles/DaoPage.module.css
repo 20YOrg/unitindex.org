@@ -15,7 +15,7 @@
   .pageContainer {
     @apply max-w-[1200px] mx-auto p-8 relative;
     z-index: 1; /* Ensure it stays above other elements */
-}
+  }
   
   .title {
     color: #5F7179;
@@ -23,21 +23,109 @@
     font-weight: 400;
     line-height: normal;
     margin: 16px 0; /* Consistent vertical margin */
-}
+  }
   
-.description {
+  .description {
     font-family: 'Inter', sans-serif;
     font-size: 20px; /* Updated font size */
     font-weight: 400; /* Ensure it is not bold */
     line-height: 30px; /* Updated line height */
     color: #4A5567;
     margin-bottom: 40px; /* Increased bottom margin for more space */
-}
-
-.description strong {
+    max-width: 625px;
+  }
+  
+  .description strong {
     background: linear-gradient(90deg, #4679E2 0%, #F08852 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 400; /* Ensure it is not bold */
-}
+  }
+  
+  /* New styles for additional sections */
+  .additionalSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    justify-content: center;
+    align-items: center;
+    gap: 32px; /* Space between columns */
+    margin-top: 40px; /* Space above the section */
+  }
+  
+  .logo {
+    width: 100%; /* Full width */
+    max-width: 300px; /* Adjust as needed */
+    height: auto;
+    justify-self: center; /* Center the logo/image */
+  }
+  
+  .image1 {
+    width: 100%; /* Full width */
+    max-width: 600px; /* Adjust as needed */
+    height: auto;
+    justify-self: center; /* Center the logo/image */
+  }
+  
+  .textSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start */
+  }
+  
+  .titleTicker {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between title and ticker */
+  }
+  
+  .sectionTitle {
+    font-size: 24px;
+    color: #101729;
+    font-family: 'Armata', sans-serif;
+    margin: 0;
+  }
+  
+  .ticker {
+    width: 50px; /* Adjust as needed */
+    height: auto;
+  }
+  
+  .button1 {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #1E344D;
+    background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    margin-top: 16px; /* Space above the button */
+    width: auto; /* Adjust width to fit content */
+    display: inline-block; /* Ensure the button size adjusts to its content */
+  }
+  
+  .button1:hover {
+    background: linear-gradient(90deg, #4679E2 0%, #F08852 100%);
+  }
+  
+  /* Separator line styles */
+  .separatorLine {
+    width: 100%;
+    height: 1px;
+    background-color: #6B6767;
+    margin-top: 40px; /* Adjust the top margin to create space above the separator */
+  }
+  
+  /* Media query for small screens */
+  @media (max-width: 768px) {
+    .additionalSection {
+      grid-template-columns: 1fr; /* Single column */
+      text-align: center; /* Center-align text */
+    }
+  
+    .textSection {
+      align-items: center; /* Center-align items */
+    }
+  }
