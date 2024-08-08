@@ -16,6 +16,8 @@ async function getDaoPage() {
         'image1',
         'description2',
         'button2',
+        'title3',
+        'description3'
         // Add other fields as needed
       ],
     }));

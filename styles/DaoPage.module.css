@@ -10,22 +10,22 @@
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-  }
-  
-  .pageContainer {
+}
+
+.pageContainer {
     @apply max-w-[1200px] mx-auto p-8 relative;
     z-index: 1; /* Ensure it stays above other elements */
-  }
-  
-  .title {
+}
+
+.title {
     color: #5F7179;
     font-size: 18px; /* Increased font size for better visibility */
     font-weight: 400;
     line-height: normal;
     margin: 16px 0; /* Consistent vertical margin */
-  }
-  
-  .description {
+}
+
+.description {
     font-family: 'Inter', sans-serif;
     font-size: 20px; /* Updated font size */
     font-weight: 400; /* Ensure it is not bold */
@@ -33,65 +33,65 @@
     color: #4A5567;
     margin-bottom: 40px; /* Increased bottom margin for more space */
     max-width: 625px;
-  }
-  
-  .description strong {
+}
+
+.description strong {
     background: linear-gradient(90deg, #4679E2 0%, #F08852 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 400; /* Ensure it is not bold */
-  }
-  
-  /* New styles for additional sections */
-  .additionalSection {
+}
+
+/* New styles for additional sections */
+.additionalSection {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Two equal columns */
     justify-content: center;
     align-items: center;
     gap: 32px; /* Space between columns */
     margin-top: 40px; /* Space above the section */
-  }
-  
-  .logo {
+}
+
+.logo {
     width: 100%; /* Full width */
     max-width: 300px; /* Adjust as needed */
     height: auto;
     justify-self: center; /* Center the logo/image */
-  }
-  
-  .image1 {
+}
+
+.image1 {
     width: 100%; /* Full width */
     max-width: 600px; /* Adjust as needed */
     height: auto;
     justify-self: center; /* Center the logo/image */
-  }
-  
-  .textSection {
+}
+
+.textSection {
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Align items to the start */
-  }
-  
-  .titleTicker {
+}
+
+.titleTicker {
     display: flex;
     align-items: center;
     gap: 8px; /* Space between title and ticker */
-  }
-  
-  .sectionTitle {
+}
+
+.sectionTitle {
     font-size: 24px;
     color: #101729;
     font-family: 'Armata', sans-serif;
     margin: 0;
-  }
-  
-  .ticker {
+}
+
+.ticker {
     width: 50px; /* Adjust as needed */
     height: auto;
-  }
-  
-  .button1 {
+}
+
+.button1 {
     padding: 10px 20px;
     font-size: 16px;
     color: #1E344D;
@@ -104,28 +104,98 @@
     margin-top: 16px; /* Space above the button */
     width: auto; /* Adjust width to fit content */
     display: inline-block; /* Ensure the button size adjusts to its content */
-  }
-  
-  .button1:hover {
+}
+
+.button1:hover {
     background: linear-gradient(90deg, #4679E2 0%, #F08852 100%);
-  }
-  
-  /* Separator line styles */
-  .separatorLine {
+}
+
+/* Separator line styles */
+.separatorLine {
     width: 100%;
     height: 1px;
     background-color: #6B6767;
     margin-top: 40px; /* Adjust the top margin to create space above the separator */
-  }
-  
-  /* Media query for small screens */
-  @media (max-width: 768px) {
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
     .additionalSection {
-      grid-template-columns: 1fr; /* Single column */
-      text-align: center; /* Center-align text */
+        grid-template-columns: 1fr; /* Single column */
+        text-align: center; /* Center-align text */
     }
-  
+
     .textSection {
-      align-items: center; /* Center-align items */
+        align-items: center; /* Center-align items */
     }
-  }
+}
+
+.socialMediaSection {
+    text-align: left;
+    margin-top: 40px;
+}
+
+.cardsContainer {
+    display: flex;
+    justify-content: space-between; /* Space between cards */
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex: 1; /* Ensure cards take up equal space */
+    max-width: 30%; /* Ensure cards don't get too large */
+    min-width: 200px; /* Ensure cards don't get too small */
+    height: 300px; /* Ensure all cards have the same height */
+    overflow: hidden; /* Hide overflow content */
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    border-radius: 16px;
+    filter: blur(8px); /* Apply blur to the background image */
+    transition: filter 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover::before {
+    filter: blur(4px); /* Reduce blur on hover */
+}
+
+.cardIcon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+}
+
+.cardTitle {
+    font-size: 18px;
+    color: #5F7179;
+    margin-bottom: 8px;
+}
+
+.cardDescription {
+    font-size: 14px;
+    color: #4A5567;
+}
