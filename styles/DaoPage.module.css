@@ -79,15 +79,15 @@
 }
 
 .sectionTitle {
-    font-size: 24px;
-    color: #101729;
-    font-family: 'Armata', sans-serif;
-    margin: 0;
+    font-size: 18px;
+    color: #5F7179;
+    margin-bottom: 16px;
 }
 
 .ticker {
     width: 50px; /* Adjust as needed */
     height: auto;
+    margin-bottom: 16px;
 }
 
 .button1 {
@@ -203,4 +203,43 @@
 .card:hover {
     transform: translateY(-5px);
     box-shadow: none; /* Remove box shadow on hover */
+}
+
+.downloadSection {
+    margin-top: 40px;
+    text-align: left; /* Align content to the left */
+}
+
+.zipContainer {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+    gap: 16px; /* Space between icon and button */
+}
+
+.zipIcon {
+    width: 100px;
+    height: auto;
+}
+
+.button2 {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 4px 8px; /* Adjust padding */
+    border-radius: 8px;
+    text-decoration: none;
+    color: #000;
+    transition: background-color 0.3s ease;
+    display: inline-flex; /* Align items in a row */
+    align-items: center; /* Vertically center items */
+    gap: 4px; /* Space between the text and the icon */
+    position: static; /* Remove absolute positioning */
+}
+
+.button2:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.arrowIcon {
+    width: 16px; /* Adjust the size of the arrow */
+    height: 16px; /* Adjust the size of the arrow */
 }

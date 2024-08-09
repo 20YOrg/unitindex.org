@@ -17,11 +17,18 @@ async function getDaoPage() {
         'description2',
         'button2',
         'title3',
-        'description3'
+        'description3',
+        'title4',
+        'zip_icon',
+        'zip_file',
+        'button3'
         // Add other fields as needed
       ],
     }));
     return daoPage;
+
+    console.log('Button 3 text:', daoPageData.button3);
+
   } catch (error) {
     console.error('Error fetching DAO page data:', error);
     notFound();
