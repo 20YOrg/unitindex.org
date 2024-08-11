@@ -1,8 +1,9 @@
+/* Tailwind base styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +13,7 @@
 /* General Styles */
 html, body {
   height: 100%;
+  width: 100%; /* Ensure full width */
   margin: 0;
   padding: 0;
   background-size: cover;
@@ -19,9 +21,10 @@ html, body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-color: transparent;
-  font-family: 'Inter', sans-serif; /* Apply Inter font globally */
+  font-family: 'Inter', sans-serif;
 }
 
+/* Fullscreen background */
 .fullscreenBackground {
   position: fixed;
   top: 0;
@@ -30,16 +33,17 @@ html, body {
   height: 100%;
   background-size: cover;
   background-position: center;
-  z-index: -1; /* Ensure it is behind other content */
+  z-index: -1;
 }
 
+/* Full-width page container */
 .pageContainer {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 8px;
+  width: 100%; /* Full width */
+  max-width: none; /* Remove max-width constraints */
+  margin: 0;
+  padding: 0;
   position: relative;
-  font-family: 'Inter', sans-serif; /* Apply Inter font to page container */
-  min-height: 100vh; /* Ensure it covers the full viewport height */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -58,43 +62,36 @@ html, body {
 body {
   @apply font-sans;
   min-height: 100vh;
-  font-family: 'Inter', sans-serif; /* Ensure Inter font is applied */
+  padding-top: 80px;
 }
 
 .navbar {
+  width: 100%; /* Ensure the navbar spans full width */
   background: transparent;
   border-bottom: 0;
   box-shadow: none;
-  font-family: 'Inter', sans-serif; /* Apply Inter font to navbar */
 }
 
 .nav-link {
   @apply text-white mr-4 no-underline;
-  font-family: 'Inter', sans-serif; /* Apply Inter font to nav links */
 }
 
 .separatorLine {
-  width: 100%;
+  width: 100%; /* Full width */
   height: 1px;
   background-color: #6B6767;
-  margin-top: 40px; /* Adjust the top margin to create space above the separator */
+  margin-top: 40px;
 }
 
 .footer {
+  width: 100%; /* Ensure footer spans full width */
   @apply text-white p-4;
   background: transparent;
   z-index: 1200;
   position: relative;
-  font-family: 'Inter', sans-serif; /* Apply Inter font to footer */
 }
 
-/* Define the gradient color variable */
-:root {
-  --chart-color: linear-gradient(90deg, #4679E2 0%, #F08852 100%);
-}
-
-\\\
-/* Temporary debugging styles */
+/* Remove debug outlines */
 * {
-  outline: 1px solid red; /* Add a red border to all elements for debugging */
+  outline: none;
 }

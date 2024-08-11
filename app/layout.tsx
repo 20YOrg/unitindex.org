@@ -22,16 +22,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div
-          className="fullscreenBackground"
-          style={{
-            backgroundImage: `url(${backgroundUrl})`,
-          }}
-        ></div>
-        <Navbar /> {/* Add Navbar */}
-        <main className="relative z-10 pt-[80px] p-4 bg-transparent">{children}</main>
-        <div className="separatorLine"></div> {/* Add the separator line */}
-        <Footer /> {/* Add Footer */}
+        {/* Wrap the entire content including the navbar in a relative container */}
+        <div className="pageContainer">
+          <div
+            className="fullscreenBackground"
+            style={{
+              backgroundImage: `url(${backgroundUrl})`,
+            }}
+          ></div>
+          <Navbar /> {/* Include Navbar inside the container */}
+          <main className="content">{children}</main>
+          <Footer /> {/* Include Footer if needed */}
+        </div>
       </body>
     </html>
   );

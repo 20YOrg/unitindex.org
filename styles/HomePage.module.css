@@ -1,12 +1,12 @@
 /* /styles/HomePage.module.css */
 
-.pageWrapper {
+.pageContainer {
     position: relative;
     width: 100%;
     min-height: 100vh;
-    overflow: hidden;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 .fullscreenBackground {
@@ -14,11 +14,26 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; /* Cover the full viewport height */
+    height: 100%; /* Cover the full height of the container */
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Ensure the background stays fixed as you scroll */
     z-index: -1; /* Ensure it is behind other content */
+}
+
+.content {
+    position: relative;
+    z-index: 1; /* Ensure content appears above the background */
+    padding-top: 80px; /* Ensure space below the navbar */
+    width: 100%; /* Ensure content spans full width */
+}
+
+.pageWrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 .handsContainer {
@@ -240,6 +255,7 @@
 .totalUnits p {
     font-size: 40px; 
     font-weight: 500;
+    margin-top: 125px;
     color: #101729;
     position: relative;
     z-index: 2; /* Ensure it's above the separator line */
@@ -306,16 +322,51 @@
 
 /* Title1 Section */
 .title1Section {
-    margin-top: 50px; /* Adjust as needed */
+    margin-top: 20px;
     padding: 20px;
     text-align: center;
-    background-size: cover; /* Ensure the background covers the section */
-    background-position: center; /* Center the background */
-    background-repeat: no-repeat; /* Prevent the background from repeating */
+    z-index: 2; /* Ensure it stays above the background */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .title1Section h2 {
-    font-size: 32px; /* Adjust the font size as needed */
+    font-size: 26px;
     font-weight: 500;
     color: #101729;
+    margin-bottom: 20px;
+}
+
+/* Parent container that holds the background */
+.backgroundContainer {
+    margin-top: 0; /* Remove any margin from the top */
+    position: relative;
+    width: 100%;
+    height: auto; /* Let the height adjust based on the content */
+    background-size: cover;
+    background-position: center center; /* Center the background image */
+    background-repeat: no-repeat;
+    z-index: 0; /* Background stays behind the content */
+    padding: 50px 0; /* Adjust padding as needed */
+}
+
+.logosSection {
+    position: relative;
+    z-index: 1; /* Ensure logos appear above the background */
+    display: flex;
+    flex-wrap: wrap; /* Wrap logos to the next line */
+    justify-content: center; /* Center the logos */
+    gap: 20px; /* Space between logos */
+    padding: 20px;
+    width: 100%; /* Ensure logos span full width */
+}
+
+.logo {
+    max-width: 150px; /* Adjust the size as needed */
+    max-height: 100px; /* Adjust the size as needed */
+    object-fit: contain; /* Ensure the logo fits within the box */
 }
