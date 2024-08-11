@@ -18,6 +18,11 @@ async function getHomePage() {
         'total_market_cap',
         'title1',
         'support_background',
+        'title2',
+        'description2',
+        'tinu_picture',
+        'button2',
+        'link2'
       ],
     }));
 

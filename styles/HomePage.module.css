@@ -370,3 +370,100 @@
     max-height: 100px; /* Adjust the size as needed */
     object-fit: contain; /* Ensure the logo fits within the box */
 }
+
+.newSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding: 20px;
+    text-align: left;
+    flex-wrap: wrap;
+}
+
+.tinuPicture {
+    max-width: 35%; /* Control the width of the image */
+    height: auto;
+    flex-shrink: 0;
+    align-self: center;
+    margin: 0 auto; /* Horizontally center the image */
+    display: block;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 768px) {
+    .newSection {
+        flex-direction: column; /* Stack the sections vertically */
+        text-align: center; /* Center text content */
+    }
+
+    .tinuPicture {
+        max-width: 80%; /* Make the image take up more width on smaller screens */
+        margin-bottom: 20px; /* Add space below the image */
+    }
+
+    .content {
+        max-width: 100%; /* Make the content take up full width */
+        margin-left: 0; /* Remove left margin */
+    }
+}
+
+.content {
+    max-width: 50%; /* Ensure the content doesn’t take up too much space */
+    margin-left: 20px; /* Space between image and text content */
+}
+
+.title2 {
+    font-size: 26px; /* Adjust font size */
+    font-weight: 500;
+    color: #101729;
+    margin-bottom: 20px; /* Space below the title */
+}
+
+.description2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4A5567;
+    margin: 20px 0;
+    max-width: 600px; /* Limit the width of the description */
+    width: 100%; /* Ensure it takes up the full width up to 600px */
+}
+
+.description2 strong {
+    background: linear-gradient(90deg, #4679E2 0%, #F08852 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400; /* Ensure it is not bold */
+}
+
+.button2 {
+    font-size: 1rem;
+    padding: 0.75rem 2.25rem;
+    color: #1E344D;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 35px;
+    background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
+    display: inline-flex; /* Use flexbox for alignment */
+    align-items: center;
+    margin-top: 20px; /* Adjust spacing */
+}
+
+.button2::after {
+    display: inline-block;
+    width: 16px; /* Width for the SVG */
+    height: 16px; /* Height for the SVG */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.button2:hover::after {
+    transform: translateX(5px); /* Move arrow to the right on hover */
+}
+
+.button2:hover {
+    background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
+    opacity: 0.9;
+}

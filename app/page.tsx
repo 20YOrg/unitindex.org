@@ -12,6 +12,7 @@ export default async function HomePage() {
   const leftHandUrl = `${directusUrl}/assets/${homePage.left_hand}`;
   const rightHandUrl = `${directusUrl}/assets/${homePage.right_hand}`;
   const supportBackgroundUrl = `${directusUrl}/assets/${homePage.support_background}`;
+  const tinuPictureUrl = `${directusUrl}/assets/${homePage.tinu_picture}`; // URL for the tinu_picture
 
   // Split the title into two parts: first 3 words and the rest
   const titleWords = homePage.title.split(' ');
@@ -20,6 +21,7 @@ export default async function HomePage() {
 
   // Prepare description HTML
   const descriptionHTML = { __html: homePage.description };
+  const description2HTML = { __html: homePage.description2 }; // Description 2
 
   return (
     <div className={styles.pageWrapper}>
@@ -84,6 +86,24 @@ export default async function HomePage() {
               className={styles.logo}
             />
           ))}
+        </div>
+      </div>
+      {/* New Section for Title2, Description2, Tinu Picture, and Button2 */}
+      <div className={styles.newSection}>
+        <img 
+          src={tinuPictureUrl} 
+          alt="Tinu Picture" 
+          className={styles.tinuPicture} 
+        />
+        <div className={styles.content}>
+          <h2 className={styles.title2}>{homePage.title2}</h2>
+          <div 
+            className={styles.description2} 
+            dangerouslySetInnerHTML={description2HTML}
+          ></div>
+          <a href={homePage.link2} className={styles.button2}>
+            {homePage.button2}
+          </a>
         </div>
       </div>
     </div>
