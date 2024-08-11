@@ -13,6 +13,8 @@ export default async function HomePage() {
   const rightHandUrl = `${directusUrl}/assets/${homePage.right_hand}`;
   const supportBackgroundUrl = `${directusUrl}/assets/${homePage.support_background}`;
   const tinuPictureUrl = `${directusUrl}/assets/${homePage.tinu_picture}`; // URL for the tinu_picture
+  const coinsImageUrl = `${directusUrl}/assets/${homePage.coins_image}`; // URL for the coins_image
+  const coinsBackgroundUrl = `${directusUrl}/assets/${homePage.coins_background}`; // URL for the coins_background
 
   // Split the title into two parts: first 3 words and the rest
   const titleWords = homePage.title.split(' ');
@@ -22,6 +24,7 @@ export default async function HomePage() {
   // Prepare description HTML
   const descriptionHTML = { __html: homePage.description };
   const description2HTML = { __html: homePage.description2 }; // Description 2
+  const description3HTML = { __html: homePage.description3 }; // Description 3
 
   return (
     <div className={styles.pageWrapper}>
@@ -88,7 +91,7 @@ export default async function HomePage() {
           ))}
         </div>
       </div>
-      {/* New Section for Title2, Description2, Tinu Picture, and Button2 */}
+      {/* New Section for Title2, Description2, and Tinu Picture */}
       <div className={styles.newSection}>
         <img 
           src={tinuPictureUrl} 
@@ -105,6 +108,27 @@ export default async function HomePage() {
             {homePage.button2}
           </a>
         </div>
+      </div>
+      {/* New Section for Title3, Description3, and Coins Image */}
+      <div 
+        className={styles.coinsSection}
+        style={{ backgroundImage: `url(${coinsBackgroundUrl})` }}
+      >
+        <div className={styles.content}>
+          <h2 className={styles.title3}>{homePage.title3}</h2>
+          <div 
+            className={styles.description3} 
+            dangerouslySetInnerHTML={description3HTML}
+          ></div>
+          <a href={homePage.link3} className={styles.button3}>
+            {homePage.button3}
+          </a>
+        </div>
+        <img 
+          src={coinsImageUrl} 
+          alt="Coins Image" 
+          className={styles.coinsImage} 
+        />
       </div>
     </div>
   );

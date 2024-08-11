@@ -411,6 +411,7 @@
 .content {
     max-width: 50%; /* Ensure the content doesn’t take up too much space */
     margin-left: 20px; /* Space between image and text content */
+    margin-top: -100px;
 }
 
 .title2 {
@@ -420,7 +421,7 @@
     margin-bottom: 20px; /* Space below the title */
 }
 
-.description2 {
+.description2, .description3{
     font-family: 'Inter', sans-serif;
     font-size: 18px;
     line-height: 1.6;
@@ -430,7 +431,7 @@
     width: 100%; /* Ensure it takes up the full width up to 600px */
 }
 
-.description2 strong {
+.description2 strong, .description3 strong{
     background: linear-gradient(90deg, #4679E2 0%, #F08852 100%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -467,3 +468,90 @@
     background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
     opacity: 0.9;
 }
+
+.coinsSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between the text and image */
+    margin-top: 50px; /* Adjust as needed */
+    padding: 40px; /* Add padding inside the box */
+    text-align: left;
+    flex-wrap: wrap; /* Wrap content on smaller screens */
+    background-color: #f5f5f5; /* Light background color */
+    background-size: cover;
+    background-position: center;
+    border-radius: 50px; /* Rounded corners */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a more defined shadow */
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-height: 500px; /* Set a minimum height for the section */
+  }
+  
+  .coinsImage {
+    max-width: 45%; /* Control the width of the image */
+    height: auto;
+    flex-shrink: 0; /* Prevent the image from shrinking */
+  }
+  
+  .content {
+    max-width: 45%; /* Ensure the content doesn’t take up too much space */
+    margin-right: 20px; /* Space between text content and image */
+    margin-top: -100px;
+  }
+  
+  .title3 {
+    font-size: 26px; /* Adjust font size */
+    font-weight: 500;
+    color: #101729;
+    margin-bottom: 20px; /* Space below the title */
+  }
+  
+  .description3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4A5567;
+    margin: 20px 0;
+    max-width: 600px; /* Limit the width of the description */
+  }
+  
+  .button3 {
+    font-size: 1rem;
+    padding: 0.75rem 2.25rem;
+    color: #1E344D;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 35px;
+    background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
+    display: inline-flex; /* Use flexbox for alignment */
+    align-items: center;
+    margin-top: 20px; /* Adjust spacing */
+  }
+  
+  .button3:hover {
+    background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
+    opacity: 0.9;
+  }
+  
+  /* Mobile responsiveness: Stack the content and image vertically */
+  @media (max-width: 768px) {
+    .coinsSection {
+      flex-direction: column;
+      align-items: center;
+      padding: 80px 40px 40px; /* Increase top padding for mobile */
+    }
+  
+    .content {
+      max-width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+      text-align: center;
+    }
+  
+    .coinsImage {
+      max-width: 100%;
+      margin-top: 20px; /* Add spacing between content and image */
+    }
+  }

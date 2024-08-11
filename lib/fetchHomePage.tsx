@@ -22,7 +22,13 @@ async function getHomePage() {
         'description2',
         'tinu_picture',
         'button2',
-        'link2'
+        'link2',
+        'title3',
+        'description3',
+        'button3',
+        'link3',
+        'coins_image',
+        'coins_background'
       ],
     }));
 
