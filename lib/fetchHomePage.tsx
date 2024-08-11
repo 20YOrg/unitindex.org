@@ -15,7 +15,9 @@ async function getHomePage() {
         'right_hand',
         'hero_background',
         'total_units',
-        'total_market_cap'
+        'total_market_cap',
+        'title1',
+        'support_background'
         // Add other fields as needed
       ],
     }));

@@ -3,8 +3,10 @@
 .pageWrapper {
     position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 .fullscreenBackground {
@@ -12,23 +14,24 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh; /* Cover the full viewport height */
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; /* Ensure the background stays fixed as you scroll */
     z-index: -1; /* Ensure it is behind other content */
 }
 
 .handsContainer {
-    position: absolute; /* Position hands independently of content */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; /* Let hands span the full height */
+    height: 100%; 
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1;
-    overflow: hidden; /* Ensure no overflow */
+    overflow: hidden;
 }
 
 .leftHand, .rightHand {
@@ -218,35 +221,101 @@
     opacity: 0.9;
 }
 
-.separatorLine {
-    width: 100%;
-    height: 2px;
-    background-color: #dcdcdc; /* Light gray color */
-    margin: 40px 0; /* Adjust the top and bottom margin */
-}
-
 .statsSection {
-    background-color: red; /* Just for debugging, to see if the section is rendering */
+    position: relative; 
     display: flex;
-    justify-content: space-around;
-    margin-top: 50px;
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 100px;
     padding: 20px;
-    z-index: 10;
+    z-index: 3; 
 }
 
 .statItem {
+    margin-bottom: 10px; 
     text-align: center;
 }
 
-.statItem h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 10px;
+/* Styling for the Total Units text */
+.totalUnits p {
+    font-size: 40px; 
+    font-weight: 500;
     color: #101729;
+    position: relative;
+    z-index: 2; /* Ensure it's above the separator line */
 }
 
-.statItem p {
-    font-size: 36px;
-    font-weight: 700;
-    color: #4679E2;
+/* Styling for the Total Market Cap text */
+.totalMarketCap p {
+    font-size: 18px; 
+    font-weight: 500;
+    color: #101729;
+    margin-top: 0px;
+}
+
+.separatorLine {
+    position: absolute;
+    top: 820px; /* Position it directly below the Total Units text */
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: transparent;
+    z-index: 1; 
+}
+
+/* Pseudo-elements for the line on the left and right sides */
+.separatorLine::before,
+.separatorLine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 30%; /* Length of the visible part of the line */
+    height: 1px;
+    background-color: #C6C6C6; /* Light gray color for the line */
+}
+
+.separatorLine::before {
+    left: 0; /* Line on the left side */
+}
+
+.separatorLine::after {
+    right: 0; /* Line on the right side */
+}
+
+/* Medium screens (e.g., tablets) */
+@media (max-width: 1200px) {
+    .separatorLine::before,
+    .separatorLine::after {
+        width: 20%; /* Adjust width for medium screens */
+        background-color: #C6C6C6; /* Slightly darker color for medium screens */
+    }
+}
+
+/* Small screens (e.g., mobile devices) */
+@media (max-width: 768px) {
+    .separatorLine {
+        top: 795px; /* Adjust position for small screens */
+    }
+    
+    .separatorLine::before,
+    .separatorLine::after {
+        width: 10%; /* Adjust width for small screens */
+        background-color: #C6C6C6; /* Darker color for small screens */
+    }
+}
+
+/* Title1 Section */
+.title1Section {
+    margin-top: 50px; /* Adjust as needed */
+    padding: 20px;
+    text-align: center;
+    background-size: cover; /* Ensure the background covers the section */
+    background-position: center; /* Center the background */
+    background-repeat: no-repeat; /* Prevent the background from repeating */
+}
+
+.title1Section h2 {
+    font-size: 32px; /* Adjust the font size as needed */
+    font-weight: 500;
+    color: #101729;
 }
