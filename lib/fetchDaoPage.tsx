@@ -26,9 +26,7 @@ async function getDaoPage() {
       ],
     }));
     return daoPage;
-
-    console.log('Button 3 text:', daoPageData.button3);
-
+    
   } catch (error) {
     console.error('Error fetching DAO page data:', error);
     notFound();

@@ -15,6 +15,7 @@ export default async function HomePage() {
   const tinuPictureUrl = `${directusUrl}/assets/${homePage.tinu_picture}`; // URL for the tinu_picture
   const coinsImageUrl = `${directusUrl}/assets/${homePage.coins_image}`; // URL for the coins_image
   const coinsBackgroundUrl = `${directusUrl}/assets/${homePage.coins_background}`; // URL for the coins_background
+  const daoPictureUrl = `${directusUrl}/assets/${homePage.dao_picture}`;
 
   // Split the title into two parts: first 3 words and the rest
   const titleWords = homePage.title.split(' ');
@@ -25,6 +26,9 @@ export default async function HomePage() {
   const descriptionHTML = { __html: homePage.description };
   const description2HTML = { __html: homePage.description2 }; // Description 2
   const description3HTML = { __html: homePage.description3 }; // Description 3
+  const daoDescriptionHTML = { __html: homePage.dao_description };
+
+  console.log(homePage.dao_description); // Check if this is a valid HTML string
 
   return (
     <div className={styles.pageWrapper}>
@@ -128,6 +132,24 @@ export default async function HomePage() {
           src={coinsImageUrl} 
           alt="Coins Image" 
           className={styles.coinsImage} 
+        />
+      </div>
+      {/* DAO Section */}
+      <div className={styles.daoSection}>
+        <div className={styles.daoContent}>
+          <h2 className={styles.daoTitle}>{homePage.dao_title}</h2>
+          <div
+            className={styles.daoDescription}
+            dangerouslySetInnerHTML={daoDescriptionHTML} // Correct usage
+          ></div>
+          <a href={homePage.dao_link} className={styles.daoButton}>
+            {homePage.dao_button}
+          </a>
+        </div>
+        <img
+          src={daoPictureUrl}
+          alt="DAO Picture"
+          className={styles.daoPicture}
         />
       </div>
     </div>

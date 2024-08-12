@@ -473,7 +473,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between; /* Space between the text and image */
-    margin-top: 50px; /* Adjust as needed */
+    margin-top: 100px; /* Adjust as needed */
     padding: 40px; /* Add padding inside the box */
     text-align: left;
     flex-wrap: wrap; /* Wrap content on smaller screens */
@@ -485,7 +485,7 @@
     margin-bottom: 20px;
     margin-left: 20px;
     margin-right: 20px;
-    min-height: 500px; /* Set a minimum height for the section */
+    min-height: 400px; /* Set a minimum height for the section */
   }
   
   .coinsImage {
@@ -555,3 +555,85 @@
       margin-top: 20px; /* Add spacing between content and image */
     }
   }
+
+/* DAO Section */
+.daoSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between the text and image */
+    margin-top: 100px;
+    padding: 40px;
+    text-align: left;
+    flex-wrap: wrap; /* Wrap content on smaller screens */
+    flex-direction: row-reverse; /* Reverse the order of content for larger screens */
+}
+
+.daoPicture {
+    max-width: 45%;
+    height: auto;
+    flex-shrink: 0; /* Prevent the image from shrinking */
+    border-radius: 20px; /* Rounded corners for the image */
+}
+
+.daoContent {
+    max-width: 45%;
+    margin-left: 20px; /* Adjust margin to the left since picture is on the left */
+}
+
+.daoTitle {
+    font-size: 26px;
+    font-weight: 500;
+    color: #101729;
+    margin-bottom: 20px;
+}
+
+.daoDescription {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4A5567;
+    margin: 20px 0;
+    max-width: 600px;
+}
+
+.daoButton {
+    font-size: 1rem;
+    padding: 0.75rem 2.25rem;
+    color: #1E344D;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 35px;
+    background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
+    display: inline-flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.daoButton:hover {
+    background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
+    opacity: 0.9;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .daoSection {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .daoContent {
+        max-width: 100%;
+        margin-left: 0; /* Remove left margin on mobile */
+        text-align: center;
+        order: 2; /* Ensure content appears after the image */
+    }
+
+    .daoPicture {
+        max-width: 100%;
+        margin-top: 20px;
+        order: 1; /* Ensure picture appears first on mobile */
+        margin-bottom: 20px;
+    }
+}

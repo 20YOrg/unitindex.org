@@ -28,7 +28,12 @@ async function getHomePage() {
         'button3',
         'link3',
         'coins_image',
-        'coins_background'
+        'coins_background',
+        'dao_title',
+        'dao_description',
+        'dao_button',
+        'dao_link',
+        'dao_picture'
       ],
     }));
 
