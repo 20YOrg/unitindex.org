@@ -33,7 +33,12 @@ async function getHomePage() {
         'dao_description',
         'dao_button',
         'dao_link',
-        'dao_picture'
+        'dao_picture',
+        'farm_title',
+        'farm_description',
+        'farm_background',
+        'blog_title',
+        'blog_description'
       ],
     }));
 

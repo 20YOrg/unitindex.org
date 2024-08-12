@@ -1,8 +1,10 @@
 import getHomePage from '../lib/fetchHomePage';
 import styles from '../styles/HomePage.module.css'; // Import your CSS module for styling
+import fetchSocialMediaCards, { SocialMediaCard } from '@/lib/fetchSocialMediaCards';
 
 export default async function HomePage() {
   const { homePage, supportLogos } = await getHomePage();
+  const socialMediaCards: SocialMediaCard[] = await fetchSocialMediaCards();
 
   // Access the Directus API URL from the environment variable
   const directusUrl = process.env.NEXT_PUBLIC_DIRECTUS_API_URL;
@@ -16,6 +18,7 @@ export default async function HomePage() {
   const coinsImageUrl = `${directusUrl}/assets/${homePage.coins_image}`; // URL for the coins_image
   const coinsBackgroundUrl = `${directusUrl}/assets/${homePage.coins_background}`; // URL for the coins_background
   const daoPictureUrl = `${directusUrl}/assets/${homePage.dao_picture}`;
+  const farmBackgroundUrl = `${directusUrl}/assets/${homePage.farm_background}`;
 
   // Split the title into two parts: first 3 words and the rest
   const titleWords = homePage.title.split(' ');
@@ -27,6 +30,7 @@ export default async function HomePage() {
   const description2HTML = { __html: homePage.description2 }; // Description 2
   const description3HTML = { __html: homePage.description3 }; // Description 3
   const daoDescriptionHTML = { __html: homePage.dao_description };
+  const farmDescriptionHTML = { __html: homePage.farm_description };
 
   console.log(homePage.dao_description); // Check if this is a valid HTML string
 
@@ -151,6 +155,57 @@ export default async function HomePage() {
           alt="DAO Picture"
           className={styles.daoPicture}
         />
+      </div>
+      {/* Farm Section */}
+      <div 
+        className={styles.farmSection}
+        style={{ backgroundImage: `url(${farmBackgroundUrl})` }}
+      >
+        <div className={styles.farmContent}>
+          <div className={styles.farmTextWrapper}>
+            <h2 className={styles.farmTitle}>{homePage.farm_title}</h2>
+            <div
+              className={styles.farmDescription}
+              dangerouslySetInnerHTML={farmDescriptionHTML}
+            ></div>
+          </div>
+        </div>  
+      </div>
+      {/* Social Media Cards Section */}
+      <div className={styles.socialMediaSection}>
+        <div className={styles.cardsContainer}>
+          {socialMediaCards.length > 0 ? (
+            socialMediaCards.map((card) => (
+              <div
+                key={card.id}
+                className={styles.card}
+                style={{ backgroundImage: `url(${directusUrl}/assets/${card.background})` }}
+              >
+                <div className={styles.cardContent}>
+                  <div className={styles.cardDescription} dangerouslySetInnerHTML={{ __html: card.description }}></div>
+                  <a href={card.link} className={styles.cardButton} target="_blank" rel="noopener noreferrer">
+                    {card.button}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      style={{ width: '16px', height: '16px' }}
+                    >
+                      <line x1="7" y1="17" x2="17" y2="7" />
+                      <polyline points="7 7 17 7 17 17" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>No social media cards found.</p>
+          )}
+        </div>
       </div>
     </div>
   );

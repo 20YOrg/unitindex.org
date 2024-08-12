@@ -193,7 +193,7 @@
 
 .description {
     font-family: 'Inter', sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.6;
     color: #4A5567;
     margin: 20px 0;
@@ -423,7 +423,7 @@
 
 .description2, .description3{
     font-family: 'Inter', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.6;
     color: #4A5567;
     margin: 20px 0;
@@ -509,7 +509,7 @@
   
   .description3 {
     font-family: 'Inter', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.6;
     color: #4A5567;
     margin: 20px 0;
@@ -566,6 +566,8 @@
     text-align: left;
     flex-wrap: wrap; /* Wrap content on smaller screens */
     flex-direction: row-reverse; /* Reverse the order of content for larger screens */
+    position: relative; /* Ensure that the section and its content are positioned correctly */
+    z-index: 1; /* Set a base z-index */
 }
 
 .daoPicture {
@@ -573,11 +575,14 @@
     height: auto;
     flex-shrink: 0; /* Prevent the image from shrinking */
     border-radius: 20px; /* Rounded corners for the image */
+    z-index: 2; /* Ensure the image is behind the text on mobile */
 }
 
 .daoContent {
     max-width: 45%;
     margin-left: 20px; /* Adjust margin to the left since picture is on the left */
+    position: relative;
+    z-index: 3; /* Ensure content is on top */
 }
 
 .daoTitle {
@@ -585,16 +590,18 @@
     font-weight: 500;
     color: #101729;
     margin-bottom: 20px;
+    z-index: 4; 
 }
 
 .daoDescription {
     font-family: 'Inter', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.6;
     color: #4A5567;
     margin: 20px 0;
     max-width: 600px;
-}
+    z-index: 4;
+}    
 
 .daoButton {
     font-size: 1rem;
@@ -608,6 +615,7 @@
     display: inline-flex;
     align-items: center;
     margin-top: 20px;
+    z-index: 4;
 }
 
 .daoButton:hover {
@@ -628,6 +636,7 @@
         margin-left: 0; /* Remove left margin on mobile */
         text-align: center;
         order: 2; /* Ensure content appears after the image */
+        z-index: 4; /* Ensure content stays on top */
     }
 
     .daoPicture {
@@ -635,5 +644,135 @@
         margin-top: 20px;
         order: 1; /* Ensure picture appears first on mobile */
         margin-bottom: 20px;
+        z-index: 2; /* Ensure picture stays behind the content on mobile */
     }
 }
+
+/* Farm Section */
+.farmSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px; /* Adjust padding as needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    border-radius: 20px; /* Rounded corners for the section */
+    margin-top: 50px; /* Space above the section */
+    text-align: center;
+    color: #101729; /* Adjust text color as needed */
+    max-width: 768px; /* Limit the width of the background */
+    max-height: 322px; /* Limit the height of the background */
+    width: 100%; /* Allow the section to be responsive */
+    height: auto; /* Maintain the aspect ratio */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.farmContent {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+.farmTextWrapper {
+    background-color: rgba(255, 255, 255, 0.8); /* White with 80% transparency */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for better distinction */
+}
+
+.farmTitle {
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    z-index: 1; /* Lower z-index to avoid interference */
+}
+
+.farmDescription {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 800px; /* Control the width of the description */
+    color: #4A5567;
+    z-index: 1; /* Lower z-index to avoid interference */
+}
+
+/* Social Media Cards */
+.socialMediaSection {
+    text-align: left;
+    margin-top: -40px;
+  }
+  
+  .cardsContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  
+  .card {
+    position: relative;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 365px;
+    height: 189px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 16px;
+    background-color: transparent;
+    border: none;
+    overflow: hidden;
+  }
+  
+  .cardContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+    z-index: 10; /* Ensure it's above other content */
+  }
+  
+  .cardDescription {
+    font-size: 14px;
+    color: #FFF;
+    text-align: left;
+    margin-top: 10px;
+    padding: 8px;
+    border-radius: 8px;
+    margin-left: 88px;
+    z-index: 10; /* Ensure it's above other content */
+  }
+  
+  .cardButton {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #000;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10; /* Ensure it's above other content */
+  }
+  
+  .cardButton:hover {
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 10; /* Ensure it's above other content */
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    z-index: 10; /* Ensure it's above other content */
+  }
