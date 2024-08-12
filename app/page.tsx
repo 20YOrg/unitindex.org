@@ -1,6 +1,9 @@
 import getHomePage from '../lib/fetchHomePage';
 import styles from '../styles/HomePage.module.css'; // Import your CSS module for styling
+import blogStyles from '@/styles/BlogPage.module.css'; // Import BlogPage styles
 import fetchSocialMediaCards, { SocialMediaCard } from '@/lib/fetchSocialMediaCards';
+import getAllBlogPosts from '@/lib/fetchAllBlogPosts';
+import Link from 'next/link';
 
 export default async function HomePage() {
   const { homePage, supportLogos } = await getHomePage();
@@ -14,11 +17,12 @@ export default async function HomePage() {
   const leftHandUrl = `${directusUrl}/assets/${homePage.left_hand}`;
   const rightHandUrl = `${directusUrl}/assets/${homePage.right_hand}`;
   const supportBackgroundUrl = `${directusUrl}/assets/${homePage.support_background}`;
-  const tinuPictureUrl = `${directusUrl}/assets/${homePage.tinu_picture}`; // URL for the tinu_picture
-  const coinsImageUrl = `${directusUrl}/assets/${homePage.coins_image}`; // URL for the coins_image
-  const coinsBackgroundUrl = `${directusUrl}/assets/${homePage.coins_background}`; // URL for the coins_background
+  const tinuPictureUrl = `${directusUrl}/assets/${homePage.tinu_picture}`;
+  const coinsImageUrl = `${directusUrl}/assets/${homePage.coins_image}`;
+  const coinsBackgroundUrl = `${directusUrl}/assets/${homePage.coins_background}`;
   const daoPictureUrl = `${directusUrl}/assets/${homePage.dao_picture}`;
   const farmBackgroundUrl = `${directusUrl}/assets/${homePage.farm_background}`;
+  const blogBackgroundUrl = `${directusUrl}/assets/${homePage.blog_background}`;
 
   // Split the title into two parts: first 3 words and the rest
   const titleWords = homePage.title.split(' ');
@@ -27,12 +31,19 @@ export default async function HomePage() {
 
   // Prepare description HTML
   const descriptionHTML = { __html: homePage.description };
-  const description2HTML = { __html: homePage.description2 }; // Description 2
-  const description3HTML = { __html: homePage.description3 }; // Description 3
+  const description2HTML = { __html: homePage.description2 };
+  const description3HTML = { __html: homePage.description3 };
   const daoDescriptionHTML = { __html: homePage.dao_description };
   const farmDescriptionHTML = { __html: homePage.farm_description };
+  const blogDescriptionHTML = { __html: homePage.blog_description };
 
-  console.log(homePage.dao_description); // Check if this is a valid HTML string
+  // Fetch the blog posts
+  const posts = await getAllBlogPosts();
+
+  // Sort and filter to get the latest three posts
+  const latestPosts = posts
+    .sort((a, b) => new Date(b.date_published).getTime() - new Date(a.date_published).getTime())
+    .slice(0, 3);
 
   return (
     <div className={styles.pageWrapper}>
@@ -144,7 +155,7 @@ export default async function HomePage() {
           <h2 className={styles.daoTitle}>{homePage.dao_title}</h2>
           <div
             className={styles.daoDescription}
-            dangerouslySetInnerHTML={daoDescriptionHTML} // Correct usage
+            dangerouslySetInnerHTML={daoDescriptionHTML} 
           ></div>
           <a href={homePage.dao_link} className={styles.daoButton}>
             {homePage.dao_button}
@@ -205,6 +216,38 @@ export default async function HomePage() {
           ) : (
             <p>No social media cards found.</p>
           )}
+        </div>
+      </div>
+      {/* Blog Section */}
+      <div 
+        className={styles.blogSection}
+        style={{ backgroundImage: `url(${blogBackgroundUrl})` }}
+      >
+        <div className={styles.blogContentContainer}>
+          <h2 className={styles.blogTitle}>{homePage.blog_title}</h2>
+          <div
+            className={styles.blogDescription}
+            dangerouslySetInnerHTML={blogDescriptionHTML}
+          ></div>
+          
+          <div className={blogStyles.blogsGrid}>
+            {latestPosts.map(post => (
+              <div key={post.id} className={blogStyles.card}>
+                <Link href={`/blog/${post.slug}`} className={blogStyles.cardLink}>
+                  <img src={`${directusUrl}/assets/${post.image}?width=600`} alt={post.title} className={blogStyles.image} />
+                  <div className={blogStyles.content}>
+                    <p className={blogStyles.date}>{new Date(post.date_published).toLocaleDateString()}</p>
+                    <h3 className={blogStyles.cardTitle}>{post.title}</h3>
+                    <p className={blogStyles.summary}>{post.summary}</p>
+                    <p className={blogStyles.readMore}>Read More →</p>
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </div>
+          <Link href={homePage.blog_link} passHref className={styles.blogButton}>
+            {homePage.blog_button}
+          </Link>
         </div>
       </div>
     </div>

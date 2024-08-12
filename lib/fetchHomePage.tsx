@@ -38,7 +38,10 @@ async function getHomePage() {
         'farm_description',
         'farm_background',
         'blog_title',
-        'blog_description'
+        'blog_description',
+        'blog_background',
+        'blog_button',
+        'blog_link'
       ],
     }));
 
