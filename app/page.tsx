@@ -128,10 +128,9 @@ export default async function HomePage() {
           </a>
         </div>
       </div>
-      {/* New Section for Title3, Description3, and Coins Image */}
+      {/* Coins Section */}
       <div 
         className={styles.coinsSection}
-        style={{ backgroundImage: `url(${coinsBackgroundUrl})` }}
       >
         <div className={styles.content}>
           <h2 className={styles.title3}>{homePage.title3}</h2>

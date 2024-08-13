@@ -1,4 +1,3 @@
-/* styles/AboutPage.module.css */
 .fullscreenBackground {
     @apply fixed top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat z-[-1];
   }
@@ -8,33 +7,194 @@
     z-index: 1; /* Ensure it stays above other elements */
   }
   
+  .textAndImageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between text and image */
+    flex-wrap: wrap; /* Wrap content on smaller screens */
+  }
+  
+  .textContainer {
+    max-width: 50%; /* Ensure the text doesn’t take up too much space */
+    margin-right: 20px; /* Space between text and image */
+    text-align: left; /* Align text to the left */
+  }
+  
+  .imageContainer {
+    max-width: 45%; /* Control the width of the image */
+  }
+  
+  .uniteBuildImage {
+    width: 80%; /* Ensure the image takes full width of its container */
+    height: auto;
+    border-radius: 8px; /* Optional: Add some rounding to the image */
+    display: block;
+    margin: 0 auto; /* Center the image within the container */
+  }
+  
   .title {
     color: #5F7179;
     font-size: 18px;
     font-weight: 400;
     line-height: normal;
-    margin: 16px 0; /* Consistent vertical margin */
+    margin: 16px 0;
+    text-align: left; /* Align title to the left */
   }
   
   .description {
     font-family: 'Inter', sans-serif;
-    font-size: 20px; /* Updated font size */
-    font-weight: 400; /* Ensure it is not bold */
-    line-height: 30px; /* Updated line height */
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
     color: #4A5567;
-    margin-bottom: 40px; /* Increased bottom margin for more space */
-  }
-  
-  .description strong {
-    background: linear-gradient(90deg, #4679E2 0%, #F08852 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 400; /* Ensure it is not bold */
+    margin-bottom: 40px;
+    text-align: left; /* Align description to the left */
   }
   
   .separatorLine {
     height: 1px;
     background-color: #6B6767;
-    margin: 40px 0; /* Add vertical margin for spacing */
+    margin: 40px 0;
+  }
+  
+  /* Card Styles */
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the card */
+    padding: 10px; /* Reduce padding */
+    margin-bottom: 40px; /* Add some space below the card */
+  }
+  
+  .cardImageContainer {
+    max-width: 20%; /* Significantly reduce image width */
+    flex-shrink: 0; /* Prevent the image container from shrinking */
+    margin-right: 100px; /* Increase space between image and text */
+  }
+  
+  .cardImage {
+    width: 100%;
+    height: auto;
+  }
+  
+  .cardTextContainer {
+    max-width: 100%; /* Full width */
+    padding-left: 15px; /* Add padding to the left */
+    padding-right: 15px; /* Add padding to the right */
+    margin-left: 0; /* No margin */
+    margin-right: 0; /* No margin */
+    text-align: left; /* Align text to the left */
+  }
+  
+  /* Title1 Specific Styles */
+  .cardTitle {
+    opacity: 0.8;
+    background: var(--Chart-color, linear-gradient(90deg, #4679E2 0%, #F08852 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 16px;
+    text-align: left; /* Ensure title1 is aligned to the left */
+    max-width: 500px;
+  }
+  
+  /* Description1 Specific Styles */
+  .cardDescription {
+    color: #1E344D;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    max-width: 500px;
+    line-height: 24px; /* 150% */
+    text-align: left; /* Align description1 to the left */
+  }
+  
+  /* Reverse Card Styles for the Second Card */
+  .cardReverse {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the card */
+    padding: 10px; /* Reduce padding */
+    margin-bottom: 40px; /* Add some space below the card */
+  }
+  
+  .cardReverse .cardTextContainer {
+    max-width: 100%; /* Full width */
+    padding-left: 15px; /* Add padding to the left */
+    padding-right: 15px; /* Add padding to the right */
+    margin-left: 0; /* No margin */
+    margin-right: 0; /* No margin */
+    text-align: left; /* Align text to the left */
+  }
+  
+  .cardReverse .cardImageContainer {
+    margin-left: 0;
+  }
+  
+  /* Arrow Styles */
+  .arrowContainer {
+    text-align: center;
+    margin: 20px 0; /* Space above and below the arrow */
+  }
+  
+  .arrowImage {
+    width: 500px; /* Adjust the size of the arrow */
+    height: auto;
+    display: inline-block;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .textAndImageContainer {
+      flex-direction: column; /* Stack the text and image vertically on mobile */
+      text-align: center;
+    }
+  
+    .textContainer,
+    .imageContainer {
+      max-width: 100%;
+      margin: 0;
+    }
+  
+    .uniteBuildImage {
+      margin-top: 20px; /* Add some spacing between text and image */
+    }
+  
+    .card, .cardReverse {
+      flex-direction: column;
+    }
+
+    .cardReverse {
+      flex-direction: column-reverse;
+    }
+
+    .cardTextContainer,
+    .cardReverse .cardTextContainer {
+      max-width: 100%;
+      margin: 0; /* Remove margins */
+      padding-left: 0; /* Remove left padding */
+      padding-right: 0; /* Remove right padding */
+      text-align: left; /* Justify text to the left */
+    }
+
+    .cardImageContainer,
+    .cardReverse .cardImageContainer {
+      max-width: 50%;
+      margin-right: 0;
+      margin-left: 0;
+    }
+  
+    .arrowContainer {
+      display: none; /* Hide arrows on mobile */
+    }
+  
+    .arrowImage {
+      width: 40px; /* Slightly smaller arrow on mobile */
+    }
   }
