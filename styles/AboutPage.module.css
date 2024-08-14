@@ -34,7 +34,7 @@
   
   .title {
     color: #5F7179;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     line-height: normal;
     margin: 16px 0;
@@ -197,4 +197,38 @@
     .arrowImage {
       width: 40px; /* Slightly smaller arrow on mobile */
     }
+  }
+
+
+/* FAQ Styles */
+.faqSection {
+    margin-top: 40px;
+  }
+  
+  .faqTitle {
+    /* Apply the same styles as .title to match the other titles */
+    color: #5F7179;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    margin: 16px 0;
+  }
+  
+  .faqItem {
+    margin-bottom: 20px;
+  }
+  
+  .faqQuestion {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1E344D;
+    cursor: pointer; /* Add cursor to indicate it's clickable */
+  }
+  
+  .faqAnswer {
+    font-size: 16px;
+    font-weight: 400;
+    color: #4A5567;
+    line-height: 1.5;
+    margin-top: 10px; /* Add some space between the question and answer */
   }

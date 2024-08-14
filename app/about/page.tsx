@@ -1,11 +1,13 @@
 import React from 'react';
 import { fetchPageByPermalink } from '@/lib/fetchPageByPermalink';
 import getAboutPage from '@/lib/fetchAboutPage';
+import getFaqs from '@/lib/fetchFaqs';
 import styles from '@/styles/AboutPage.module.css';
 
 const AboutPage: React.FC = async () => {
   const pageData = await fetchPageByPermalink('/about');
   const aboutPage = await getAboutPage();
+  const faqSection = await getFaqs();
   const baseUrl = process.env.NEXT_PUBLIC_DIRECTUS_API_URL;
 
   const backgroundImageUrl = `${baseUrl}/assets/${pageData.background}`;
@@ -115,6 +117,18 @@ const AboutPage: React.FC = async () => {
             ></div>
           </div>
         </div>
+        {/* FAQ Section */}
+        {faqSection && faqSection.faqs && faqSection.faqs.length > 0 && (
+          <div className={styles.faqSection}>
+            <h2 className={styles.faqTitle}>{faqSection.title}</h2>
+            {faqSection.faqs.map((faq, index) => (
+              <div key={index} className={styles.faqItem}>
+                <h3 className={styles.faqQuestion}>{faq.title}</h3>
+                <p className={styles.faqAnswer}>{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </>
   );
