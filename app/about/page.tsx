@@ -3,6 +3,7 @@ import { fetchPageByPermalink } from '@/lib/fetchPageByPermalink';
 import getAboutPage from '@/lib/fetchAboutPage';
 import getFaqs from '@/lib/fetchFaqs';
 import styles from '@/styles/AboutPage.module.css';
+import FaqSection from '@/components/FaqSection';
 
 const AboutPage: React.FC = async () => {
   const pageData = await fetchPageByPermalink('/about');
@@ -118,16 +119,8 @@ const AboutPage: React.FC = async () => {
           </div>
         </div>
         {/* FAQ Section */}
-        {faqSection && faqSection.faqs && faqSection.faqs.length > 0 && (
-          <div className={styles.faqSection}>
-            <h2 className={styles.faqTitle}>{faqSection.title}</h2>
-            {faqSection.faqs.map((faq, index) => (
-              <div key={index} className={styles.faqItem}>
-                <h3 className={styles.faqQuestion}>{faq.title}</h3>
-                <p className={styles.faqAnswer}>{faq.answer}</p>
-              </div>
-            ))}
-          </div>
+        {faqSection && faqSection.faqs.length > 0 && (
+            <FaqSection faqSection={faqSection} />
         )}
       </div>
     </>
