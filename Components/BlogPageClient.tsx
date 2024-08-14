@@ -42,9 +42,9 @@ const BlogPageClient: React.FC<BlogPageClientProps> = ({
     const sortedPosts = [...posts].sort((a, b) => new Date(b.date_published).getTime() - new Date(a.date_published).getTime());
 
     const filtered = sortedPosts.filter((post) => {
-      const matchesSearch = post.title.toLowerCase().includes(searchInput.toLowerCase()) ||
-                            post.summary.toLowerCase().includes(searchInput.toLowerCase()) ||
-                            post.content.toLowerCase().includes(searchInput.toLowerCase());
+      const matchesSearch = (post.title?.toLowerCase() || '').includes(searchInput.toLowerCase()) ||
+                            (post.summary?.toLowerCase() || '').includes(searchInput.toLowerCase()) ||
+                            (post.content?.toLowerCase() || '').includes(searchInput.toLowerCase());
       const matchesCategory = selectedCategory === 'All' || post.categoryTitle === selectedCategory;
 
       return matchesSearch && matchesCategory;
