@@ -118,6 +118,14 @@ const AboutPage: React.FC = async () => {
             ></div>
           </div>
         </div>
+
+        {/* Button */}
+        <div className={styles.buttonContainer}>
+          <a href={aboutPage.link} className={styles.button}>
+            {aboutPage.button}
+          </a>
+        </div>
+
         {/* FAQ Section */}
         {faqSection && faqSection.faqs.length > 0 && (
             <FaqSection faqSection={faqSection} />
