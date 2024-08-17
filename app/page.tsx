@@ -238,7 +238,7 @@ export default async function HomePage() {
                     <p className={blogStyles.date}>{new Date(post.date_published).toLocaleDateString()}</p>
                     <h3 className={blogStyles.cardTitle}>{post.title}</h3>
                     <p className={blogStyles.summary}>{post.summary}</p>
-                    <p className={blogStyles.readMore}>Read More →</p>
+                    <p className={blogStyles.readMore}>READ FULL ARTICLE →</p>
                   </div>
                 </Link>
               </div>

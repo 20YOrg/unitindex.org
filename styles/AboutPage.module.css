@@ -46,10 +46,19 @@
     font-size: 20px;
     font-weight: 400;
     line-height: 30px;
-    color: #4A5567;
+    color: #1E344D;
     margin-bottom: 40px;
     text-align: left; /* Align description to the left */
+    line-height: 1.618;
   }
+
+  .description strong {
+    background: linear-gradient(90deg, #4679E2 0%, #F08852 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600; /* Ensure it is not bold */
+}
   
   .separatorLine {
     height: 1px;
@@ -101,6 +110,7 @@
     margin-bottom: 16px;
     text-align: left; /* Ensure title1 is aligned to the left */
     max-width: 500px;
+    line-height: 1.272;
   }
   
   /* Description1 Specific Styles */
@@ -113,6 +123,7 @@
     max-width: 500px;
     line-height: 24px; /* 150% */
     text-align: left; /* Align description1 to the left */
+    line-height: 1.618;
   }
   
   /* Reverse Card Styles for the Second Card */
@@ -140,11 +151,12 @@
   /* Arrow Styles */
   .arrowContainer {
     text-align: center;
-    margin: 20px 0; /* Space above and below the arrow */
+    margin-top: -30px;
+    margin-left: -30px;
   }
   
   .arrowImage {
-    width: 500px; /* Adjust the size of the arrow */
+    width: 400px; /* Adjust the size of the arrow */
     height: auto;
     display: inline-block;
   }
@@ -211,7 +223,7 @@
   .button {
     font-size: 1rem;
     padding: 0.5rem 1rem;
-    color: #000;
+    color: #101729;
     font-weight: 600;
     text-decoration: none;
     transition: background-color 0.3s ease;
@@ -246,7 +258,7 @@
   .faqItem {
     margin-bottom: 20px;
     padding: 15px; /* Add some padding inside the border */
-    border: 1px solid #D1D5DB; /* Thin border around each FAQ item */
+    border: 1px solid #DBE1EA; /* Thin border around each FAQ item */
     border-radius: 5px; /* Optional: Add a slight border radius */
     background-color: rgba(255, 255, 255, 0.3); /* White transparent background */
     transition: all 0.3s ease; /* Smooth transition for hover effect */
@@ -254,7 +266,7 @@
   
   .faqItem:hover {
     background-color: rgba(255, 255, 255, 0.5); /* Increase transparency on hover */
-    border-color: #1E344D; /* Change border color on hover */
+    border-color: #101729; /* Change border color on hover */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a slight shadow on hover */
   }
   
@@ -267,7 +279,7 @@
   .faqAnswer {
     font-size: 16px;
     font-weight: 400;
-    color: #4A5567;
-    line-height: 1.5;
+    color: #1E344D;
+    line-height: 1.618;
     margin-top: 10px; /* Add some space between the question and the answer */
   }

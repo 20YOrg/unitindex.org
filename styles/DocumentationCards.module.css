@@ -52,6 +52,7 @@
     margin-top: 0; /* Ensure no top margin */
     margin-bottom: 16px; /* Consistent bottom margin */
     flex-grow: 1; /* Ensure it takes up available space */
+    line-height: 1.618;
 }
 
 .cardButtonContainer {
@@ -67,7 +68,7 @@
     padding: 8px 16px;
     border-radius: 35px;
     background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
-    color: #1e4334; /* Default white text */
+    color: #101729; /* Default white text */
     text-decoration: none;
     text-align: center;
     transition: opacity 0.2s ease;

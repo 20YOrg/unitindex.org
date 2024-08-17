@@ -28,8 +28,8 @@
     font-family: 'Inter', sans-serif;
     font-size: 20px; /* Updated font size */
     font-weight: 400; /* Ensure it is not bold */
-    line-height: 30px; /* Updated line height */
-    color: #4A5567;
+    line-height: 1.618;
+    color: #1E344D;
     margin-bottom: 40px; /* Increased bottom margin for more space */
     max-width: 625px;
 }
@@ -70,6 +70,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Align items to the start */
+    line-height: 1.618;
 }
 
 .titleTicker {
@@ -84,6 +85,13 @@
     margin-bottom: 16px;
 }
 
+.subsectionTitle {
+    color: #101729;
+    font-weight: 500;
+    font-size: 26px;
+    margin-bottom: 16px;
+  }
+
 .ticker {
     width: 50px; /* Adjust as needed */
     height: auto;
@@ -93,7 +101,7 @@
 .button1 {
     padding: 10px 20px;
     font-size: 16px;
-    color: #1E344D;
+    color: #101729;
     background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
     border: none;
     border-radius: 35px;
@@ -177,6 +185,7 @@
     padding: 8px;
     border-radius: 8px;
     margin-left: 88px;
+    line-height: 1.618;
 }
 
 .cardButton {
@@ -187,7 +196,7 @@
     padding: 8px;
     border-radius: 8px;
     text-decoration: none;
-    color: #000;
+    color: #101729;
     margin-bottom: 6px;
     margin-right: 6px;
     transition: background-color 0.3s ease;
@@ -227,7 +236,7 @@
     padding: 4px 8px; /* Adjust padding */
     border-radius: 8px;
     text-decoration: none;
-    color: #000;
+    color: #101729;
     transition: background-color 0.3s ease;
     display: inline-flex; /* Align items in a row */
     align-items: center; /* Vertically center items */

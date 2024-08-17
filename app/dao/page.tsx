@@ -33,7 +33,7 @@ const DaoPage = async () => {
           <img src={`${baseUrl}/assets/${daoPageData.logo}`} alt="DAO Logo" className={styles.logo} />
           <div className={styles.textSection}>
             <div className={styles.titleTicker}>
-              <h2 className={styles.sectionTitle}>{daoPageData.title1}</h2>
+              <h2 className={styles.subsectionTitle}>{daoPageData.title1}</h2>
               <img src={`${baseUrl}/assets/${daoPageData.ticker}`} alt="Ticker" className={styles.ticker} />
             </div>
             <div className={styles.description} dangerouslySetInnerHTML={{ __html: daoPageData.description1 }}></div>

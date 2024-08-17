@@ -21,9 +21,10 @@
     font-family: 'Inter', sans-serif;
     font-size: 20px; /* Updated font size */
     font-weight: 400; /* Ensure it is not bold */
-    line-height: 30px; /* Updated line height */
-    color: #4A5567;
+    line-height: 1.618;
+    color: #1E344D;
     margin-bottom: 40px; /* Increased bottom margin for more space */
+    max-width: 600px;
 }
 
 .description strong {
@@ -31,7 +32,7 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-weight: 400; /* Ensure it is not bold */
+    font-weight: 600; /* Ensure it is not bold */
 }
 
 .separatorLine {

@@ -4,7 +4,7 @@
   }
   
   .blogCard {
-    @apply border border-gray-300 p-4 rounded-lg;
+    @apply p-4 rounded-lg;
   }
   
   .blogImage {

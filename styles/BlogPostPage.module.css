@@ -1,23 +1,31 @@
 /* styles/BlogPostPage.module.css */
 
+/* Import the Charter font */
+@import url('https://fonts.googleapis.com/css2?family=Charter:wght@400;700&display=swap');
+
+
 .fullscreenBackground {
   @apply fixed top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat z-[-1];
 }
 
 .container {
   @apply max-w-4xl mx-auto p-8 relative;
+  font-family: 'Charter', serif;
 }
 
 .backLink {
   @apply block mb-4 text-[#5f7179] no-underline;
+  font-family: 'Charter', serif;
 }
 
 .title {
   @apply text-[42px] font-normal mb-4;
+  font-family: 'Charter', serif;
 }
 
 .meta {
   @apply flex flex-col items-end mb-8;
+  font-family: 'Charter', serif;
 }
 
 .icons {
@@ -55,6 +63,7 @@
 
 .date {
   @apply text-[#555] text-[16px] mb-4;
+  font-family: 'Charter', serif;
 }
 
 .separator {
@@ -63,6 +72,7 @@
 
 .content {
   @apply text-[20px] text-justify;
+  font-family: 'Charter', serif;
 }
 
 .content img {
@@ -71,10 +81,12 @@
 
 .content p {
   @apply mb-6 leading-relaxed;
+  font-family: 'Charter', serif;
 }
 
 .content h2 {
   @apply text-[1.5rem] mb-4;
+  font-family: 'Charter', serif;
 }
 
 .authorContainer {
@@ -87,4 +99,5 @@
 
 .author {
   @apply italic text-[#555];
+  font-family: 'Charter', serif;
 }

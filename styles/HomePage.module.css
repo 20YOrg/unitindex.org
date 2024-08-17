@@ -181,6 +181,7 @@
     word-break: break-word;
     white-space: normal;
     z-index: 3;
+    line-height: 1.272;
 }
 
 /* Small screens (e.g., mobile devices) */
@@ -194,8 +195,8 @@
 .description {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    line-height: 1.6;
-    color: #4A5567;
+    line-height: 1.618;
+    color: #1E344D;
     margin: 20px 0;
     text-align: center;
     width: 400px;
@@ -205,7 +206,7 @@
 .button {
     font-size: 1rem;
     padding: 0.75rem 2.25rem;
-    color: #1E344D;
+    color: #101729;
     font-weight: 600;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -228,7 +229,7 @@
 }
 
 .button:hover::after {
-    transform: translateX(5px); /* Move arrow to the right on hover */
+    transform: translateX(8px); /* Move arrow to the right on hover */
 }
 
 .button:hover {
@@ -424,8 +425,8 @@
 .description2, .description3{
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    line-height: 1.6;
-    color: #4A5567;
+    line-height: 1.618;
+    color: #1E344D;
     margin: 20px 0;
     max-width: 600px; /* Limit the width of the description */
     width: 100%; /* Ensure it takes up the full width up to 600px */
@@ -436,13 +437,13 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-weight: 400; /* Ensure it is not bold */
+    font-weight: 600; /* Ensure it is not bold */
 }
 
 .button2 {
     font-size: 1rem;
     padding: 0.75rem 2.25rem;
-    color: #1E344D;
+    color: #101729;
     font-weight: 600;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -506,7 +507,7 @@
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     line-height: 1.6;
-    color: #4A5567;
+    color: #1E344D;
     margin: 20px 0;
     max-width: 600px; /* Limit the width of the description */
   }
@@ -514,7 +515,7 @@
   .button3 {
     font-size: 1rem;
     padding: 0.75rem 2.25rem;
-    color: #1E344D;
+    color: #101729;
     font-weight: 600;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -592,7 +593,7 @@
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     line-height: 1.6;
-    color: #4A5567;
+    color: #1E344D;
     margin: 20px 0;
     max-width: 600px;
     z-index: 4;
@@ -601,7 +602,7 @@
 .daoButton {
     font-size: 1rem;
     padding: 0.75rem 2.25rem;
-    color: #1E344D;
+    color: #101729;
     font-weight: 600;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -691,7 +692,7 @@
     font-size: 16px;
     line-height: 1.6;
     max-width: 800px; /* Control the width of the description */
-    color: #4A5567;
+    color: #1E344D;
     z-index: 1; /* Lower z-index to avoid interference */
 }
 
@@ -806,6 +807,7 @@
     font-size: 26px;
     font-weight: 500;
     color: #101729;
+    text-align: left;
     z-index: 3; /* Ensure title is above the background */
 }
 
@@ -814,10 +816,10 @@
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     line-height: 1.6;
-    color: #4A5567;
+    color: #1E344D;
     margin-bottom: 20px;
-    max-width: 600px;
-    text-align: center; /* Ensure the text is centered */
+    max-width: 700px;
+    text-align: left; /* Ensure the text is centered */
     z-index: 3; /* Ensure description is above the background */
 }
 
@@ -853,7 +855,7 @@
 }
 
 .blogButton:hover::after {
-    transform: translateX(5px); /* Move arrow to the right on hover */
+    transform: translateX(8px); /* Move arrow to the right on hover */
 }
 
 .blogButton:hover {
