@@ -22,11 +22,14 @@ export default async function getIcons(): Promise<Icon[]> {
       })
     );
 
+    // Cast the response to an array of Icon
+    const icons = response as Icon[];
+
     // Create a map to store icons by name and effect
     const iconMap: { [key: string]: { normal?: string; hover?: string; active?: string } } = {};
 
     // Populate the map with icons based on their name and effect
-    response.forEach((icon: Icon) => {
+    icons.forEach((icon) => {
       if (!iconMap[icon.name]) {
         iconMap[icon.name] = {};
       }
@@ -41,17 +44,17 @@ export default async function getIcons(): Promise<Icon[]> {
     });
 
     // Add hoverIcon and activeIcon properties to each icon based on the map
-    response.forEach((icon: Icon) => {
+    icons.forEach((icon) => {
       icon.hoverIcon = iconMap[icon.name].hover;
       icon.activeIcon = iconMap[icon.name].active;
     });
 
-    if (!response || !response.length) {
+    if (!icons || !icons.length) {
       console.log('No icon data found');
       return [];
     }
 
-    return response as Icon[];
+    return icons;
   } catch (error) {
     console.error('Error fetching icons:', error);
     return [];

@@ -10,7 +10,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [underlineStyle, setUnderlineStyle] = useState({});
-  const navLinksRef = useRef(null);
+  const navLinksRef = useRef<HTMLDivElement>(null); // Specify the type here
   const pathname = usePathname();
   const baseUrl = process.env.NEXT_PUBLIC_DIRECTUS_API_URL;
   const logoUrl = `${baseUrl}/assets/0e4bdd6e-ab4f-4f5a-9f89-7f8d37740063`;

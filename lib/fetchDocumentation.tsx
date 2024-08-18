@@ -3,7 +3,7 @@ import directus from './directus';
 import { readItems } from '@directus/sdk';
 
 interface DocumentationCard {
-  id: string; // Add this line
+  id: string;
   title: string;
   icon: string;
   link: string;
@@ -15,18 +15,19 @@ export async function fetchDocumentationCards(): Promise<DocumentationCard[]> {
   try {
     const response = await directus.request(
       readItems('block_documentation', {
-        fields: ['id', 'title', 'icon', 'link', 'button', 'description'], // Include 'id' in the fields
+        fields: ['id', 'title', 'icon', 'link', 'button', 'description'],
       })
     );
 
     const baseUrl = process.env.NEXT_PUBLIC_DIRECTUS_API_URL;
 
-    const documentationCards = response.map((card: DocumentationCard) => ({
+    // Cast response to DocumentationCard[] to ensure TypeScript understands the type
+    const documentationCards = (response as DocumentationCard[]).map((card) => ({
       ...card,
       icon: `${baseUrl}/assets/${card.icon}`
     }));
 
-    return documentationCards as DocumentationCard[];
+    return documentationCards;
   } catch (error) {
     console.error('Error fetching documentation cards:', error);
     return [];
