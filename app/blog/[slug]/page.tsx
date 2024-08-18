@@ -7,6 +7,14 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import styles from '@/styles/BlogPostPage.module.css';
 
+type IconNames = 'Blog Share' | 'Blog X Community' | 'Blog X';
+
+const iconClasses: Record<IconNames, string> = {
+  'Blog Share': 'icon-Blog-Share',
+  'Blog X Community': 'icon-Blog-X-Community',
+  'Blog X': 'icon-Blog-X',
+};
+
 interface BlogPostPageProps {
   params: { slug: string };
 }
@@ -24,18 +32,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const author = await getTeamMember(post.author);
 
   const filteredIcons = icons.filter(
-    (icon) => ['Blog Share', 'Blog X Community', 'Blog X'].includes(icon.name) && icon.effect === 'normal'
+    (icon): icon is IconType & { name: IconNames } =>
+      ['Blog Share', 'Blog X Community', 'Blog X'].includes(icon.name) && icon.effect === 'normal'
   );
 
-  const iconClasses = {
-    'Blog Share': 'icon-Blog-Share',
-    'Blog X Community': 'icon-Blog-X-Community',
-    'Blog X': 'icon-Blog-X',
-  };
-
   const baseUrl = process.env.NEXT_PUBLIC_DIRECTUS_API_URL;
-
-  // Generate the URL for sharing the post on X (Twitter)
   const shareUrl = `https://x.com/compose/post?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`${baseUrl}/blog/${post.slug}`)}`;
 
   return (
@@ -53,7 +54,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <h1 className={styles.title}>{post.title}</h1>
         <div className={styles.meta}>
           <div className={styles.icons}>
-            {filteredIcons.map((icon, index) => (
+            {filteredIcons.map((icon) => (
               <a
                 key={icon.id}
                 href={icon.name === 'Blog Share' ? shareUrl : icon.linkURL || '#'}

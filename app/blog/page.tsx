@@ -22,7 +22,7 @@ export default async function BlogLandingPage() {
     console.log('No blog page data found');
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_DIRECTUS_API_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_DIRECTUS_API_URL || '';
 
   // Map categories with posts
   const postsWithCategoryTitles = posts.map(post => {

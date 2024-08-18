@@ -11,6 +11,11 @@ const AboutPage: React.FC = async () => {
   const faqSection = await getFaqs();
   const baseUrl = process.env.NEXT_PUBLIC_DIRECTUS_API_URL;
 
+  // Ensure pageData is not null before accessing its properties
+  if (!pageData || !aboutPage) {
+    return <div>Loading...</div>; // Render a loading state or an appropriate fallback
+  }
+
   const backgroundImageUrl = `${baseUrl}/assets/${pageData.background}`;
   const descriptionHTML = { __html: pageData.description };
   const description1HTML = { __html: aboutPage.description1 };

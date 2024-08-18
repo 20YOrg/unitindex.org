@@ -6,7 +6,8 @@ interface Page {
   id: string;
   title: string;
   permalink: string;
-  description: string; // Ensure description is included
+  description: string;
+  background: string; // Ensure this is included
 }
 
 export async function fetchPageByPermalink(permalink: string): Promise<Page | null> {

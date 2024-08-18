@@ -3,6 +3,7 @@ import directus from './directus';
 import { readItems } from '@directus/sdk';
 
 interface DocumentationCard {
+  id: string; // Add this line
   title: string;
   icon: string;
   link: string;
@@ -14,7 +15,7 @@ export async function fetchDocumentationCards(): Promise<DocumentationCard[]> {
   try {
     const response = await directus.request(
       readItems('block_documentation', {
-        fields: ['title', 'icon', 'link', 'button', 'description'],
+        fields: ['id', 'title', 'icon', 'link', 'button', 'description'], // Include 'id' in the fields
       })
     );
 

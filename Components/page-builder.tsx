@@ -1,6 +1,6 @@
 // Components/page-builder.tsx
 import FAQ from './Blocks/FAQ';
-import Hero from './Blocks/hero';
+import Hero from './Blocks/Hero'; // Correct casing
 
 const PageBuilder = ({ blocks }) => {
   return (
