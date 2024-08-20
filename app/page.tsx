@@ -235,7 +235,12 @@ export default async function HomePage() {
                 <Link href={`/blog/${post.slug}`} className={blogStyles.cardLink}>
                   <img src={`${directusUrl}/assets/${post.image}?width=600`} alt={post.title} className={blogStyles.image} />
                   <div className={blogStyles.content}>
-                    <p className={blogStyles.date}>{new Date(post.date_published).toLocaleDateString()}</p>
+                    <p className={blogStyles.date}>{new Date(post.date_published).toLocaleDateString('en-GB', {
+                        day: '2-digit',
+                        month: 'long',
+                        year: 'numeric',
+                      }).replace(/(\d{1,2}) (\w+) (\d{4})/, '$1 $2, $3')}
+                    </p>
                     <h3 className={blogStyles.cardTitle}>{post.title}</h3>
                     <p className={blogStyles.summary}>{post.summary}</p>
                     <p className={blogStyles.readMore}>READ FULL ARTICLE →</p>

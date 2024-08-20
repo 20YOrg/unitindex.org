@@ -82,7 +82,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             ))}
           </div>
           <p className={styles.date}>
-            {new Date(post.date_published).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}
+            {new Date(post.date_published).toLocaleDateString('en-GB', {
+              day: '2-digit',
+              month: 'long',
+              year: 'numeric',
+            }).replace(/(\d{1,2}) (\w+) (\d{4})/, '$1 $2, $3')}
           </p>
           <div className={styles.separator}></div>
         </div>

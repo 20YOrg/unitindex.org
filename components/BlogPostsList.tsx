@@ -34,9 +34,13 @@ const BlogPostsList: React.FC<BlogPostsListProps> = ({ posts, readFullArticleTex
               <a className={styles.cardLink}>
                 <img src={imageUrl} alt={post.title} className={styles.image} />
                 <div className={styles.content}>
-                  <p className={styles.date}>
-                    {new Date(post.date_published).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}
-                  </p>
+                <p className={styles.date}>
+                  {new Date(post.date_published).toLocaleDateString('en-GB', {
+                    day: '2-digit',
+                    month: 'long',
+                    year: 'numeric',
+                  }).replace(/(\d{1,2}) (\w+) (\d{4})/, '$1 $2, $3')}
+                </p>
                   <h2 className={styles.cardTitle}>{post.title}</h2>
                   <p className={styles.summary}>{post.summary}</p>
                   <p className={styles.readMore}>{readFullArticleText} →</p>
