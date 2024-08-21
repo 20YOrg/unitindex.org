@@ -38,6 +38,11 @@ const BlogPageClient: React.FC<BlogPageClientProps> = ({
   const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
+  // Scroll to top on component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     const sortedPosts = [...posts].sort((a, b) => new Date(b.date_published).getTime() - new Date(a.date_published).getTime());
 

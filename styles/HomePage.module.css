@@ -254,7 +254,7 @@
 
 /* Styling for the Total Units text */
 .totalUnits p {
-    font-size: 40px; 
+    font-size: 42px; 
     font-weight: 500;
     margin-top: 125px;
     color: #101729;
@@ -262,9 +262,16 @@
     z-index: 2; /* Ensure it's above the separator line */
 }
 
+/* Media query for small screens */
+@media (max-width: 640px) { /* You can adjust 640px to another breakpoint if needed */
+    .totalUnits p {
+        font-size: 26px; /* Decrease font size for small screens */
+    }
+}
+
 /* Styling for the Total Market Cap text */
 .totalMarketCap p {
-    font-size: 18px; 
+    font-size: 16px; 
     font-weight: 500;
     color: #101729;
     margin-top: 0px;

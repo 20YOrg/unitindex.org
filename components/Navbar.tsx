@@ -1,4 +1,3 @@
-// components/Navbar.tsx
 'use client';
 
 import Link from 'next/link';
@@ -10,7 +9,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [underlineStyle, setUnderlineStyle] = useState({});
-  const navLinksRef = useRef<HTMLDivElement>(null); // Specify the type here
+  const navLinksRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const baseUrl = process.env.NEXT_PUBLIC_DIRECTUS_API_URL;
   const logoUrl = `${baseUrl}/assets/0e4bdd6e-ab4f-4f5a-9f89-7f8d37740063`;
@@ -49,20 +48,24 @@ export default function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleLinkClick = () => {
+    setIsMenuOpen(false); // Close the menu when a link is clicked
+  };
+
   return (
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.logo}>
-        <Link href="/">
+        <Link href="/" onClick={handleLinkClick}>
           <img src={logoUrl} alt="UNIT Logo" className={styles.logoImage} />
         </Link>
       </div>
       <div ref={navLinksRef} className={`${styles.navLinks} ${isMenuOpen ? styles.open : ''}`}>
-        <Link href="/about" className={`${styles.navLink} ${pathname === '/about' ? styles.active : ''}`}>About</Link>
-        <Link href="/devs" className={`${styles.navLink} ${pathname === '/devs' ? styles.active : ''}`}>Devs</Link>
-        <Link href="/dao" className={`${styles.navLink} ${pathname === '/dao' ? styles.active : ''}`}>DAO</Link>
-        <Link href="/blog" className={`${styles.navLink} ${pathname === '/blog' ? styles.active : ''}`}>Blog</Link>
+        <Link href="/about" className={`${styles.navLink} ${pathname === '/about' ? styles.active : ''}`} onClick={handleLinkClick}>About</Link>
+        <Link href="/devs" className={`${styles.navLink} ${pathname === '/devs' ? styles.active : ''}`} onClick={handleLinkClick}>Devs</Link>
+        <Link href="/dao" className={`${styles.navLink} ${pathname === '/dao' ? styles.active : ''}`} onClick={handleLinkClick}>DAO</Link>
+        <Link href="/blog" className={`${styles.navLink} ${pathname === '/blog' ? styles.active : ''}`} onClick={handleLinkClick}>Blog</Link>
         <div className={styles.launchAppMobile}>
-          <Link href="https://app.unitindex.org">Launch App</Link>
+          <Link href="https://app.unitindex.org" onClick={handleLinkClick}>Launch App</Link>
         </div>
         <div className={styles.underline} style={underlineStyle}></div>
       </div>

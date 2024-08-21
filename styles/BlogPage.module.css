@@ -46,7 +46,7 @@
 }
 
 .filters {
-    @apply flex gap-4;
+    @apply flex gap-4 flex-wrap; /* Added flex-wrap to allow wrapping */
     font-size: 16px; /* Set font size to 14px */
 
     /* Full width for small screens */

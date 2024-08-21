@@ -50,14 +50,28 @@
     margin-bottom: 40px;
     text-align: left; /* Align description to the left */
     line-height: 1.618;
-  }
+}
 
-  .description strong {
+.description strong {
     background: linear-gradient(90deg, #4679E2 0%, #F08852 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 600; /* Ensure it is not bold */
+}
+
+.description a {
+  color: #FFB300; /* Bright yellow color */
+  text-decoration: none; /* Remove the default underline */
+  background-image: linear-gradient(#FFB300, #FFB300);
+  background-size: 0% 2px; /* Start with no underline */
+  background-repeat: no-repeat;
+  background-position: 0 100%; /* Position the underline at the bottom */
+  transition: background-size 0.3s ease; /* Smooth transition for underline */
+}
+
+.description a:hover {
+  background-size: 100% 2px; /* Full width underline on hover */
 }
   
   .separatorLine {

@@ -89,6 +89,20 @@
   font-family: 'Charter', serif;
 }
 
+.content a {
+  color: #FFB300; /* Bright yellow color */
+  text-decoration: none; /* Remove the default underline */
+  background-image: linear-gradient(#FFB300, #FFB300);
+  background-size: 0% 2px; /* Start with no underline */
+  background-repeat: no-repeat;
+  background-position: 0 100%; /* Position the underline at the bottom */
+  transition: background-size 0.3s ease; /* Smooth transition for underline */
+}
+
+.content a:hover {
+  background-size: 100% 2px; /* Full width underline on hover */
+}
+
 .authorContainer {
   @apply flex items-center justify-end mt-8;
 }
