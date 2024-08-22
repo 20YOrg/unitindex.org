@@ -128,7 +128,7 @@
         position: absolute;
         top: 60px; /* Position below the navbar */
         right: 0;
-        width: 30%;
+        width: 40%;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         padding: 1rem 0;
     }
