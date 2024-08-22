@@ -50,8 +50,8 @@ export default async function BlogLandingPage() {
           categories={uniqueCategories}
           readFullArticleText={blogPage?.read_full_article}
           baseUrl={baseUrl}
-          title={blogPage?.title || 'Blog'}
-          headline={blogPage?.headline || 'Latest updates, educational articles, and stories made for UNIT enthusiasts.'}
+          title={blogPage?.title}
+          headline={blogPage?.headline}
         />
       </div>
     </>
