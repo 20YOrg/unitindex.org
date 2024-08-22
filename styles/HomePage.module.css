@@ -403,16 +403,19 @@
     .newSection {
         flex-direction: column; /* Stack the sections vertically */
         text-align: center; /* Center text content */
+        padding: 40px 40px 40px; /* Increase top padding for mobile */
     }
 
     .tinuPicture {
-        max-width: 80%; /* Make the image take up more width on smaller screens */
-        margin-bottom: 20px; /* Add space below the image */
+        max-width: 100%;
+        margin-bottom: 40px; /* Add spacing between content and image */
     }
 
     .content {
         max-width: 100%; /* Make the content take up full width */
         margin-left: 0; /* Remove left margin */
+        margin-left: 0;
+        text-align: center;
     }
 }
 
@@ -486,7 +489,6 @@
     text-align: left;
     flex-wrap: wrap; /* Wrap content on smaller screens */
     margin-bottom: 20px;
-    margin-left: 20px;
     margin-right: 20px;
     min-height: 400px; /* Set a minimum height for the section */
   }
@@ -631,7 +633,6 @@
     .daoSection {
         flex-direction: column;
         align-items: center;
-        padding: 20px;
     }
 
     .daoContent {
@@ -662,15 +663,13 @@
     background-position: center;
     background-repeat: no-repeat; /* Prevent the image from repeating */
     border-radius: 20px; /* Rounded corners for the section */
-    margin-top: 160px; /* Space above the section */
+    margin: 160px 40px 0 40px; /* Add top margin and 40px left and right margins */
     text-align: center;
     color: #101729; /* Adjust text color as needed */
-    max-width: 768px; /* Limit the width of the background */
+    max-width: calc(100% - 80px); /* Limit the width of the background with 40px left and right margin */
     max-height: 322px; /* Limit the height of the background */
     width: 100%; /* Allow the section to be responsive */
     height: auto; /* Maintain the aspect ratio */
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .farmContent {
@@ -702,7 +701,6 @@
     color: #1E344D;
     z-index: 1; /* Lower z-index to avoid interference */
 }
-
 /* Social Media Cards */
 .socialMediaSection {
     text-align: left;
@@ -825,8 +823,10 @@
     line-height: 1.6;
     color: #1E344D;
     margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
     max-width: 700px;
-    text-align: left; /* Ensure the text is centered */
+    text-align: center; /* Ensure the text is centered */
     z-index: 3; /* Ensure description is above the background */
 }
 

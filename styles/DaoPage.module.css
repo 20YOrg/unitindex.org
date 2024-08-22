@@ -129,11 +129,11 @@
 @media (max-width: 768px) {
     .additionalSection {
         grid-template-columns: 1fr; /* Single column */
-        text-align: center; /* Center-align text */
+        text-align: left; /* Center-align text */
     }
 
     .textSection {
-        align-items: center; /* Center-align items */
+        align-items: left; /* Center-align items */
     }
 }
 
