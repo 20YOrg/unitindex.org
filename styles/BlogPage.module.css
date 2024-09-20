@@ -5,7 +5,7 @@
 
 
 .pageContainer {
-    @apply max-w-none w-full; /* Removes max-width constraint and ensures full width */
+    @apply max-w-[1200px] mx-auto p-8 relative;
     padding-left: 0;
     padding-right: 0;
 }
