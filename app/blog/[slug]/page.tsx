@@ -37,7 +37,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   );
 
   const baseUrl = process.env.NEXT_PUBLIC_DIRECTUS_API_URL;
-  const shareUrl = `https://x.com/compose/post?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`${baseUrl}/blog/${post.slug}`)}`;
+  const unitUrl = "https://unitindex.org";
+  const shareUrl = `https://x.com/compose/post?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`${unitUrl}/blog/${post.slug}`)}`;
 
   return (
     <>
