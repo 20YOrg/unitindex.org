@@ -13,3 +13,11 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+.pageContainer {
+    max-width: 1200px; /* Set the maximum width of the content */
+    margin-right: auto; /* Center the container */
+    margin-left: auto; /* Center the container */
+    padding-left: 32px; /* Optional: Add padding for smaller screens */
+    padding-right: 32px; /* Optional: Add padding for smaller screens */
+}
