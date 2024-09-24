@@ -9,9 +9,13 @@
 }
 
 .container {
-  @apply max-w-4xl mx-auto p-8 relative;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
   font-family: 'Charter', serif;
 }
+
 
 .backLink {
   @apply block mb-4 text-[#5f7179] no-underline;

@@ -3,7 +3,6 @@
     @apply fixed top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat z-[-1];
 }
 
-
 .pageContainer {
     @apply max-w-[1200px] mx-auto p-8 relative;
     padding-left: 0;
