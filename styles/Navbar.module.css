@@ -14,7 +14,7 @@
     font-size: 16px;
     transition: background-color 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
 }
-  
+
 .scrolled {
     background-color: rgba(255, 255, 255, 0.6); /* More opaque background when scrolled */
     backdrop-filter: blur(20px); /* More blur when scrolled */
@@ -23,45 +23,46 @@
 .logoImage {
     height: 40px; /* Adjust the height as needed */
     width: auto; /* Maintain aspect ratio */
-  }
-  
+}
+
 .logo a {
     font-size: 1.5rem;
     font-weight: bold;
     color: #000;
 }
-  
+
 .navLinks {
     display: flex;
     gap: 77px;
     position: relative; /* To position the underline */
 }
-  
+
 .navLink {
     font-size: 1rem;
     color: #101729;
     text-decoration: none;
-    position: relative; /* Needed for the pseudo-element */
+    position: relative; /* Needed for dropdown positioning */
     transition: color 0.3s ease;
     background: linear-gradient(90deg, #101729, #101729); /* Default color for text */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    cursor: pointer; /* Hand cursor when hovering over the link */
 }
-  
+
 .navLink:hover {
     background: var(--Chart-color, linear-gradient(90deg, #4679E2 0%, #F08852 100%));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-  
+
 .active {
     background: var(--Chart-color, linear-gradient(90deg, #4679E2 0%, #F08852 100%));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-  
+
 .underline {
     position: absolute;
     bottom: 0;
@@ -70,15 +71,15 @@
     background: var(--Chart-color, linear-gradient(90deg, #4679E2 0%, #F08852 100%));
     transition: all 0.3s ease;
 }
-  
+
 .launchAppDesktop {
     display: block;
 }
-  
+
 .launchAppMobile {
     display: none;
 }
-  
+
 .launchAppDesktop a,
 .launchAppMobile a {
     font-size: 1rem;
@@ -90,13 +91,13 @@
     border-radius: 35px;
     background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
 }
-  
+
 .launchAppDesktop a:hover,
 .launchAppMobile a:hover {
     background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
     opacity: 0.9;
 }
-  
+
 .hamburger {
     display: none; /* Hide hamburger menu on larger screens */
     background: none;
@@ -108,7 +109,7 @@
     top: 1rem;
     right: 1rem;
 }
-  
+
 .hamburgerIcon {
     width: 25px;
     height: 3px;
@@ -117,9 +118,72 @@
     margin: 5px 0;
     transition: all 0.3s ease;
 }
-  
+
+/* Dropdown Menu Styles */
+.navLink {
+    position: relative; /* Required to position the dropdown menu relative to the navLink */
+    cursor: pointer; /* Hand cursor when hovering over the dropdown */
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 100%; /* Align below the Product link */
+    left: 0;
+    display: flex;
+    opacity: 0;
+    transform: translateY(-10px); /* Initial position, slightly above */
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background similar to navbar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 1001; /* Ensure it appears above other elements */
+    flex-direction: column;
+    width: 160px; /* Make the dropdown wide enough to accommodate longer text */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Add smooth transition */
+    pointer-events: none; /* Prevent interaction until visible */
+}
+
+.dropdownItem {
+    padding: 8px 12px;
+    font-size: 1rem;
+    color: #101729;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    background: linear-gradient(90deg, #101729, #101729); /* Default color for text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap; /* Ensure text doesn't wrap onto a new line */
+    cursor: pointer; /* Hand cursor for dropdown items */
+}
+
+.dropdownItem:hover {
+    background: var(--Chart-color, linear-gradient(90deg, #4679E2 0%, #F08852 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Make dropdown visible on hover */
+.navLink:hover .dropdownMenu {
+    opacity: 1;
+    transform: translateY(0); /* Slide into place */
+    pointer-events: auto; /* Allow interaction once visible */
+}
+
+/* Arrow styling for dropdown */
+.dropdownArrow {
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    transition: all 0.3s ease;
+}
+
+.navLink:hover .dropdownArrow svg {
+    stroke: #F08852; /* Orange stroke for hover effect */
+}
+
 /* Responsive Styles */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .navLinks {
         display: none;
         flex-direction: column;
@@ -132,26 +196,32 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         padding: 1rem 0;
     }
-  
+
     .navLinks.open {
         display: flex;
     }
-  
+
     .navbar {
         flex-direction: column;
         align-items: flex-start;
     }
-  
+
     .hamburger {
         display: block;
     }
-  
+
     .launchAppDesktop {
         display: none;
     }
-  
+
     .launchAppMobile {
         display: block;
         margin-top: 1rem;
+    }
+
+    .dropdownMenu {
+        position: static; /* Default positioning for mobile */
+        box-shadow: none; /* Remove shadow for mobile */
+        background-color: transparent; /* Adjust background for mobile */
     }
 }
