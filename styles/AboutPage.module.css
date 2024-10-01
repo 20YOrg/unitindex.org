@@ -257,43 +257,44 @@
 
 /* FAQ Styles */
 .faqSection {
-    margin-top: 80px;
-  }
-  
-  .faqTitle {
-    /* Apply the same styles as .title to match the other titles */
-    color: #5F7179;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: normal;
-    margin: 16px 0;
-  }
-  
-  .faqItem {
-    margin-bottom: 20px;
-    padding: 15px; /* Add some padding inside the border */
-    border: 1px solid #DBE1EA; /* Thin border around each FAQ item */
-    border-radius: 5px; /* Optional: Add a slight border radius */
-    background-color: rgba(255, 255, 255, 0.3); /* White transparent background */
-    transition: all 0.3s ease; /* Smooth transition for hover effect */
-  }
-  
-  .faqItem:hover {
-    background-color: rgba(255, 255, 255, 0.5); /* Increase transparency on hover */
-    border-color: #101729; /* Change border color on hover */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a slight shadow on hover */
-  }
-  
-  .faqQuestion {
-    font-size: 16px;
-    font-weight: 600;
-    color: #1E344D;
-  }  
-  
-  .faqAnswer {
-    font-size: 16px;
-    font-weight: 400;
-    color: #1E344D;
-    line-height: 1.618;
-    margin-top: 10px; /* Add some space between the question and the answer */
-  }
+  margin-top: 80px;
+}
+
+.faqTitle {
+  /* Apply the same styles as .title to match the other titles */
+  color: #5F7179;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 16px 0;
+}
+
+.faqItem {
+  margin-bottom: 20px;
+  padding: 15px; /* Add some padding inside the border */
+  border: 1px solid #DBE1EA; /* Thin border around each FAQ item */
+  border-radius: 5px; /* Optional: Add a slight border radius */
+  background-color: rgba(255, 255, 255, 0.3); /* White transparent background */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.faqItem:hover {
+  background-color: rgba(255, 255, 255, 0.5); /* Increase transparency on hover */
+  border-color: #101729; /* Change border color on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a slight shadow on hover */
+}
+
+.faqQuestion {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1E344D;
+  cursor: pointer; /* Changes the cursor to a hand on hover */
+}
+
+.faqAnswer {
+  font-size: 16px;
+  font-weight: 400;
+  color: #1E344D;
+  line-height: 1.618;
+  margin-top: 10px; /* Add some space between the question and the answer */
+}
