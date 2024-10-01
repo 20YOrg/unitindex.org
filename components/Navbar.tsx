@@ -98,7 +98,7 @@ export default function Navbar() {
         <Link href="/about" className={`${styles.navLink} ${pathname === '/about' ? styles.active : ''}`} onClick={handleLinkClick}>About</Link>
         <Link href="/devs" className={`${styles.navLink} ${pathname === '/devs' ? styles.active : ''}`} onClick={handleLinkClick}>Devs</Link>
         <Link href="/dao" className={`${styles.navLink} ${pathname === '/dao' ? styles.active : ''}`} onClick={handleLinkClick}>DAO</Link>
-        <Link href="/blog" className={`${styles.navLink} ${pathname === '/blog' ? styles.active : ''}`} onClick={handleLinkClick}>Blog</Link>
+        <Link href="/blog" className={`${styles.navLink} ${pathname.startsWith('/blog') ? styles.active : ''}`} onClick={handleLinkClick}>Blog</Link>
 
         <div className={styles.launchAppMobile}>
           <Link href="https://app.unitindex.org" onClick={handleLinkClick}>Launch App</Link>

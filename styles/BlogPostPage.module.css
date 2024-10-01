@@ -91,7 +91,7 @@
 }
 
 .content h2 {
-  @apply text-[1.5rem] mb-4;
+  @apply text-[1.25rem] sm:text-[1.5rem] mb-4; /* Default 1.5rem, changes to 1.25rem on small screens */
   font-family: 'Charter', serif;
 }
 
