@@ -23,7 +23,7 @@
 }
 
 .title {
-  @apply text-[42px] font-normal mb-4;
+  @apply text-[2rem] sm:text-[2rem] md:text-[2.625rem] font-normal mb-4;
   font-family: 'Charter', serif;
 }
 
@@ -75,17 +75,19 @@
 }
 
 .content {
-  @apply text-[20px] text-justify;
+  @apply text-[1.125rem] md:text-[1.25rem] leading-relaxed;
   font-family: 'Charter', serif;
 }
 
 .content img {
-  @apply w-full rounded-lg my-6;
+  @apply w-full rounded-lg; /* Only top margin, no bottom margin */
 }
 
 .content p {
-  @apply mb-6 leading-relaxed;
-  font-family: 'Charter', serif;
+  margin-top: 32px;  /* Adds space above the paragraph */
+  margin-bottom: 32px;  /* Adds space below the paragraph */
+  line-height: 1.6;  /* Keeps the line height comfortable */
+  font-family: 'Charter', serif;  /* Consistent font style */
 }
 
 .content h2 {
@@ -121,6 +123,14 @@
 
 .content li {
   margin-bottom: 0.5rem; /* Adds spacing between list items */
+}
+
+.content figure figcaption {
+  color: #6B6B6B; /* The color for the description */
+  font-size: 14px; /* The font size for the description */
+  margin-top: 10px; /* No extra space between the image and description */
+  text-align: center; /* Centers the description */
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif; /* Updated font family */
 }
 
 .authorContainer {
