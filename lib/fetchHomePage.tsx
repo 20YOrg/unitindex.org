@@ -20,7 +20,7 @@ async function getHomePage() {
         'support_background',
         'title2',
         'description2',
-        'tinu_picture',
+        'tinu_gif.filename_disk',
         'button2',
         'link2',
         'title3',

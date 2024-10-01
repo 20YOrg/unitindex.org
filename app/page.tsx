@@ -17,7 +17,7 @@ export default async function HomePage() {
   const leftHandUrl = `${directusUrl}/assets/${homePage.left_hand}`;
   const rightHandUrl = `${directusUrl}/assets/${homePage.right_hand}`;
   const supportBackgroundUrl = `${directusUrl}/assets/${homePage.support_background}`;
-  const tinuPictureUrl = `${directusUrl}/assets/${homePage.tinu_picture}`;
+  const tinuGifUrl = `${directusUrl}/assets/${homePage.tinu_gif.filename_disk}`;
   const coinsImageUrl = `${directusUrl}/assets/${homePage.coins_image}`;
   const coinsBackgroundUrl = `${directusUrl}/assets/${homePage.coins_background}`;
   const daoPictureUrl = `${directusUrl}/assets/${homePage.dao_picture}`;
@@ -110,18 +110,25 @@ export default async function HomePage() {
           ))}
         </div>
       </div>
-      {/* New Section for Title2, Description2, and Tinu Picture */}
+      {/* Section where the Tinu GIF is displayed */}
       <div className={styles.newSection}>
-        <img 
-          src={tinuPictureUrl} 
-          alt="Tinu Picture" 
-          className={styles.tinuPicture} 
-        />
+        {/* Render WebM video without fallback to image */}
+        <video 
+          className={styles.tinuGif} 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        >
+          <source src={tinuGifUrl} type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+
         <div className={styles.content}>
           <h2 className={styles.title2}>{homePage.title2}</h2>
           <div 
             className={styles.description2} 
-            dangerouslySetInnerHTML={description2HTML}
+            dangerouslySetInnerHTML={{ __html: homePage.description2 }}
           ></div>
           <a href={homePage.link2} className={styles.button2}>
             {homePage.button2}

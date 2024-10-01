@@ -389,8 +389,8 @@
     flex-wrap: wrap;
 }
 
-.tinuPicture {
-    max-width: 35%; /* Control the width of the image */
+.tinuGif {
+    max-width: 50%; /* Control the width of the image */
     height: auto;
     flex-shrink: 0;
     align-self: center;
@@ -406,7 +406,7 @@
         padding: 40px 40px 40px; /* Increase top padding for mobile */
     }
 
-    .tinuPicture {
+    .tinuGif {
         max-width: 100%;
         margin-bottom: 40px; /* Add spacing between content and image */
     }
