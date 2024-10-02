@@ -2,25 +2,21 @@ import React from 'react';
 import { fetchPageByPermalink } from '@/lib/fetchPageByPermalink';
 import getIndexPage from '@/lib/fetchIndexPage';
 import { fetchKeyFeatures } from '@/lib/fetchKeyFeatures';
-import { fetchIndexTypes } from '@/lib/fetchIndexTypes';
+import { fetchIndexTypes } from '@/lib/fetchIndexTypes'; // Import the new fetch function
 import styles from '@/styles/IndexPage.module.css';
 
 const IndexPage: React.FC = async () => {
   const pageData = await fetchPageByPermalink('/products/index');
-
-  // Fetch index_page specific data and key features
   const indexPageData = await getIndexPage();
   const keyFeatures = await fetchKeyFeatures();
   const indexTypesData = await fetchIndexTypes();
 
   const baseUrl = process.env.NEXT_PUBLIC_DIRECTUS_API_URL;
 
-  // Check if both pageData and indexPageData exist
   if (!pageData || !indexPageData) {
     return <div>Loading...</div>;
   }
 
-  // Get the background image and title from the pageData
   const backgroundImageUrl = `${baseUrl}/assets/${pageData.background}`;
   const image1Url = `${baseUrl}/assets/${indexPageData.image1}`;
   const iconLeftUrl = `${baseUrl}/assets/${indexPageData.box_icon_left}`;
@@ -31,13 +27,14 @@ const IndexPage: React.FC = async () => {
       {/* Fullscreen Background */}
       <div
         className={styles.fullscreenBackground}
-        style={{ backgroundImage: `url(${backgroundImageUrl})` }}
+        style={{
+          backgroundImage: `url(${backgroundImageUrl})`,
+        }}
       ></div>
 
       {/* Page Container */}
       <div className={styles.pageContainer}>
         <div className={styles.contentSection}>
-          {/* Text Content */}
           <div className={styles.textContent}>
             <h1 className={styles.title}>{pageData.title}</h1>
             <h2 className={styles.subsectionTitle}>{indexPageData.title1}</h2>
@@ -73,11 +70,14 @@ const IndexPage: React.FC = async () => {
         {/* Title3 Section */}
         <div className={styles.additionalContentSection}>
           <h2 className={styles.subsectionTitle}>{indexPageData.title3}</h2>
-          {/* Key Features Cards */}
           <div className={styles.cardsContainer}>
             {keyFeatures.map((feature) => (
               <div key={feature.id} className={styles.card}>
-                <img src={feature.icon} alt={feature.title} className={styles.cardIcon} />
+                <img
+                  src={feature.icon}
+                  alt={feature.title}
+                  className={styles.cardIcon}
+                />
                 <h3 className={styles.cardTitle}>{feature.title}</h3>
                 <div
                   className={styles.cardDescription}
@@ -95,37 +95,35 @@ const IndexPage: React.FC = async () => {
 
         {/* Table Section */}
         <div className={styles.tableContainer}>
-          <div className={styles.tableRow}>
-            {/* Left Icon and Title */}
-            <div className={styles.iconTitleWrapper}>
-              <img src={iconLeftUrl} alt="Left Icon" className={styles.icon} />
-              <h2 className={styles.tableTitle}>{indexPageData.box_title_left}</h2>
-            </div>
-
-            {/* Right Icon and Title */}
-            <div className={styles.iconTitleWrapper}>
-              <img src={iconRightUrl} alt="Right Icon" className={styles.icon} />
-              <h2 className={styles.tableTitle}>{indexPageData.box_title_right}</h2>
-            </div>
+          {/* Left Column Header */}
+          <div className={styles.columnHeader}>
+            <img src={iconLeftUrl} alt="Left Icon" className={styles.icon} />
+            <h2 className={styles.tableTitle}>{indexPageData.box_title_left}</h2>
           </div>
-
-          {/* Table Rows */}
-          {indexTypesData.map((item) => (
-            <div key={item.id} className={styles.tableRow}>
-              {/* Left column description_unit */}
-              <div className={styles.tableCell}>
+          {/* Right Column Header */}
+          <div className={styles.columnHeader}>
+            <img src={iconRightUrl} alt="Right Icon" className={styles.icon} />
+            <h2 className={styles.tableTitle}>{indexPageData.box_title_right}</h2>
+          </div>
+          {indexTypesData.map((item, index) => (
+            <>
+              {/* Left column content */}
+              <div key={`left-${index}`} className={`${styles.tableRow} ${styles.leftRow}`}>
                 <div
-                  dangerouslySetInnerHTML={{ __html: item.description_unit }}
+                  dangerouslySetInnerHTML={{
+                    __html: item.description_unit,
+                  }}
                 ></div>
               </div>
-
-              {/* Right column description_other */}
-              <div className={styles.tableCell}>
+              {/* Right column content */}
+              <div key={`right-${index}`} className={`${styles.tableRow} ${styles.rightRow}`}>
                 <div
-                  dangerouslySetInnerHTML={{ __html: item.description_other }}
+                  dangerouslySetInnerHTML={{
+                    __html: item.description_other,
+                  }}
                 ></div>
               </div>
-            </div>
+            </>
           ))}
         </div>
       </div>

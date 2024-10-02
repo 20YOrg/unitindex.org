@@ -43,6 +43,24 @@
     height: auto; /* Maintain aspect ratio */
 }
 
+/* Responsive behavior for small screens */
+@media (max-width: 768px) {
+    .contentSection {
+        flex-direction: column; /* Stack text and image vertically */
+        align-items: flex-start; /* Align items to the start on smaller screens */
+    }
+
+    .textContent {
+        max-width: 100%; /* Full width for text content */
+        margin-bottom: 20px; /* Space between text and image */
+    }
+
+    .imageContent {
+        max-width: 100%; /* Full width for image content */
+        text-align: center; /* Center the image */
+    }
+}
+
 /* Subsection title styles */
 .subsectionTitle {
     color: #101729;
@@ -168,57 +186,42 @@
 /* Table Section */
 .tableContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
-    gap: 0; /* No gap between cells */
-    margin-top: 40px;
-    border: 1px solid #ccc; /* Border around the whole table */
-    border-collapse: collapse;
-}
-
-.tableRow {
-    display: contents; /* Make each row span both columns */
-}
-
-.tableCell {
-    padding: 16px;
-    border: 1px solid #ccc; /* Cell borders for Excel-like look */
-    background-color: rgba(255, 255, 255, 0.8);
-    font-size: 16px;
-    line-height: 24px;
-    color: #1E344D;
-    text-align: left; /* Align text to the left */
-}
-
-.tableCell strong {
-    font-weight: bold;
-    background: linear-gradient(90deg, #4679E2 0%, #F08852 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Icon and Title for Table Columns */
-.iconTitleWrapper {
-    display: flex;
-    align-items: center;
+    grid-template-columns: 1fr 1fr; /* Two columns for larger screens */
     gap: 10px;
-    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.columnHeader {
+    display: flex;
+    align-items: center; /* Align items horizontally */
+    justify-content: center; /* Center both icon and title horizontally */
+    gap: 10px; /* Space between icon and title */
+    text-align: center;
+    margin-bottom: 20px; /* Add space below the header */
 }
 
 .icon {
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
 }
 
 .tableTitle {
-    font-size: 22px;
+    font-size: 18px;
     color: #5F7179;
     font-weight: bold;
 }
 
-/* Responsive behavior for table */
-@media (max-width: 768px) {
-    .tableContainer {
-        grid-template-columns: 1fr; /* Single column on small screens */
-    }
+.tableRow {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.leftRow {
+    background-color: rgba(240, 136, 82, 0.3); /* Light orange with transparency */
+}
+
+.rightRow {
+    background-color: rgba(70, 121, 226, 0.3); /* Light blue with transparency */
 }
