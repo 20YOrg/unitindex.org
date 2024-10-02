@@ -1,60 +1,60 @@
 /* Fullscreen background */
 .fullscreenBackground {
     @apply fixed top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat z-[-1];
-  }
+}
   
-  /* Page container */
-  .pageContainer {
+/* Page container */
+.pageContainer {
     @apply max-w-[1200px] mx-auto p-8 relative;
     z-index: 1; /* Ensure it stays above other elements */
-  }
-  
-  /* Title styles */
-  .title {
+}
+
+/* Title styles */
+.title {
     color: #5F7179;
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
     margin: 16px 0;
-  }
-  
-  /* Section containing text and image content */
-  .contentSection {
+}
+
+/* Section containing text and image content */
+.contentSection {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 40px; /* Space above the section */
     gap: 20px; /* Space between text and image */
-  }
-  
-  .textContent {
+}
+
+.textContent {
     flex: 1; /* Text content takes up available space */
     max-width: 50%; /* Control the width of the text content */
-  }
-  
-  .imageContent {
+}
+
+.imageContent {
     flex: 1; /* Image content takes up available space */
     max-width: 100%; /* Control the width of the image */
     text-align: center; /* Center the image horizontally */
-  }
-  
-  .image1 {
+}
+
+.image1 {
     width: 100%; /* Full width within the image container */
     height: auto; /* Maintain aspect ratio */
-  }
-  
-  /* Subsection title styles */
-  .subsectionTitle {
+}
+
+/* Subsection title styles */
+.subsectionTitle {
     color: #101729;
     font-size: 26px;
     font-style: normal;
     font-weight: 700;
     line-height: 48px; /* 184.615% */
     margin-bottom: 16px;
-  }
-  
-  /* Description styles */
-  .description {
+}
+
+/* Description styles */
+.description {
     font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -64,18 +64,18 @@
     text-align: left;
     line-height: 1.618;
     max-width: 600px; /* Set a maximum width for readability */
-  }
-  
-  .description strong {
+}
+
+.description strong {
     background: linear-gradient(90deg, #4679E2 0%, #F08852 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 600;
-  }
-  
-  /* Button1 styles */
-  .button1 {
+}
+
+/* Button1 styles */
+.button1 {
     padding: 10px 20px;
     font-size: 16px;
     color: #101729;
@@ -87,28 +87,138 @@
     text-decoration: none;
     margin-top: 16px;
     display: inline-block;
-  }
-  
-  .button1:hover {
+}
+
+.button1:hover {
     background: linear-gradient(90deg, #4679E2 0%, #F08852 100%);
-  }
-  
-  /* Example separator line */
-  .separatorLine {
-    width: 100%;
-    height: 1px;
-    background-color: #6B6767;
+}
+
+/* Additional content section */
+.additionalContentSection {
     margin-top: 40px;
+}
+
+/* Key Features Cards Container */
+.cardsContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 20px; /* Space between cards */
+    margin-top: 24px;
   }
   
-  /* Adjust styles for smaller screens */
-  @media (max-width: 768px) {
-    .contentSection {
-      flex-direction: column;
-    }
+/* Key Features Card */
+.card {
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    align-items: flex-start; /* Align all items to the left */
+    padding: 16px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
   
-    .textContent,
-    .imageContent {
-      max-width: 100%;
+/* Card Icon */
+.cardIcon {
+    height: 50px; /* Fixed height */
+    width: auto; /* Maintain aspect ratio */
+    margin-bottom: 16px; /* Space between icon and title */
+}
+  
+/* Key Features Card Title */
+.cardTitle {
+    font-size: 20px;
+    color: #5F7179;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, #4679E2 0%, #F08852 50%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    text-align: left;
+}
+  
+/* Card Description */
+.cardDescription {
+    font-size: 16px;
+    color: #1E344D;
+    text-align: left;
+    line-height: 1.5;
+    margin: 0; /* Remove default margin for <p> tags */
+}
+  
+/* Strong tag inside card description */
+.cardDescription strong {
+    font-weight: bold; /* Ensure <strong> is bold */
+}  
+  
+/* Responsive behavior */
+@media (max-width: 1024px) {
+    .cardsContainer {
+      grid-template-columns: repeat(2, 1fr); /* 2 cards per row on medium screens */
     }
-  }  
+}
+
+@media (max-width: 768px) {
+    .cardsContainer {
+      grid-template-columns: 1fr; /* 1 card per row on small screens */
+    }
+}
+
+/* Table Section */
+.tableContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+    gap: 0; /* No gap between cells */
+    margin-top: 40px;
+    border: 1px solid #ccc; /* Border around the whole table */
+    border-collapse: collapse;
+}
+
+.tableRow {
+    display: contents; /* Make each row span both columns */
+}
+
+.tableCell {
+    padding: 16px;
+    border: 1px solid #ccc; /* Cell borders for Excel-like look */
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    line-height: 24px;
+    color: #1E344D;
+    text-align: left; /* Align text to the left */
+}
+
+.tableCell strong {
+    font-weight: bold;
+    background: linear-gradient(90deg, #4679E2 0%, #F08852 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Icon and Title for Table Columns */
+.iconTitleWrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+}
+
+.tableTitle {
+    font-size: 22px;
+    color: #5F7179;
+    font-weight: bold;
+}
+
+/* Responsive behavior for table */
+@media (max-width: 768px) {
+    .tableContainer {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+}
