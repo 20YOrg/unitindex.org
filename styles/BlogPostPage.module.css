@@ -91,7 +91,7 @@
 }
 
 .content h2 {
-  @apply text-[1.25rem] sm:text-[1.5rem] mb-4; /* Default 1.5rem, changes to 1.25rem on small screens */
+  @apply text-[1.25rem] sm:text-[1.5rem] mb-2 mt-8; /* Default 1.5rem, changes to 1.25rem on small screens */
   font-family: 'Charter', serif;
 }
 
@@ -128,7 +128,7 @@
 .content figure figcaption {
   color: #6B6B6B; /* The color for the description */
   font-size: 14px; /* The font size for the description */
-  margin-top: 10px; /* No extra space between the image and description */
+  margin-top: 16px; 
   text-align: center; /* Centers the description */
   font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif; /* Updated font family */
 }

@@ -175,18 +175,31 @@
 }
 
 .readMore {
-    @apply mt-4;
+    display: flex;
+    align-items: center;
     font-size: 16px;
     color: #101729;
-    display: flex;
-    transition: transform 0.3s ease-in-out; /* Add transition effect */
     margin-top: 1.618rem;
-}
-
-.card:hover .readMore {
-    transform: translateX(10px); /* Move the arrow to the right on card hover */
+  }
+  
+  .readMoreText {
     color: #101729;
-}
+  }
+  
+  .arrow {
+    margin-left: 8px; /* Add some space between text and arrow */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for arrow movement */
+  }
+  
+  .card:hover .arrow {
+    transform: translateX(20px); /* Move the arrow only on hover */
+  }  
+
+  .arrow svg {
+    vertical-align: middle; /* Align the arrow in the middle */
+    width: 12px;
+    height: 11px;
+  }
 
 /* Icons */
 .icon {

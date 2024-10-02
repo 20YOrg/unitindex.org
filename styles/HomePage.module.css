@@ -229,7 +229,7 @@
 }
 
 .button:hover::after {
-    transform: translateX(8px); /* Move arrow to the right on hover */
+    transform: translateX(10px); /* Move arrow to the right on hover */
 }
 
 .button:hover {
