@@ -23,7 +23,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 40px; /* Space above the section */
     gap: 20px; /* Space between text and image */
 }
 
