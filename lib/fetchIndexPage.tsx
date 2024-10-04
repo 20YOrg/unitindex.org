@@ -11,6 +11,7 @@ async function getIndexPage() {
         'description1',
         'image1',
         'button1',
+        'link1',
         'title2',
         'description2',
         'title3',
@@ -18,7 +19,9 @@ async function getIndexPage() {
         'box_title_left',
         'box_icon_left',
         'box_title_right',
-        'box_icon_right'
+        'box_icon_right',
+        'box_button',
+        'box_link'
       ],
     }));
     return indexPage;

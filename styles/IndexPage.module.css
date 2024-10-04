@@ -224,3 +224,26 @@
 .rightRow {
     background-color: rgba(70, 121, 226, 0.3); /* Light blue with transparency */
 }
+
+/* Button container below the table */
+.buttonContainer {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Button styles */
+  .tableButton {
+    padding: 12px 24px;
+    font-size: 16px;
+    color: white;
+    background-color: #4679E2;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .tableButton:hover {
+    background-color: #F08852;
+  }
+  

@@ -21,6 +21,9 @@ const IndexPage: React.FC = async () => {
   const image1Url = `${baseUrl}/assets/${indexPageData.image1}`;
   const iconLeftUrl = `${baseUrl}/assets/${indexPageData.box_icon_left}`;
   const iconRightUrl = `${baseUrl}/assets/${indexPageData.box_icon_right}`;
+  const buttonLink = indexPageData.box_link;
+  const buttonText = indexPageData.box_button;
+  const button1Link = indexPageData.link1; // Added link1 for button1
 
   return (
     <>
@@ -42,8 +45,10 @@ const IndexPage: React.FC = async () => {
               className={styles.description}
               dangerouslySetInnerHTML={{ __html: indexPageData.description1 }}
             ></div>
+
+            {/* Button1 from index_page with the link */}
             <a
-              href="#"
+              href={button1Link ? button1Link : '#'} // Added link for button1
               className={styles.button1}
               target="_blank"
               rel="noopener noreferrer"
@@ -126,6 +131,20 @@ const IndexPage: React.FC = async () => {
             </>
           ))}
         </div>
+
+        {/* Button below the table */}
+        {buttonLink && buttonText && (
+          <div className={styles.buttonContainer}>
+            <a
+              href={buttonLink}
+              className={styles.button1} // Apply button1 style to box_button
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {buttonText}
+            </a>
+          </div>
+        )}
       </div>
     </>
   );
