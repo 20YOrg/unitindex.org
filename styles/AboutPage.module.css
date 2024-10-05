@@ -35,7 +35,7 @@
   .title {
     color: #5F7179;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: normal;
     margin: 16px 0;
     text-align: left; /* Align title to the left */
@@ -264,7 +264,7 @@
   /* Apply the same styles as .title to match the other titles */
   color: #5F7179;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: normal;
   margin: 16px 0;
 }

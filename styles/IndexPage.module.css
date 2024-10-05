@@ -13,7 +13,7 @@
 .title {
     color: #5F7179;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: normal;
     margin: 16px 0;
 }
@@ -73,11 +73,11 @@
 /* Description styles */
 .description {
     font-family: 'Inter', sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 30px;
-    color: #1E344D;
-    margin-bottom: 40px;
+    color: #5F7179;
+    margin-bottom: 32px;
     text-align: left;
     line-height: 1.618;
     max-width: 600px; /* Set a maximum width for readability */
@@ -93,8 +93,9 @@
 
 /* Button1 styles */
 .button1 {
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 16px;
+    font-weight: 600;
     color: #101729;
     background: linear-gradient(90deg, #4679E2 0%, #A2BCF1 25%, #FFF 50%, #F7C3A8 75%, #F08852 100%);
     border: none;
@@ -102,7 +103,6 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     text-decoration: none;
-    margin-top: 16px;
     display: inline-block;
 }
 
@@ -112,15 +112,15 @@
 
 /* Additional content section */
 .additionalContentSection {
-    margin-top: 40px;
+    margin-top: 150px;
 }
 
 /* Key Features Cards Container */
 .cardsContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
-    gap: 20px; /* Space between cards */
-    margin-top: 24px;
+    gap: 64px; /* Space between cards */
+    margin-top: 64px;
   }
   
 /* Key Features Card */
@@ -128,9 +128,9 @@
     display: flex;
     flex-direction: column; /* Align items vertically */
     align-items: flex-start; /* Align all items to the left */
-    padding: 16px;
+    padding: 32px;
     border-radius: 12px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.7);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -147,7 +147,7 @@
     font-size: 20px;
     color: #5F7179;
     margin-bottom: 8px;
-    background: linear-gradient(90deg, #4679E2 0%, #F08852 50%);
+    background: linear-gradient(90deg, #4679E2 0%, #F08852 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -158,7 +158,7 @@
 /* Card Description */
 .cardDescription {
     font-size: 16px;
-    color: #1E344D;
+    color: #5F7179;
     text-align: left;
     line-height: 1.5;
     margin: 0; /* Remove default margin for <p> tags */
@@ -185,49 +185,92 @@
 /* Table Section */
 .tableContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns for larger screens */
-    gap: 10px;
-    margin-top: 40px;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 0; /* Remove gaps for tighter layout */
+    margin-top: 32px;
+    max-width: 700px; /* Limit table width to avoid stretching */
+    margin-left: auto; /* Center table horizontally */
+    margin-right: auto; /* Center table horizontally */
+    border-collapse: collapse;
 }
 
+/* Header section for both columns */
 .columnHeader {
     display: flex;
     align-items: center; /* Align items horizontally */
-    justify-content: center; /* Center both icon and title horizontally */
-    gap: 10px; /* Space between icon and title */
-    text-align: center;
-    margin-bottom: 20px; /* Add space below the header */
+    justify-content: center; /* Center icon and title horizontally */
+    gap: 8px; /* Space between icon and title */
+    padding: 8px; /* Tighter padding */
+    font-size: 20px;
+    background-color: #f4f4f4; /* Light background color */
+    font-weight: bold;
+    border: 1px solid #ddd; /* Border for structure */
 }
 
 .icon {
-    width: 20px;
-    height: 20px;
+    width: 18px; /* Small icon */
+    height: 18px;
 }
 
-.tableTitle {
-    font-size: 18px;
-    color: #5F7179;
-    font-weight: bold;
-}
-
+/* Table rows */
 .tableRow {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 16px;
+    background-color: rgba(255, 255, 255, 1.0);
+    padding: 12px; /* Compact padding */
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-collapse: collapse;
+    font-size: 16px; /* Keep text size */
+    line-height: 24px;
+    color: #5F7179; /* Default text color */
 }
 
+/* Apply list styles for bullet points inside the rows */
+.tableRow ul {
+    list-style-type: disc; /* Add bullet points */
+    padding-left: 20px; /* Align bullet with text */
+    margin: 0; /* Remove margin */
+}
+
+.tableRow ul li {
+    padding: 0; /* Keep padding as is */
+    margin: 0; /* Remove extra margin from list item */
+    line-height: inherit; /* Maintain the text height */
+}
+
+/* Stronger text with gradient */
+.tableRow strong {
+    font-weight: 600;
+    background: linear-gradient(90deg, #4679E2 0%, #F08852 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Left column rows */
 .leftRow {
-    background-color: rgba(240, 136, 82, 0.3); /* Light orange with transparency */
+    background-color: rgba(240, 136, 82, 0.1); /* Light orange */
+    border: 1px solid #ddd;
+    padding: 16px; /* Keep padding */
 }
 
+/* Right column rows */
 .rightRow {
-    background-color: rgba(70, 121, 226, 0.3); /* Light blue with transparency */
+    background-color: rgba(70, 121, 226, 0.1); /* Light blue */
+    border: 1px solid #ddd;
+    padding: 16px; /* Keep padding */
 }
+
+/* Keep two rows on small screens */
+@media (max-width: 768px) {
+    .tableContainer {
+        grid-template-columns: 1fr 1fr; /* Maintain two columns */
+    }
+}
+
+
 
 /* Button container below the table */
 .buttonContainer {
-    margin-top: 20px;
+    margin-top: 64px;
     text-align: center;
   }
   

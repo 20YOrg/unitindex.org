@@ -15,6 +15,9 @@ export default function Navbar() {
   const baseUrl = process.env.NEXT_PUBLIC_DIRECTUS_API_URL;
   const logoUrl = `${baseUrl}/assets/0e4bdd6e-ab4f-4f5a-9f89-7f8d37740063`;
 
+  // Check if the user is on a product page or a subpage of Products
+  const isProductPage = pathname.startsWith('/products');
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -29,7 +32,8 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (pathname === '/') {
+    // Don't show underline on product pages
+    if (isProductPage) {
       setUnderlineStyle({ width: 0, left: 0 });
       return;
     }
@@ -43,7 +47,7 @@ export default function Navbar() {
         left: activeLinkRect.left - navLinksRect.left,
       });
     }
-  }, [pathname]);
+  }, [pathname, isProductPage]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -103,6 +107,8 @@ export default function Navbar() {
         <div className={styles.launchAppMobile}>
           <Link href="https://app.unitindex.org" onClick={handleLinkClick}>Launch App</Link>
         </div>
+
+        {/* The underline will be hidden on product pages */}
         <div className={styles.underline} style={underlineStyle}></div>
       </div>
       <button className={styles.hamburger} onClick={toggleMenu}>

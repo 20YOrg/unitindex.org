@@ -92,7 +92,8 @@
 
 .content h2 {
   @apply text-[1.25rem] sm:text-[1.5rem] mb-2 mt-8; /* Default 1.5rem, changes to 1.25rem on small screens */
-  font-family: 'Charter', serif;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
 }
 
 .content a {
