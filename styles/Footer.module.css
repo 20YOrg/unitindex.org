@@ -1,48 +1,178 @@
-/* styles/Footer.module.css */
+/* Common Styles for Both Desktop and Mobile */
 .footer {
+    padding: 4rem;
+    background-color: rgba(255, 255, 255, 0.4); /* White with transparency */
+    width: 100%;
+    font-size: 14px;
+    position: relative;
+    z-index: 10;
+    margin-top: 8rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: transparent; /* Fully transparent background */
+}
+
+/* Footer Content: Layout for large screens */
+.footerContent {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
-    font-size: 16px;
-    transition: background-color 0.3s ease; /* Smooth transition */
-    position: relative;
-    z-index: 10; /* Ensure it stays above other elements */
+    max-width: 1200px; /* Set max width to avoid overflow */
+    gap: 80px; /* Space between the left and right parts */
+}
+
+/* Left Section: Logo, Social Icons, and Copyright */
+.leftSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px; /* 32px gap between logo, icons, and copyright */
 }
 
 .logoImage {
-    height: 40px; /* Adjust the height as needed */
-    width: auto; /* Maintain aspect ratio */
-  }
-  
-.logo a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #000;
+    height: 40px; /* Fix logo height to avoid stretching */
+    width: auto; /* Ensure logo maintains aspect ratio */
 }
-  
-.footerLinks {
+
+/* Social Icons */
+.socialIcons {
     display: flex;
-    gap: 1rem; /* Add more spacing between the links */
-    margin: 1rem 0; /* Add margin to create space between the links and the copyright */
+    gap: 16px; /* Space between social icons */
 }
-  
-.footerLinks a {
-    font-size: 1rem;
+
+.socialIcon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.socialIcon:hover {
+    opacity: 1;
+}
+
+/* Footer Links Container */
+.footerLinksContainer {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(150px, 1fr)); /* 5 columns for large screens */
+    gap: 16px; /* Adjust gap between columns */
+    max-width: 900px; /* Limit the width to ensure no overlap with the logo section */
+    width: 100%;
+}
+
+/* Footer Columns */
+.footerColumn h4 {
+    font-size: 14px;
+    font-weight: 500;
     color: #101729;
+    margin-bottom: 16px;
+}
+
+.footerColumn a {
+    display: block;
+    font-size: 14px;
+    color: #8F8E8E;
     text-decoration: none;
+    font-weight: 400;
+    margin-bottom: 16px;
     transition: color 0.3s ease;
 }
-  
-.footerLinks a:hover {
-    color: #000;
+
+.footerColumn a:hover {
+    color: #101729;
 }
-  
+
+/* Copyright Section */
 .copyright {
-    font-size: 1rem;
-    color: #333;
-    margin-top: 1rem;
+    font-size: 14px;
+    color: #101729;
+    white-space: nowrap;
+    margin-top: 0;
 }
+
+/* Divider Line (hidden on large screens) */
+.footerDivider {
+    display: none;
+}
+
+/* Styles for Large Screens (5 Columns, One Row) */
+@media (min-width: 1200px) {
+    .footerLinksContainer {
+        grid-template-columns: repeat(5, 1fr); /* Keep 5 columns on largest screens */
+        gap: 16px;
+    }
+}
+
+/* Medium Screens (Switch to 2 Rows, 3 Columns) */
+@media (max-width: 1200px) and (min-width: 1024px) {
+    .footerLinksContainer {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns */
+        grid-template-rows: repeat(2, auto); /* 2 rows */
+        gap: 24px;
+    }
+}
+
+/* Small Screens (Switch to 3 Rows, 2 Columns) */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .footerLinksContainer {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        grid-template-rows: repeat(3, auto); /* 3 rows */
+        gap: 16px;
+    }
+}
+
+/* Styles for Small Screens (Mobile Version) */
+@media (max-width: 768px) {
+    .footerContent {
+        flex-direction: column; /* Stack content vertically on mobile */
+        align-items: center; /* Center everything */
+    }
+
+    /* Add margin between logo, icons, and columns */
+    .leftSection {
+        align-items: center;
+        margin-bottom: 16px; /* Add space below icons */
+    }
+
+    .logoImage {
+        height: 40px;
+        width: auto;
+        margin-bottom: 32px; /* Add margin below the logo */
+    }
+
+    .socialIcons {
+        justify-content: center;
+        margin-bottom: 64px; /* Add margin below icons */
+    }
+
+    /* Center the entire Footer Links Container */
+    .footerLinksContainer {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(120px, 1fr)); /* Two columns layout */
+        gap: 8px; /* Space between columns */
+        justify-content: center; /* Center the columns container */
+        width: 100%;
+        max-width: 600px; /* Optional max width to avoid stretching */
+        margin: 0 auto 32px; /* Center the container and add margin below */
+    }
+
+    .footerColumn {
+        margin-bottom: 16px; /* Add margin between footer columns */
+        text-align: left; /* Keep text left-aligned */
+    }
+
+    .copyright {
+        text-align: center;
+        margin-top: 32px; /* Space between columns and copyright */
+    }
+
+    .footerDivider {
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #ccc;
+        margin: 0.5rem 0;
+    }
+}
+
+

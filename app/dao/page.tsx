@@ -97,6 +97,7 @@ const DaoPage = async () => {
         <div className={styles.separatorLine}></div>
 
         {/* Section 4: Download ZIP */}
+        <div id="brand-assets"></div>
         <div className={styles.downloadSection}>
         <h2 className={styles.sectionTitle}>{daoPageData.title4}</h2>
         <div className={styles.zipContainer}>

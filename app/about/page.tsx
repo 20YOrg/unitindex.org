@@ -50,6 +50,7 @@ const AboutPage: React.FC = async () => {
         <div className={styles.separatorLine}></div>
 
         {/* Second Section: Main Title */}
+        <div id="why-unit"></div>
         <h2 className={styles.title}>{aboutPage.title}</h2>
 
         {/* Second Section: Card with Title1, Description1, and Image1 */}
@@ -125,6 +126,7 @@ const AboutPage: React.FC = async () => {
         </div>
 
         {/* Button */}
+        <div id="faq"></div>
         <div className={styles.buttonContainer}>
           <a href={aboutPage.link} className={styles.button}>
             {aboutPage.button}
