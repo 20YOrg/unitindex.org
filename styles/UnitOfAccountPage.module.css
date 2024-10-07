@@ -15,7 +15,6 @@
     justify-content: space-between; /* Distribute space between text and spline */
     align-items: center; /* Align items vertically at the center */
     gap: 20px; /* Space between text and Spline */
-    margin-top: 40px;
 }
 
 /* Text content section */
@@ -28,33 +27,31 @@
     flex: 1; /* Take up available space */
     max-width: 50%; /* Restrict the width to half of the container */
     overflow: hidden; /* Hide the overflow to show only a portion of the Spline */
-    height: 500px; /* Set the height for the Spline container */
+    height: 400px; /* Set the height for the Spline container */
     position: relative; /* Ensure the positioning of the container is relative */
 }
 
 .splineContainer canvas + div {
     display: none; /* Hide the watermark div that follows the canvas */
     position: absolute; /* Position the Spline content inside the container */
-    top: -100px; /* Adjust the top value to focus on the center of the scene */
     left: 0;
     right: 0;
     bottom: 0;
-    margin: auto;
 }
 
 /* Responsive behavior for smaller screens */
 @media (max-width: 768px) {
-    .sectionWithImage {
-      flex-direction: column; /* Stack the text and Spline vertically */
+    .sectionWithSpline {
+        flex-direction: column; /* Stack the text and Spline vertically */
     }
-  
-    .sectionTextContent,
-    .splineContainer {
-      max-width: 100%; /* Full width on small screens */
+
+    .textContent {
+        max-width: 100%; /* Full width for text content */
     }
-  
+
     .splineContainer {
-      height: auto; /* Allow the Spline to adjust its height on smaller screens */
+        max-width: 100%; /* Full width for Spline */
+        margin-top: 20px; /* Add space between the text and Spline */
     }
 }
 
@@ -204,6 +201,7 @@
     gap: 15px; /* Space between images */
     overflow: hidden; /* Hide the scrollbars */
     scroll-behavior: smooth;
+    white-space: nowrap; /* Ensure items do not wrap onto the next line */
 }
 
 .bottomGallery {
@@ -214,16 +212,16 @@
     max-width: 200px; /* Set the size for the images */
     height: auto;
     border-radius: 8px;
+    display: inline-block; /* Make the images behave like inline elements for horizontal scrolling */
 }
 
-/* Responsive behavior for top and bottom galleries */
+/* Ensure same behavior across screen sizes */
 @media (max-width: 768px) {
     .topGallery, .bottomGallery {
-        flex-direction: column; /* Stack images vertically on smaller screens */
-        align-items: center;
+        white-space: nowrap; /* Prevent wrapping for small screens */
+        justify-content: flex-start; /* Align items at the start */
     }
 }
-
 
 /* Align the button to the right */
 .buttonContainer {
