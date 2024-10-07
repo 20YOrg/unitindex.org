@@ -1,29 +1,91 @@
-/* styles/DevsPage.module.css */
-
+/* Fullscreen background */
 .fullscreenBackground {
     @apply fixed top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat z-[-1];
 }
 
+/* Page container */
 .pageContainer {
     @apply max-w-[1200px] mx-auto p-8 relative;
-    z-index: 1; /* Ensure it stays above other elements */
+    z-index: 1;
 }
 
+/* Section with Spline and Text */
+.sectionWithSpline {
+    display: flex; /* Use flexbox to position content side by side */
+    justify-content: space-between; /* Distribute space between text and spline */
+    align-items: center; /* Align items vertically at the center */
+    gap: 20px; /* Space between text and Spline */
+    margin-top: 40px;
+}
+
+/* Text content section */
+.textContent {
+    flex: 1; /* Take up available space */
+    max-width: 50%; /* Restrict the width to half of the container */
+}
+
+.splineContainer {
+    flex: 1; /* Take up available space */
+    max-width: 50%; /* Restrict the width to half of the container */
+    overflow: hidden; /* Hide the overflow to show only a portion of the Spline */
+    height: 500px; /* Set the height for the Spline container */
+    position: relative; /* Ensure the positioning of the container is relative */
+}
+
+.splineContainer canvas + div {
+    display: none; /* Hide the watermark div that follows the canvas */
+    position: absolute; /* Position the Spline content inside the container */
+    top: -100px; /* Adjust the top value to focus on the center of the scene */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+    .sectionWithImage {
+      flex-direction: column; /* Stack the text and Spline vertically */
+    }
+  
+    .sectionTextContent,
+    .splineContainer {
+      max-width: 100%; /* Full width on small screens */
+    }
+  
+    .splineContainer {
+      height: auto; /* Allow the Spline to adjust its height on smaller screens */
+    }
+}
+
+/* Title styles */
 .title {
     color: #5F7179;
-    font-size: 16px; /* Increased font size for better visibility */
+    font-size: 16px;
     font-weight: 300;
     line-height: normal;
-    margin: 16px 0; /* Consistent vertical margin */
+    margin: 16px 0;
 }
 
+/* Subsection title styles */
+.subsectionTitle {
+    color: #101729;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 48px;
+    margin-bottom: 16px;
+}
+
+/* Description styles */
 .description {
     font-family: 'Inter', sans-serif;
-    font-size: 20px; /* Updated font size */
-    font-weight: 400; /* Ensure it is not bold */
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    color: #5F7179;
+    margin-bottom: 32px;
+    text-align: left;
     line-height: 1.618;
-    color: #1E344D;
-    margin-bottom: 40px; /* Increased bottom margin for more space */
     max-width: 600px;
 }
 
@@ -32,11 +94,179 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-weight: 600; /* Ensure it is not bold */
+    font-weight: 600;
 }
 
-.separatorLine {
-    height: 1px;
-    background-color: #6B6767;
-    margin: 40px 0; /* Add vertical margin for spacing */
+/* Section with text and image side by side */
+.sectionWithImage {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.sectionTextContent {
+    flex: 1;
+}
+
+.sectionImageContent {
+    flex: 1;
+    text-align: center;
+}
+
+.sectionImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Specific styling for each image */
+.balanceImage {
+    width: 80%;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.argumentImage {
+    width: 30%;
+    margin-left: 20px;
+    margin-right: auto;
+}
+
+.uniteBuildImage {
+    width: 70%;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* Responsive behavior for small screens */
+@media (max-width: 768px) {
+    .sectionWithImage {
+        flex-direction: column;
+    }
+
+    .sectionTextContent {
+        margin-bottom: 20px;
+    }
+
+    .balanceImage,
+    .argumentImage,
+    .uniteBuildImage {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+/* Quote Section */
+.quoteSection {
+    text-align: center;
+    margin: 40px 0;
+}
+
+/* Applying provided typography to the quote */
+.quoteSection blockquote {
+    color: #111;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 46px;
+    margin-bottom: 20px;
+}
+
+.quoteSides {
+    display: flex;
+    justify-content: space-between; /* Pushes one image to the left and the other to the right */
+    align-items: center; /* Vertically centers the images */
+    margin-top: 20px;
+}
+
+.quoteImage {
+    width: 60px; /* Adjust the size of the image if needed */
+    height: auto;
+    display: block;
+}
+
+.quoteLeft {
+    margin-right: auto; /* Pushes the image to the left */
+}
+
+.quoteRight {
+    margin-left: auto; /* Pushes the image to the right */
+}
+
+/* Top and Bottom Gallery Styles */
+.gallerySection {
+    margin: 20px 0;
+}
+
+.topGallery, .bottomGallery {
+    display: flex;
+    gap: 15px; /* Space between images */
+    overflow: hidden; /* Hide the scrollbars */
+    scroll-behavior: smooth;
+}
+
+.bottomGallery {
+    flex-direction: row-reverse; /* Scroll to the left */
+}
+
+.galleryImage {
+    max-width: 200px; /* Set the size for the images */
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Responsive behavior for top and bottom galleries */
+@media (max-width: 768px) {
+    .topGallery, .bottomGallery {
+        flex-direction: column; /* Stack images vertically on smaller screens */
+        align-items: center;
+    }
+}
+
+
+/* Align the button to the right */
+.buttonContainer {
+    text-align: right;
+}
+
+/* Button styles */
+.button1 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 16px;
+    background: var(--Chart-color, linear-gradient(90deg, #4679E2 0%, #F08852 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative; /* Needed for positioning the arrow */
+    transition: background 0.3s ease; /* Smooth transition on hover */
+    display: inline-flex; /* Align text and arrow horizontally */
+    align-items: center;
+}
+
+/* SVG Arrow after button text */
+.button1::after {
+    content: '';
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 11" fill="none"><path d="M8.83333 3.08334L1.4375 10.5C1.27083 10.6667 1.07278 10.75 0.843333 10.75C0.613889 10.75 0.416111 10.6667 0.25 10.5C0.0833331 10.3333 0 10.1353 0 9.90584C0 9.67639 0.0833331 9.47861 0.25 9.3125L7.66667 1.91667H1.33333C1.09722 1.91667 0.899167 1.83667 0.739167 1.67667C0.579167 1.51667 0.499444 1.31889 0.5 1.08334C0.5 0.847225 0.58 0.64917 0.74 0.48917C0.9 0.32917 1.09778 0.249447 1.33333 0.250003H9.66667C9.90278 0.250003 10.1008 0.330003 10.2608 0.490003C10.4208 0.650003 10.5006 0.847781 10.5 1.08334V9.41667C10.5 9.65278 10.42 9.85084 10.26 10.0108C10.1 10.1708 9.90222 10.2506 9.66667 10.25C9.43056 10.25 9.2325 10.17 9.0725 10.01C8.9125 9.85 8.83278 9.65223 8.83333 9.41667V3.08334Z" fill=\'%23EC8857\'/></svg>');
+    margin-left: 10px; /* Space between text and arrow */
+    transition: transform 0.3s ease;
+}
+
+/* Button hover effect */
+.button1:hover {
+    background: linear-gradient(90deg, #F08852 0%, #4679E2 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Arrow hover effect */
+.button1:hover::after {
+    transform: translate(3px, -3px); /* Move arrow slightly up-right */
 }

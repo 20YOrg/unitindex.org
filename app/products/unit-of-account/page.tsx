@@ -1,32 +1,33 @@
 // app/products/unit-of-account/page.tsx
-import React from 'react';
 import { fetchPageByPermalink } from '@/lib/fetchPageByPermalink';
-import styles from '@/styles/UnitOfAccountPage.module.css';
+import getUnitOfAccountPage from '@/lib/fetchUnitOfAccountPage';
+import { fetchTopGallery } from '@/lib/fetchTopGallery';
+import { fetchBottomGallery } from '@/lib/fetchBottomGallery';
+import UnitOfAccountClient from '@/components/UnitOfAccountClient';
 
-const UnitOfAccountPage: React.FC = async () => {
+export default async function UnitOfAccountPage() {
+  // Fetch the server-side data
   const pageData = await fetchPageByPermalink('/products/unit-of-account');
-  const baseUrl = process.env.NEXT_PUBLIC_DIRECTUS_API_URL;
+  const unitOfAccountData = await getUnitOfAccountPage();
+  const topGallery = await fetchTopGallery();
+  const bottomGallery = await fetchBottomGallery();
 
-  if (!pageData) {
-    return <div>Loading...</div>;
+  // Check if data is not found or if there are any issues
+  if (!pageData || !unitOfAccountData) {
+    return <div>Loading...</div>; // Or handle it with proper error state
   }
 
-  // Get the background image and title from the pageData
-  const backgroundImageUrl = `${baseUrl}/assets/${pageData.background}`;
+  // Pre-process URLs for the background image
+  const backgroundImageUrl = `${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${pageData.background}`;
 
+  // Pass data to the client-side component
   return (
-    <>
-      <div
-        className={styles.fullscreenBackground}
-        style={{
-          backgroundImage: `url(${backgroundImageUrl})`,
-        }}
-      ></div>
-      <div className={styles.pageContainer}>
-        <h1 className={styles.title}>{pageData.title}</h1>
-      </div>
-    </>
+    <UnitOfAccountClient
+      pageData={pageData}
+      unitOfAccountData={unitOfAccountData}
+      topGallery={topGallery}
+      bottomGallery={bottomGallery}
+      backgroundImageUrl={backgroundImageUrl}
+    />
   );
-};
-
-export default UnitOfAccountPage;
+}
