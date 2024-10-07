@@ -39,13 +39,19 @@ export default function Navbar() {
     }
 
     const activeLink = document.querySelector(`.${styles.navLink}.${styles.active}`);
+
     if (activeLink && navLinksRef.current) {
       const navLinksRect = navLinksRef.current.getBoundingClientRect();
       const activeLinkRect = activeLink.getBoundingClientRect();
+
+      // Update the underline based on the active link position
       setUnderlineStyle({
         width: activeLinkRect.width,
         left: activeLinkRect.left - navLinksRect.left,
       });
+    } else if (pathname === '/') {
+      // Reset underline if on homepage (i.e., no active link)
+      setUnderlineStyle({ width: 0, left: 0 });
     }
   }, [pathname, isProductPage]);
 
@@ -122,3 +128,4 @@ export default function Navbar() {
     </nav>
   );
 }
+
