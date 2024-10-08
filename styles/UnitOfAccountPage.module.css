@@ -80,7 +80,7 @@
     font-weight: 400;
     line-height: 30px;
     color: #5F7179;
-    margin-bottom: 32px;
+    margin-bottom: 96px;
     text-align: left;
     line-height: 1.618;
     max-width: 600px;
@@ -156,24 +156,33 @@
 
 /* Quote Section */
 .quoteSection {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
     margin: 40px 0;
+    text-align: center; /* Center the surrounding content */
 }
 
 /* Applying provided typography to the quote */
 .quoteSection blockquote {
-    color: #111;
+    color: #101729;
+    font-family: 'Charter', serif;
+    max-width: 700px;
+    text-align: left; /* Ensure the text inside blockquote is aligned to the left */
     font-size: 26px;
     font-style: normal;
     font-weight: 700;
     line-height: 46px;
-    margin-bottom: 20px;
+    padding: 0 20px; /* Optional: add padding for better mobile view */
 }
 
+/* Quote Sides (Images on the left and right) */
 .quoteSides {
     display: flex;
     justify-content: space-between; /* Pushes one image to the left and the other to the right */
     align-items: center; /* Vertically centers the images */
+    width: 100%; /* Ensure it spans the full width of the section */
+    max-width: 774px; /* Align with blockquote's width */
     margin-top: 20px;
 }
 
@@ -191,14 +200,15 @@
     margin-left: auto; /* Pushes the image to the right */
 }
 
+
 /* Top and Bottom Gallery Styles */
 .gallerySection {
-    margin: 20px 0;
+    margin: 80px 0;
 }
 
 .topGallery, .bottomGallery {
     display: flex;
-    gap: 15px; /* Space between images */
+    gap: 8px; /* Space between images */
     overflow: hidden; /* Hide the scrollbars */
     scroll-behavior: smooth;
     white-space: nowrap; /* Ensure items do not wrap onto the next line */
@@ -234,7 +244,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    margin-top: 16px;
+    margin-bottom: 64px;
     background: var(--Chart-color, linear-gradient(90deg, #4679E2 0%, #F08852 100%));
     background-clip: text;
     -webkit-background-clip: text;
