@@ -100,23 +100,26 @@ const UnitOfAccountClient = ({
         </div>
 
         {/* Quote Section */}
-        <div className={styles.quoteSection}>
-          <div className={styles.quoteSides}>
-            <img
-              src={`${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${unitOfAccountData.quote_left}`}
-              alt="Quote Left"
-              className={`${styles.quoteImage} ${styles.quoteLeft}`}
-            />
-          </div>
-          <blockquote>{unitOfAccountData.quote}</blockquote>
-          <div className={styles.quoteSides}>
-            <img
-              src={`${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${unitOfAccountData.quote_right}`}
-              alt="Quote Right"
-              className={`${styles.quoteImage} ${styles.quoteRight}`}
-            />
-          </div>
-        </div>
+ <div className={styles.pageContainer}>
+    <div className={styles.quoteSection}>
+      <div className={styles.quoteSides}>
+        <img
+          src={`${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${unitOfAccountData.quote_left}`}
+          alt="Quote Left"
+          className={`${styles.quoteImage} ${styles.quoteLeft}`}
+        />
+      </div>
+      <blockquote>{unitOfAccountData.quote}</blockquote>
+      <div className={styles.quoteSides}>
+        <img
+          src={`${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${unitOfAccountData.quote_right}`}
+          alt="Quote Right"
+          className={`${styles.quoteImage} ${styles.quoteRight}`}
+        />
+      </div>
+    </div>
+ </div>
+
 
         {/* Bottom Gallery Section */}
         <div className={styles.gallerySection}>
@@ -132,57 +135,63 @@ const UnitOfAccountClient = ({
           </div>
         </div>
 
-        {/* Balance Section */}
-        <div className={styles.sectionWithImage}>
-          <div className={styles.sectionTextContent}>
-            <h2 className={styles.subsectionTitle}>{unitOfAccountData.title2}</h2>
-            <div
-              className={styles.description}
-              dangerouslySetInnerHTML={{ __html: unitOfAccountData.description2 }}
-            ></div>
-          </div>
-          <div className={styles.sectionImageContent}>
-            <img
-              src={`${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${unitOfAccountData.balance}`}
-              alt="Balance Image"
-              className={styles.balanceImage}
-            />
-          </div>
-        </div>
-
-        {/* Argument Section */}
-        <div className={styles.sectionWithImage}>
-          <div className={styles.sectionTextContent}>
-            <h2 className={styles.subsectionTitle}>{unitOfAccountData.title3}</h2>
-            <div
-              className={styles.description}
-              dangerouslySetInnerHTML={{ __html: unitOfAccountData.description3 }}
-            ></div>
-          </div>
-          <div className={styles.sectionImageContent}>
-            <img
-              src={`${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${unitOfAccountData.argument}`}
-              alt="Argument Image"
-              className={styles.argumentImage}
-            />
+        {/* Balance Section (constrained by pageContainer) */}
+        <div className={styles.pageContainer}>
+          <div className={styles.sectionWithImage}>
+            <div className={styles.sectionTextContent}>
+              <h2 className={styles.subsectionTitle}>{unitOfAccountData.title2}</h2>
+              <div
+                className={styles.description}
+                dangerouslySetInnerHTML={{ __html: unitOfAccountData.description2 }}
+              ></div>
+            </div>
+            <div className={styles.sectionImageContent}>
+              <img
+                src={`${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${unitOfAccountData.balance}`}
+                alt="Balance Image"
+                className={styles.balanceImage}
+              />
+            </div>
           </div>
         </div>
 
-        {/* Unite Build Section */}
-        <div className={styles.sectionWithImage}>
-          <div className={styles.sectionTextContent}>
-            <h2 className={styles.subsectionTitle}>{unitOfAccountData.title4}</h2>
-            <div
-              className={styles.description}
-              dangerouslySetInnerHTML={{ __html: unitOfAccountData.description4 }}
-            ></div>
+        {/* Argument Section (constrained by pageContainer) */}
+        <div className={styles.pageContainer}>
+          <div className={styles.sectionWithImage}>
+            <div className={styles.sectionTextContent}>
+              <h2 className={styles.subsectionTitle}>{unitOfAccountData.title3}</h2>
+              <div
+                className={styles.description}
+                dangerouslySetInnerHTML={{ __html: unitOfAccountData.description3 }}
+              ></div>
+            </div>
+            <div className={styles.sectionImageContent}>
+              <img
+                src={`${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${unitOfAccountData.argument}`}
+                alt="Argument Image"
+                className={styles.argumentImage}
+              />
+            </div>
           </div>
-          <div className={styles.sectionImageContent}>
-            <img
-              src={`${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${unitOfAccountData.unite_build}`}
-              alt="Unite Build Image"
-              className={styles.uniteBuildImage}
-            />
+        </div>
+
+        {/* Unite Build Section (constrained by pageContainer) */}
+        <div className={styles.pageContainer}>
+          <div className={styles.sectionWithImage}>
+            <div className={styles.sectionTextContent}>
+              <h2 className={styles.subsectionTitle}>{unitOfAccountData.title4}</h2>
+              <div
+                className={styles.description}
+                dangerouslySetInnerHTML={{ __html: unitOfAccountData.description4 }}
+              ></div>
+            </div>
+            <div className={styles.sectionImageContent}>
+              <img
+                src={`${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${unitOfAccountData.unite_build}`}
+                alt="Unite Build Image"
+                className={styles.uniteBuildImage}
+              />
+            </div>
           </div>
         </div>
       </div>
