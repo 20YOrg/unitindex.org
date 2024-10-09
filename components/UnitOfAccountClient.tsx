@@ -40,15 +40,7 @@ const UnitOfAccountClient = ({
 
   return (
     <>
-      {/* Fullscreen Background */}
-      <div
-        className={styles.fullscreenBackground}
-        style={{
-          backgroundImage: `url(${backgroundImageUrl})`,
-        }}
-      ></div>
-
-      {/* Page Container */}
+      {/* Page Container WITHOUT Background */}
       <div className={styles.pageContainer}>
         {/* Section with Title, Description, Button and Spline */}
         <div className={styles.sectionWithSpline}>
@@ -80,9 +72,19 @@ const UnitOfAccountClient = ({
           {/* Spline Component */}
           <div className={styles.splineContainer}>
             <Spline scene="https://prod.spline.design/ZlQ1u3q1kVSLAJu1/scene.splinecode" />
+            {/* Overlay to cover the watermark */}
+            <div className={styles.watermarkOverlay}></div>
           </div>
         </div>
+      </div>
 
+      {/* Rest of the Page with Background */}
+      <div
+        className={styles.restOfPageWithBackground}
+        style={{
+          backgroundImage: `url(${backgroundImageUrl})`,
+        }}
+      >
         {/* Top Gallery Section */}
         <div className={styles.gallerySection}>
           <div className={styles.topGallery} ref={topGalleryRef}>

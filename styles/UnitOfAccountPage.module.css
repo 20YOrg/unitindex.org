@@ -9,6 +9,13 @@
     z-index: 1;
 }
 
+/* Background starts after first section */
+.restOfPageWithBackground {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 /* Section with Spline and Text */
 .sectionWithSpline {
     display: flex; /* Use flexbox to position content side by side */
@@ -31,6 +38,7 @@
     overflow: hidden; /* Hide the overflow to show only a portion of the Spline */
     height: 400px; /* Set the height for the Spline container */
     position: relative; /* Ensure the positioning of the container is relative */
+    overflow: hidden;
 }
 
 .splineContainer canvas + div {
@@ -40,6 +48,16 @@
     right: 0;
     bottom: 0;
 }
+
+.watermarkOverlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 180px;
+    height: 70px;
+    background-color: white; /* Or the color of your background */
+    z-index: 10; /* Make sure the overlay is above the Spline canvas */
+  }
 
 /* Responsive behavior for smaller screens */
 @media (max-width: 768px) {
