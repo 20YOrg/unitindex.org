@@ -4,7 +4,42 @@ import React, { useEffect, useRef } from 'react';
 import Spline from '@splinetool/react-spline/next';
 import styles from '@/styles/UnitOfAccountPage.module.css';
 
-const UnitOfAccountClient = ({
+// Define interfaces for the props
+interface ImageData {
+  id: string;
+  image: string;
+}
+
+interface UnitOfAccountData {
+  title1: string;
+  description1: string;
+  button1?: string;
+  link1?: string;
+  quote_left: string;
+  quote: string;
+  quote_right: string;
+  title2: string;
+  description2: string;
+  balance: string;
+  title3: string;
+  description3: string;
+  argument: string;
+  title4: string;
+  description4: string;
+  unite_build: string;
+}
+
+interface UnitOfAccountClientProps {
+  pageData: {
+    title: string;
+  };
+  unitOfAccountData: UnitOfAccountData;
+  topGallery: ImageData[];
+  bottomGallery: ImageData[];
+  backgroundImageUrl: string;
+}
+
+const UnitOfAccountClient: React.FC<UnitOfAccountClientProps> = ({
   pageData,
   unitOfAccountData,
   topGallery,
@@ -12,11 +47,11 @@ const UnitOfAccountClient = ({
   backgroundImageUrl,
 }) => {
   // Refs to control the scrolling of top and bottom galleries
-  const topGalleryRef = useRef(null);
-  const bottomGalleryRef = useRef(null);
+  const topGalleryRef = useRef<HTMLDivElement>(null);
+  const bottomGalleryRef = useRef<HTMLDivElement>(null);
 
   // Function to auto-scroll the galleries
-  const autoScrollGallery = (ref, speed, direction) => {
+  const autoScrollGallery = (ref: React.RefObject<HTMLDivElement>, speed: number, direction: number) => {
     if (ref.current) {
       ref.current.scrollLeft += direction * speed;
     }
@@ -100,26 +135,25 @@ const UnitOfAccountClient = ({
         </div>
 
         {/* Quote Section */}
- <div className={styles.pageContainer}>
-    <div className={styles.quoteSection}>
-      <div className={styles.quoteSides}>
-        <img
-          src={`${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${unitOfAccountData.quote_left}`}
-          alt="Quote Left"
-          className={`${styles.quoteImage} ${styles.quoteLeft}`}
-        />
-      </div>
-      <blockquote>{unitOfAccountData.quote}</blockquote>
-      <div className={styles.quoteSides}>
-        <img
-          src={`${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${unitOfAccountData.quote_right}`}
-          alt="Quote Right"
-          className={`${styles.quoteImage} ${styles.quoteRight}`}
-        />
-      </div>
-    </div>
- </div>
-
+        <div className={styles.pageContainer}>
+          <div className={styles.quoteSection}>
+            <div className={styles.quoteSides}>
+              <img
+                src={`${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${unitOfAccountData.quote_left}`}
+                alt="Quote Left"
+                className={`${styles.quoteImage} ${styles.quoteLeft}`}
+              />
+            </div>
+            <blockquote>{unitOfAccountData.quote}</blockquote>
+            <div className={styles.quoteSides}>
+              <img
+                src={`${process.env.NEXT_PUBLIC_DIRECTUS_API_URL}/assets/${unitOfAccountData.quote_right}`}
+                alt="Quote Right"
+                className={`${styles.quoteImage} ${styles.quoteRight}`}
+              />
+            </div>
+          </div>
+        </div>
 
         {/* Bottom Gallery Section */}
         <div className={styles.gallerySection}>
@@ -135,7 +169,7 @@ const UnitOfAccountClient = ({
           </div>
         </div>
 
-        {/* Balance Section (constrained by pageContainer) */}
+        {/* Balance Section */}
         <div className={styles.pageContainer}>
           <div className={styles.sectionWithImage}>
             <div className={styles.sectionTextContent}>
@@ -155,7 +189,7 @@ const UnitOfAccountClient = ({
           </div>
         </div>
 
-        {/* Argument Section (constrained by pageContainer) */}
+        {/* Argument Section */}
         <div className={styles.pageContainer}>
           <div className={styles.sectionWithImage}>
             <div className={styles.sectionTextContent}>
@@ -175,7 +209,7 @@ const UnitOfAccountClient = ({
           </div>
         </div>
 
-        {/* Unite Build Section (constrained by pageContainer) */}
+        {/* Unite Build Section */}
         <div className={styles.pageContainer}>
           <div className={styles.sectionWithImage}>
             <div className={styles.sectionTextContent}>
