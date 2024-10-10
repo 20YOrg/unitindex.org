@@ -77,19 +77,13 @@ const UnitOfAccountClient: React.FC<UnitOfAccountClientProps> = ({
     <>
       {/* Page Container WITHOUT Background */}
       <div className={styles.pageContainer}>
-        {/* Section with Title, Description, Button and Spline */}
         <div className={styles.sectionWithSpline}>
           <div className={styles.textContent}>
             <h1 className={styles.title}>{pageData?.title}</h1>
 
-            {/* Title1 and Description1 from unit_of_account_page */}
             <h2 className={styles.subsectionTitle}>{unitOfAccountData.title1}</h2>
-            <div
-              className={styles.description}
-              dangerouslySetInnerHTML={{ __html: unitOfAccountData.description1 }}
-            ></div>
+            <div className={styles.description} dangerouslySetInnerHTML={{ __html: unitOfAccountData.description1 }} />
 
-            {/* Button1 with Link1 */}
             {unitOfAccountData.button1 && unitOfAccountData.link1 && (
               <div className={styles.buttonContainer}>
                 <a
@@ -107,7 +101,6 @@ const UnitOfAccountClient: React.FC<UnitOfAccountClientProps> = ({
           {/* Spline Component */}
           <div className={styles.splineContainer}>
             <Spline scene="https://prod.spline.design/ZlQ1u3q1kVSLAJu1/scene.splinecode" />
-            {/* Overlay to cover the watermark */}
             <div className={styles.watermarkOverlay}></div>
           </div>
         </div>
@@ -120,21 +113,14 @@ const UnitOfAccountClient: React.FC<UnitOfAccountClientProps> = ({
           backgroundImage: `url(${backgroundImageUrl})`,
         }}
       >
-        {/* Top Gallery Section */}
         <div className={styles.gallerySection}>
           <div className={styles.topGallery} ref={topGalleryRef}>
             {topGallery.map((image) => (
-              <img
-                key={image.id}
-                src={image.image}
-                alt={`Top gallery image ${image.id}`}
-                className={styles.galleryImage}
-              />
+              <img key={image.id} src={image.image} alt={`Top gallery image ${image.id}`} className={styles.galleryImage} />
             ))}
           </div>
         </div>
 
-        {/* Quote Section */}
         <div className={styles.pageContainer}>
           <div className={styles.quoteSection}>
             <div className={styles.quoteSides}>
@@ -155,16 +141,10 @@ const UnitOfAccountClient: React.FC<UnitOfAccountClientProps> = ({
           </div>
         </div>
 
-        {/* Bottom Gallery Section */}
         <div className={styles.gallerySection}>
           <div className={styles.bottomGallery} ref={bottomGalleryRef}>
             {bottomGallery.map((image) => (
-              <img
-                key={image.id}
-                src={image.image}
-                alt={`Bottom gallery image ${image.id}`}
-                className={styles.galleryImage}
-              />
+              <img key={image.id} src={image.image} alt={`Bottom gallery image ${image.id}`} className={styles.galleryImage} />
             ))}
           </div>
         </div>
@@ -174,10 +154,7 @@ const UnitOfAccountClient: React.FC<UnitOfAccountClientProps> = ({
           <div className={styles.sectionWithImage}>
             <div className={styles.sectionTextContent}>
               <h2 className={styles.subsectionTitle}>{unitOfAccountData.title2}</h2>
-              <div
-                className={styles.description}
-                dangerouslySetInnerHTML={{ __html: unitOfAccountData.description2 }}
-              ></div>
+              <div className={styles.description} dangerouslySetInnerHTML={{ __html: unitOfAccountData.description2 }} />
             </div>
             <div className={styles.sectionImageContent}>
               <img
@@ -194,10 +171,7 @@ const UnitOfAccountClient: React.FC<UnitOfAccountClientProps> = ({
           <div className={styles.sectionWithImage}>
             <div className={styles.sectionTextContent}>
               <h2 className={styles.subsectionTitle}>{unitOfAccountData.title3}</h2>
-              <div
-                className={styles.description}
-                dangerouslySetInnerHTML={{ __html: unitOfAccountData.description3 }}
-              ></div>
+              <div className={styles.description} dangerouslySetInnerHTML={{ __html: unitOfAccountData.description3 }} />
             </div>
             <div className={styles.sectionImageContent}>
               <img
@@ -214,10 +188,7 @@ const UnitOfAccountClient: React.FC<UnitOfAccountClientProps> = ({
           <div className={styles.sectionWithImage}>
             <div className={styles.sectionTextContent}>
               <h2 className={styles.subsectionTitle}>{unitOfAccountData.title4}</h2>
-              <div
-                className={styles.description}
-                dangerouslySetInnerHTML={{ __html: unitOfAccountData.description4 }}
-              ></div>
+              <div className={styles.description} dangerouslySetInnerHTML={{ __html: unitOfAccountData.description4 }} />
             </div>
             <div className={styles.sectionImageContent}>
               <img

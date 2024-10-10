@@ -1,14 +1,14 @@
-// app/products/unit-of-account/page.tsx
 import { fetchPageByPermalink } from '@/lib/fetchPageByPermalink';
 import getUnitOfAccountPage from '@/lib/fetchUnitOfAccountPage';
 import { fetchTopGallery } from '@/lib/fetchTopGallery';
 import { fetchBottomGallery } from '@/lib/fetchBottomGallery';
 import UnitOfAccountClient from '@/components/UnitOfAccountClient';
+import { UnitOfAccountData } from '@/lib/types'; // Import the type
 
 export default async function UnitOfAccountPage() {
   // Fetch the server-side data
   const pageData = await fetchPageByPermalink('/products/unit-of-account');
-  const unitOfAccountData = await getUnitOfAccountPage();
+  const unitOfAccountData: UnitOfAccountData = await getUnitOfAccountPage(); // Ensure the type matches
   const topGallery = await fetchTopGallery();
   const bottomGallery = await fetchBottomGallery();
 

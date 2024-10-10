@@ -1,9 +1,10 @@
-// lib/fetchUnitOfAccountPage.tsx
+// lib/fetchUnitOfAccountPage.ts
 import directus from './directus';
 import { readSingleton } from '@directus/sdk';
 import { notFound } from 'next/navigation';
+import { UnitOfAccountData } from './types'; // Adjust this import based on where the types file is located
 
-async function getUnitOfAccountPage() {
+async function getUnitOfAccountPage(): Promise<UnitOfAccountData> {
   try {
     const indexPage = await directus.request(readSingleton('unit_of_account_page', {
       fields: [
@@ -25,10 +26,12 @@ async function getUnitOfAccountPage() {
         'unite_build'
       ],
     }));
-    return indexPage;
+
+    // Explicitly return the data as UnitOfAccountData
+    return indexPage as UnitOfAccountData;
 
   } catch (error) {
-    console.error('Error fetching Index page data:', error);
+    console.error('Error fetching Unit of Account page data:', error);
     notFound();
   }
 }
