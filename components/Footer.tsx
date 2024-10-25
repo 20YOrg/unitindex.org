@@ -105,7 +105,7 @@ export default function Footer() {
         <div className={styles.leftSection}>
           <img src={logoUrl} alt="UNIT Logo" className={styles.logoImage} />
           <div className={styles.socialIcons}>
-            <Link href="https://x.com/unitindex" target="_blank" rel="noopener noreferrer">
+            <Link href="https://x.com/unit_index" target="_blank" rel="noopener noreferrer">
               <img src={xLogoUrl} alt="X Logo" className={styles.socialIcon} />
             </Link>
             <Link href="https://github.com/unit-index" target="_blank" rel="noopener noreferrer">
