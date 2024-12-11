@@ -4,25 +4,26 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: rgba(255, 255, 255, 0.1); /* More transparent background */
-    backdrop-filter: blur(10px); /* Blur effect */
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     width: 100%;
-    position: fixed; /* Fix it at the top */
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000; /* Ensure it stays above other content */
+    z-index: 1000;
     font-size: 16px;
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
+    font-weight: 500;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 .scrolled {
-    background-color: rgba(255, 255, 255, 0.6); /* More opaque background when scrolled */
-    backdrop-filter: blur(20px); /* More blur when scrolled */
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
 }
 
 .logoImage {
-    height: 40px; /* Adjust the height as needed */
-    width: auto; /* Maintain aspect ratio */
+    height: 40px;
+    width: auto;
 }
 
 .logo a {
@@ -33,20 +34,20 @@
 
 .navLinks {
     display: flex;
-    gap: 77px;
-    position: relative; /* To position the underline */
+    gap: 64px;
+    position: relative;
 }
 
 .navLink {
     font-size: 1rem;
     color: #101729;
     text-decoration: none;
-    position: relative; /* Needed for dropdown positioning */
+    position: relative;
     transition: color 0.3s ease;
-    background: linear-gradient(90deg, #101729, #101729); /* Default color for text */
+    background: linear-gradient(90deg, #101729, #101729);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    cursor: pointer; /* Hand cursor when hovering over the link */
+    cursor: pointer;
 }
 
 .navLink:hover {
@@ -99,12 +100,12 @@
 }
 
 .hamburger {
-    display: none; /* Hide hamburger menu on larger screens */
+    display: none;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1100; /* Ensure the hamburger menu stays above other content */
+    z-index: 1100;
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -120,40 +121,35 @@
 }
 
 /* Dropdown Menu Styles */
-.navLink {
-    position: relative; /* Required to position the dropdown menu relative to the navLink */
-    cursor: pointer; /* Hand cursor when hovering over the dropdown */
-}
-
 .dropdownMenu {
     position: absolute;
-    top: 100%; /* Align below the Product link */
+    top: 100%;
     left: 0;
-    display: flex;
-    opacity: 0;
-    transform: translateY(-10px); /* Initial position, slightly above */
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background similar to navbar */
+    display: flex; 
+    opacity: 0;  
+    max-height: 0;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    border-radius: 4px;
-    z-index: 1001; /* Ensure it appears above other elements */
+    padding: 0px;
+    border-radius: 8px;
+    z-index: 1001;
     flex-direction: column;
-    width: 160px; /* Make the dropdown wide enough to accommodate longer text */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Add smooth transition */
-    pointer-events: none; /* Prevent interaction until visible */
+    width: 170px;
+    transition: opacity 0.2s ease, max-height 0.3s ease, transform 0.3s ease;
 }
 
 .dropdownItem {
-    padding: 8px 12px;
+    padding: 16px 24px;
     font-size: 1rem;
     color: #101729;
     text-decoration: none;
     transition: color 0.3s ease;
-    background: linear-gradient(90deg, #101729, #101729); /* Default color for text */
+    background: linear-gradient(90deg, #101729, #101729);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    white-space: nowrap; /* Ensure text doesn't wrap onto a new line */
-    cursor: pointer; /* Hand cursor for dropdown items */
+    white-space: nowrap;
+    cursor: pointer;
 }
 
 .dropdownItem:hover {
@@ -163,14 +159,7 @@
     -webkit-text-fill-color: transparent;
 }
 
-/* Make dropdown visible on hover */
-.navLink:hover .dropdownMenu {
-    opacity: 1;
-    transform: translateY(0); /* Slide into place */
-    pointer-events: auto; /* Allow interaction once visible */
-}
-
-/* Arrow styling for dropdown */
+/* Arrow styling */
 .dropdownArrow {
     margin-left: 5px;
     display: inline-block;
@@ -179,35 +168,87 @@
 }
 
 .navLink:hover .dropdownArrow svg {
-    stroke: #F08852; /* Orange stroke for hover effect */
+    stroke: #F08852;
 }
 
-/* Responsive Styles */
+/* Desktop Styles */
+@media (min-width: 1024px) {
+    .navLink:hover .dropdownMenu {
+        display: flex;
+        opacity: 1;
+        max-height: 200px;
+        transform: translateY(0);
+    }
+
+    .navLink:hover .dropdownArrow {
+        transform: rotate(180deg);
+    }
+
+    .navLink[data-has-dropdown="true"] .underline,
+    .navLink[data-has-dropdown="true"].active .underline {
+        display: none;
+    }
+    
+    .navLink.active .underline {
+        display: block;
+    }
+}
+
+/* Mobile Styles */
 @media (max-width: 1024px) {
     .navLinks {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        background-color: rgba(255, 255, 255, 0.9); /* Background for mobile menu */
-        position: absolute;
-        top: 60px; /* Position below the navbar */
-        right: 0;
-        width: 40%;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 1rem 0;
-    }
-
-    .navLinks.open {
+        height: 0;
+        overflow: hidden;
         display: flex;
-    }
-
-    .navbar {
         flex-direction: column;
         align-items: flex-start;
+        background-color: rgba(255, 255, 255, 0.95);
+        position: fixed;
+        top: 72.5px;
+        left: 0;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 0 2rem;
+        transition: height 0.5s ease, padding 0.5s ease;
+        z-index: 1000;
+        font-weight: 500;
+    }
+    
+    .navLinks.open {
+        height: calc(100vh - 72.5px);
+        padding: 2.5rem 2rem;
+        overflow-y: auto;
+    }
+
+    .navLink:hover .dropdownArrow svg {
+        stroke: #101729;
+    }
+
+    .navLinks {
+        gap: 24px;
     }
 
     .hamburger {
         display: block;
+        top: 1.5rem;
+        right: 2rem;
+    }
+
+    .hamburger:hover .hamburgerIcon {
+        background-color: #5F7179;
+        transform: scale(1.1);
+    }
+
+    .hamburger.open .hamburgerIcon:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.open .hamburgerIcon:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.open .hamburgerIcon:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
     }
 
     .launchAppDesktop {
@@ -217,11 +258,63 @@
     .launchAppMobile {
         display: block;
         margin-top: 1rem;
+        width: 100%;
+        text-align: center;
     }
 
-    .dropdownMenu {
-        position: static; /* Default positioning for mobile */
-        box-shadow: none; /* Remove shadow for mobile */
-        background-color: transparent; /* Adjust background for mobile */
+    .underline {
+        display: none;
+    }
+
+    .dropdownMenu.open + .dropdownArrow,
+    .navLink.active .dropdownArrow {
+        transform: rotate(180deg);
+    }
+
+    .navLink, 
+   .navLink:hover,
+   .navLink.active,
+   .dropdownItem,
+   .dropdownItem:hover {
+       background: linear-gradient(90deg, #101729, #101729);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+   }
+    
+        .dropdownMenu {
+            position: static;
+            box-shadow: none;
+            background-color: #F3F3F2;
+            margin: 0 -2rem;
+            width: 100vw; 
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+            display: flex;
+            border-radius: 0px;
+        }
+    
+        .dropdownMenu.open {
+            max-height: 200px;
+            opacity: 1;
+            padding: 12px 0;
+            margin-top: 12px;
+            margin-bottom: -12px;
+        }
+
+        .navLink,
+    .dropdownItem {
+        width: 100%;
+        margin: 0 -2rem; 
+        padding: 0.5rem 2rem;
+    }
+    
+        .dropdownItem {
+            padding: 12px 4rem; 
+        }
+
+    .dropdownItem:last-child {
+        border-bottom: none;
     }
 }
