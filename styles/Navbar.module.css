@@ -293,6 +293,7 @@
             transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
             display: flex;
             border-radius: 0px;
+            transform: translateY(12px);
         }
     
         .dropdownMenu.open {
@@ -301,6 +302,7 @@
             padding: 12px 0;
             margin-top: 12px;
             margin-bottom: -12px;
+            transform: translateY(0px);
         }
 
         .navLink,
