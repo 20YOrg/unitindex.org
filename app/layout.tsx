@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const backgroundUrl = process.env.NEXT_PUBLIC_BACKGROUND_URL;
-  
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -29,6 +29,16 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        {/* Page title */}
+        <title>UNIT</title>
+        {/* Apple Touch Icon (precomposed to avoid rounded corners) */}
+        <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png?v=1" />
+        {/* Set app title for home screen */}
+        <meta name="apple-mobile-web-app-title" content="UNIT" />
+        {/* Regular favicon */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      </head>
       <body className={inter.className}>
         <div className="pageContainer">
           <div
@@ -37,9 +47,9 @@ export default function RootLayout({
               backgroundImage: `url(${backgroundUrl})`,
             }}
           ></div>
-          
+
           <Navbar /> {/* Include Navbar */}
-          
+
           {/* Render content, but overlay with spinner */}
           <div style={{ display: loading ? 'none' : 'block' }}>
             <main className="content">{children}</main>
