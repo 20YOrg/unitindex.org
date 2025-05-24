@@ -46,7 +46,7 @@ export default function Footer() {
         <Link href="https://x.com/unitindex" target="_blank" rel="noopener noreferrer">
           <img src={xLogoUrl} alt="X Logo" className={styles.socialIcon} />
         </Link>
-        <Link href="https://github.com/unit-index" target="_blank" rel="noopener noreferrer">
+        <Link href="https://github.com/20YOrg" target="_blank" rel="noopener noreferrer">
           <img src={githubLogoUrl} alt="GitHub Logo" className={styles.socialIcon} />
         </Link>
         <Link href="https://community.x.com/unit" target="_blank" rel="noopener noreferrer">
@@ -70,9 +70,9 @@ export default function Footer() {
 
         <div className={styles.footerColumn}>
           <h4>DEVS</h4>
-          <Link href="https://github.com/unit-index" target="_blank">GitHub</Link>
+          <Link href="https://github.com/20YOrg" target="_blank">GitHub</Link>
           <Link href="https://docs.unitindex.org/theunit" target="_blank">Doc</Link>
-          <Link href="https://github.com/unit-index/the-unit-paper/blob/main/the_unit_paper.pdf" target="_blank">White Paper V2</Link>
+          <Link href="https://github.com/20YOrg/the-unit-paper/blob/main/the_unit_paper.pdf" target="_blank">White Paper V2</Link>
         </div>
 
         <div className={styles.footerColumn}>
@@ -108,7 +108,7 @@ export default function Footer() {
             <Link href="https://x.com/unit_index" target="_blank" rel="noopener noreferrer">
               <img src={xLogoUrl} alt="X Logo" className={styles.socialIcon} />
             </Link>
-            <Link href="https://github.com/unit-index" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/20YOrg" target="_blank" rel="noopener noreferrer">
               <img src={githubLogoUrl} alt="GitHub Logo" className={styles.socialIcon} />
             </Link>
             <Link href="https://community.x.com/unit" target="_blank" rel="noopener noreferrer">
@@ -137,9 +137,9 @@ export default function Footer() {
 
           <div className={styles.footerColumn}>
             <h4>DEVS</h4>
-            <Link href="https://github.com/unit-index" target="_blank">GitHub</Link>
+            <Link href="https://github.com/20YOrg" target="_blank">GitHub</Link>
             <Link href="https://docs.unitindex.org/theunit" target="_blank">Doc</Link>
-            <Link href="https://github.com/unit-index/the-unit-paper/blob/main/the_unit_paper.pdf" target="_blank">White Paper V2</Link>
+            <Link href="https://github.com/20YOrg/the-unit-paper/blob/main/the_unit_paper.pdf" target="_blank">White Paper V2</Link>
           </div>
 
           <div className={styles.footerColumn}>
